@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer globe ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4.5"
+        android:pathData="M54,28 A26,26 0 1,1 53.99,28 Z" />
+
+    <!-- Equator and meridian curves -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#93C5FD"
+        android:strokeWidth="2.6"
+        android:pathData="M29,54 Q54,43 79,54" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#93C5FD"
+        android:strokeWidth="2.6"
+        android:pathData="M29,54 Q54,65 79,54" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#93C5FD"
+        android:strokeWidth="2.6"
+        android:pathData="M54,28 Q42,54 54,80" />
+
+    <!-- Bold stylized compass / Gecko arrow -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M67,41 L58,58 L41,67 L50,50 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M67,41 L58,58 L54,54 Z" />
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M54,51.5 A2.5,2.5 0 1,1 53.99,51.5 Z" />
+
+</vector>

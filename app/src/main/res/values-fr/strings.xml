@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">Gecko Browser</string>
+    <string name="location_hint">Rechercher ou saisir une adresse</string>
+    <string name="_0">0</string>
+    <string name="trackers_blocked">Traqueurs bloqués</string>
+    <string name="no_trackers_blocked">Aucun traqueur bloqué sur cette page</string>
+    <string name="connection_secure">Connexion HTTPS sécurisée</string>
+    <string name="connection_insecure">Connexion non sécurisée (HTTP)</string>
+    <string name="security_info_title">Sécurité et Confidentialité</string>
+
+    <string name="nav_back">Précédent</string>
+    <string name="nav_forward">Suivant</string>
+    <string name="nav_home">Accueil</string>
+    <string name="nav_tabs">Onglets</string>
+    <string name="nav_more">Plus d\'options</string>
+    <string name="reload_page">Actualiser</string>
+    <string name="stop_loading">Arrêter</string>
+    <string name="clear_url">Effacer l\'adresse</string>
+    <string name="bookmark_toggle">Ajouter aux favoris</string>
+    <string name="bookmark_added">Ajouté aux favoris</string>
+    <string name="bookmark_removed">Retiré des favoris</string>
+
+    <string name="tabs_title">Onglets ouverts</string>
+    <string name="new_tab">Nouvel onglet</string>
+    <string name="new_private_tab">Nouvel onglet privé</string>
+    <string name="close_tab">Fermer l\'onglet</string>
+    <string name="close_all_tabs">Tout fermer</string>
+    <string name="untitled_tab">Nouvel onglet</string>
+    <string name="private_browsing_banner">Navigation privée — Historique non enregistré</string>
+    <string name="private_badge">Privé</string>
+
+    <string name="menu_bookmarks">Favoris</string>
+    <string name="menu_history">Historique</string>
+    <string name="menu_find_in_page">Rechercher dans la page</string>
+    <string name="menu_share">Partager la page</string>
+    <string name="menu_copy_link">Copier le lien</string>
+    <string name="menu_desktop_site">Version ordinateur</string>
+    <string name="menu_desktop_site_on">Version ordinateur : OUI</string>
+    <string name="menu_desktop_site_off">Version ordinateur : NON</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="link_copied">Lien copié dans le presse-papiers</string>
+    <string name="share_chooser_title">Partager le lien via</string>
+
+    <string name="bookmarks_empty">Aucun favori. Appuyez sur l\'étoile pour enregistrer une page.</string>
+    <string name="history_empty">Votre historique de navigation est vide.</string>
+    <string name="clear_all">Tout effacer</string>
+    <string name="delete_item">Supprimer</string>
+    <string name="search_filter_hint">Filtrer par titre ou URL…</string>
+
+    <string name="find_hint">Rechercher dans la page…</string>
+    <string name="find_prev">Occurrence précédente</string>
+    <string name="find_next">Occurrence suivante</string>
+    <string name="find_close">Fermer la recherche</string>
+
+    <string name="settings">Paramètres</string>
+    <string name="save">Enregistrer</string>
+    <string name="settings_saved">Paramètres enregistrés</string>
+
+    <string name="section_appearance">Apparence et Langue</string>
+    <string name="language_label">Langue</string>
+    <string name="language_system">Système par défaut</string>
+    <string name="language_en">English</string>
+    <string name="language_vi">Tiếng Việt</string>
+    <string name="language_es">Español</string>
+    <string name="language_fr">Français</string>
+    <string name="language_ja">日本語</string>
+
+    <string name="theme_label">Thème</string>
+    <string name="theme_system">Système par défaut</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+
+    <string name="title1_browsing_settings">Navigation</string>
+    <string name="homepage_label">Page d\'accueil</string>
+    <string name="homepage_hint">https://start.duckduckgo.com</string>
+    <string name="disable_javascript">Désactiver JavaScript</string>
+    <string name="disable_tracking_protection">Désactiver la protection contre le pistage</string>
+    <string name="desktop_mode">Mode ordinateur (Par défaut)</string>
+    <string name="private_mode">Navigation privée par défaut</string>
+    <string name="clear_tabs_on_exit">Fermer les onglets à la sortie</string>
+    <string name="custom_user_agent">User-Agent personnalisé</string>
+    <string name="custom_user_agent_hint">Laisser vide par défaut</string>
+
+    <string name="title2_ui_settings">Interface</string>
+    <string name="autohide_search_bar">Masquer la barre au défilement</string>
+    <string name="hide_white_splash">Masquer l\'écran blanc au chargement</string>
+
+    <string name="title3_search_settings">Moteur de recherche</string>
+    <string name="search_engine_preset">Fournisseur de recherche</string>
+    <string name="search_engine">URL de recherche personnalisée</string>
+    <string name="search_engine_hint">https://duckduckgo.com/?q=</string>
+    <string name="search_preset_ddg">DuckDuckGo</string>
+    <string name="search_preset_google">Google</string>
+    <string name="search_preset_bing">Bing</string>
+    <string name="search_preset_brave">Brave Search</string>
+    <string name="search_preset_ecosia">Ecosia</string>
+    <string name="search_preset_custom">Personnalisé</string>
+
+    <string name="section_data">Confidentialité et Données</string>
+    <string name="clear_history_btn">Effacer l\'historique</string>
+    <string name="clear_bookmarks_btn">Effacer les favoris</string>
+    <string name="clear_cache_btn">Effacer le cache et les données</string>
+    <string name="history_cleared">Historique effacé</string>
+    <string name="bookmarks_cleared">Favoris effacés</string>
+    <string name="cache_cleared">Cache et données effacés</string>
+
+    <string name="menu_downloads">Téléchargements</string>
+    <string name="download_confirm_title">Télécharger le fichier</string>
+    <string name="download_confirm_message">Télécharger %1$s ?</string>
+    <string name="download_action">Télécharger</string>
+    <string name="download_started">Téléchargement lancé : %1$s</string>
+    <string name="download_failed">Impossible de lancer le téléchargement</string>
+    <string name="downloads_empty">Aucun téléchargement.</string>
+    <string name="downloads_cleared">Liste des téléchargements effacée</string>
+    <string name="download_status_running">Téléchargement…</string>
+    <string name="download_status_done">Terminé</string>
+    <string name="download_status_failed">Échec</string>
+    <string name="download_open_error">Aucune application pour ouvrir ce fichier</string>
+
+    <string name="context_open_new_tab">Ouvrir dans un nouvel onglet</string>
+    <string name="context_open_private_tab">Ouvrir dans un onglet privé</string>
+    <string name="context_copy_link">Copier l\'adresse du lien</string>
+    <string name="context_share_link">Partager le lien</string>
+    <string name="context_open_image">Ouvrir l\'image dans un onglet</string>
+    <string name="context_download_image">Télécharger l\'image</string>
+    <string name="context_copy_image_url">Copier l\'URL de l\'image</string>
+    <string name="menu_add_homescreen">Ajouter à l\'écran d\'accueil</string>
+    <string name="shortcut_added">Raccourci ajouté à l\'accueil</string>
+    <string name="shortcut_unsupported">Raccourcis non pris en charge</string>
+    <string name="menu_reopen_tab">Rouvrir l\'onglet fermé</string>
+    <string name="no_closed_tabs">Aucun onglet fermé récemment</string>
+
+    <string name="search_suggestions">Suggestions de recherche</string>
+    <string name="quick_access_title">Accès rapide</string>
+    <string name="tab_history_title">Historique de l\'onglet</string>
+    <string name="auth_username_hint">Identifiant</string>
+    <string name="auth_password_hint">Mot de passe</string>
+    <string name="auth_title">Authentification requise</string>
+    <string name="external_app_error">Aucune application pour ouvrir ce lien</string>
+
+    <string name="voice_search">Recherche vocale</string>
+    <string name="voice_search_unavailable">La recherche vocale n\'est pas disponible sur cet appareil</string>
+    <string name="find_matches">%1$d/%2$d</string>
+    <string name="menu_new_tab">Nouvel onglet</string>
+    <string name="menu_duplicate_tab">Dupliquer l\'onglet</string>
+    <string name="menu_open_external">Ouvrir dans une application externe</string>
+    <string name="menu_quick_wipe">Effacer toutes les données</string>
+    <string name="quick_wipe_confirm_title">Effacer toutes les données ?</string>
+    <string name="quick_wipe_confirm_message">Cela fermera tous les onglets et effacera l\'historique, les cookies et le cache.</string>
+    <string name="quick_wipe_action">Tout effacer</string>
+    <string name="quick_wipe_done">Données de navigation effacées</string>
+    <string name="close_other_tabs">Fermer les autres onglets</string>
+    <string name="edit_bookmark">Modifier le favori</string>
+    <string name="bookmark_title_hint">Titre</string>
+    <string name="bookmark_url_hint">URL</string>
+    <string name="bookmark_updated">Favori mis à jour</string>
+    <string name="start_page_subtitle">Navigation mobile rapide et privée</string>
+    <string name="add_quick_site">Ajouter un raccourci</string>
+    <string name="remove_quick_site_confirm">Supprimer le raccourci %1$s ?</string>
+    <string name="quick_site_removed">Raccourci supprimé</string>
+    <string name="quick_site_added">Raccourci ajouté</string>
+    <string name="use_start_page">Utiliser la page d\'accueil intégrée</string>
+    <string name="download_copy_url">Copier l\'URL de téléchargement</string>
+    <string name="download_open">Ouvrir le fichier</string>
+    <string name="download_unsupported_uri">Format de lien non pris en charge</string>
+    <string name="file_upload_error">Impossible d\'ouvrir le sélecteur de fichiers</string>
+    <string name="tab_desktop_badge">PC</string>
+    <string name="clear_site_data_btn">Effacer cookies et cache</string>
+    <string name="site_data_cleared">Données du site effacées</string>
+    <string name="cert_issuer_label">Émetteur du certificat</string>
+    <string name="cert_valid_until_label">Valide jusqu\'au</string>
+    <string name="ui_mode_label">Disposition de l\'interface</string>
+    <string name="ui_mode_phone">Téléphone</string>
+    <string name="ui_mode_tv">TV</string>
+</resources>

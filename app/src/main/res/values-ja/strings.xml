@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">Gecko Browser</string>
+    <string name="location_hint">検索またはURLを入力</string>
+    <string name="_0">0</string>
+    <string name="trackers_blocked">ブロックしたトラッカー</string>
+    <string name="no_trackers_blocked">このページでブロックされたトラッカーはありません</string>
+    <string name="connection_secure">安全なHTTPS接続</string>
+    <string name="connection_insecure">保護されていない接続 (HTTP)</string>
+    <string name="security_info_title">セキュリティとプライバシー</string>
+
+    <string name="nav_back">戻る</string>
+    <string name="nav_forward">進む</string>
+    <string name="nav_home">ホーム</string>
+    <string name="nav_tabs">タブ</string>
+    <string name="nav_more">その他</string>
+    <string name="reload_page">再読み込み</string>
+    <string name="stop_loading">停止</string>
+    <string name="clear_url">アドレスを消去</string>
+    <string name="bookmark_toggle">ブックマーク</string>
+    <string name="bookmark_added">ブックマークに追加しました</string>
+    <string name="bookmark_removed">ブックマークから削除しました</string>
+
+    <string name="tabs_title">開いているタブ</string>
+    <string name="new_tab">新しいタブ</string>
+    <string name="new_private_tab">新しいプライベートタブ</string>
+    <string name="close_tab">タブを閉じる</string>
+    <string name="close_all_tabs">すべて閉じる</string>
+    <string name="untitled_tab">新しいタブ</string>
+    <string name="private_browsing_banner">プライベートブラウジング — 履歴は保存されません</string>
+    <string name="private_badge">プライベート</string>
+
+    <string name="menu_bookmarks">ブックマーク</string>
+    <string name="menu_history">履歴</string>
+    <string name="menu_find_in_page">ページ内検索</string>
+    <string name="menu_share">ページを共有</string>
+    <string name="menu_copy_link">リンクをコピー</string>
+    <string name="menu_desktop_site">PC版サイト</string>
+    <string name="menu_desktop_site_on">PC版サイト: オン</string>
+    <string name="menu_desktop_site_off">PC版サイト: オフ</string>
+    <string name="menu_settings">設定</string>
+    <string name="link_copied">リンクをコピーしました</string>
+    <string name="share_chooser_title">共有方法を選択</string>
+
+    <string name="bookmarks_empty">ブックマークはありません。星アイコンをタップして保存できます。</string>
+    <string name="history_empty">閲覧履歴はありません。</string>
+    <string name="clear_all">すべて消去</string>
+    <string name="delete_item">削除</string>
+    <string name="search_filter_hint">タイトルまたはURLで絞り込み…</string>
+
+    <string name="find_hint">ページ内を検索…</string>
+    <string name="find_prev">前へ</string>
+    <string name="find_next">次へ</string>
+    <string name="find_close">検索バーを閉じる</string>
+
+    <string name="settings">設定</string>
+    <string name="save">保存</string>
+    <string name="settings_saved">設定を保存しました</string>
+
+    <string name="section_appearance">外観と言語</string>
+    <string name="language_label">言語</string>
+    <string name="language_system">システムデフォルト</string>
+    <string name="language_en">English</string>
+    <string name="language_vi">Tiếng Việt</string>
+    <string name="language_es">Español</string>
+    <string name="language_fr">Français</string>
+    <string name="language_ja">日本語</string>
+
+    <string name="theme_label">テーマ</string>
+    <string name="theme_system">システムデフォルト</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+
+    <string name="title1_browsing_settings">ブラウジング設定</string>
+    <string name="homepage_label">ホームページURL</string>
+    <string name="homepage_hint">https://start.duckduckgo.com</string>
+    <string name="disable_javascript">JavaScriptを無効にする</string>
+    <string name="disable_tracking_protection">トラッキング防止を無効にする</string>
+    <string name="desktop_mode">PC版サイトをデフォルトにする</string>
+    <string name="private_mode">プライベートモードをデフォルトにする</string>
+    <string name="clear_tabs_on_exit">終了時にタブを消去</string>
+    <string name="custom_user_agent">カスタムUser Agent</string>
+    <string name="custom_user_agent_hint">空欄でデフォルトを使用</string>
+
+    <string name="title2_ui_settings">インターフェース</string>
+    <string name="autohide_search_bar">スクロール時にバーを自動非表示</string>
+    <string name="hide_white_splash">読み込み時の白い画面を隠す</string>
+
+    <string name="title3_search_settings">検索エンジン</string>
+    <string name="search_engine_preset">検索プロバイダ</string>
+    <string name="search_engine">カスタム検索URL</string>
+    <string name="search_engine_hint">https://duckduckgo.com/?q=</string>
+    <string name="search_preset_ddg">DuckDuckGo</string>
+    <string name="search_preset_google">Google</string>
+    <string name="search_preset_bing">Bing</string>
+    <string name="search_preset_brave">Brave Search</string>
+    <string name="search_preset_ecosia">Ecosia</string>
+    <string name="search_preset_custom">カスタム</string>
+
+    <string name="section_data">プライバシーとデータ</string>
+    <string name="clear_history_btn">閲覧履歴を消去</string>
+    <string name="clear_bookmarks_btn">ブックマークを消去</string>
+    <string name="clear_cache_btn">キャッシュとサイトデータを消去</string>
+    <string name="history_cleared">履歴を消去しました</string>
+    <string name="bookmarks_cleared">ブックマークを消去しました</string>
+    <string name="cache_cleared">キャッシュとデータを消去しました</string>
+
+    <string name="menu_downloads">ダウンロード</string>
+    <string name="download_confirm_title">ファイルをダウンロード</string>
+    <string name="download_confirm_message">%1$s をダウンロードしますか？</string>
+    <string name="download_action">ダウンロード</string>
+    <string name="download_started">ダウンロード開始: %1$s</string>
+    <string name="download_failed">ダウンロードを開始できませんでした</string>
+    <string name="downloads_empty">ダウンロードはありません。</string>
+    <string name="downloads_cleared">ダウンロード履歴を消去しました</string>
+    <string name="download_status_running">ダウンロード中…</string>
+    <string name="download_status_done">完了</string>
+    <string name="download_status_failed">失敗</string>
+    <string name="download_open_error">このファイルを開けるアプリがありません</string>
+
+    <string name="context_open_new_tab">新しいタブで開く</string>
+    <string name="context_open_private_tab">プライベートタブで開く</string>
+    <string name="context_copy_link">リンクのアドレスをコピー</string>
+    <string name="context_share_link">リンクを共有</string>
+    <string name="context_open_image">新しいタブで画像を開く</string>
+    <string name="context_download_image">画像をダウンロード</string>
+    <string name="context_copy_image_url">画像URLをコピー</string>
+    <string name="menu_add_homescreen">ホーム画面に追加</string>
+    <string name="shortcut_added">ホーム画面にショートカットを追加しました</string>
+    <string name="shortcut_unsupported">このランチャーではショートカットを追加できません</string>
+    <string name="menu_reopen_tab">閉じたタブを開く</string>
+    <string name="no_closed_tabs">最近閉じたタブはありません</string>
+
+    <string name="search_suggestions">検索候補</string>
+    <string name="quick_access_title">クイックアクセス</string>
+    <string name="tab_history_title">タブ履歴</string>
+    <string name="auth_username_hint">ユーザー名</string>
+    <string name="auth_password_hint">パスワード</string>
+    <string name="auth_title">認証が必要です</string>
+    <string name="external_app_error">このリンクを開けるアプリが見つかりません</string>
+
+    <string name="voice_search">音声検索</string>
+    <string name="voice_search_unavailable">この端末では音声検索を利用できません</string>
+    <string name="find_matches">%1$d/%2$d</string>
+    <string name="menu_new_tab">新しいタブ</string>
+    <string name="menu_duplicate_tab">タブを複製</string>
+    <string name="menu_open_external">外部アプリで開く</string>
+    <string name="menu_quick_wipe">すべての閲覧データを消去</string>
+    <string name="quick_wipe_confirm_title">すべてのデータを消去しますか？</string>
+    <string name="quick_wipe_confirm_message">すべてのタブを閉じ、履歴・Cookie・キャッシュを消去します。</string>
+    <string name="quick_wipe_action">すべて消去</string>
+    <string name="quick_wipe_done">閲覧データを消去しました</string>
+    <string name="close_other_tabs">他のタブを閉じる</string>
+    <string name="edit_bookmark">ブックマークを編集</string>
+    <string name="bookmark_title_hint">タイトル</string>
+    <string name="bookmark_url_hint">URL</string>
+    <string name="bookmark_updated">ブックマークを更新しました</string>
+    <string name="start_page_subtitle">高速・プライベートなモバイルブラウザ</string>
+    <string name="add_quick_site">ショートカットを追加</string>
+    <string name="remove_quick_site_confirm">%1$s を削除しますか？</string>
+    <string name="quick_site_removed">ショートカットを削除しました</string>
+    <string name="quick_site_added">ショートカットを追加しました</string>
+    <string name="use_start_page">内蔵スタートページを使用</string>
+    <string name="download_copy_url">ダウンロードURLをコピー</string>
+    <string name="download_open">ファイルを開く</string>
+    <string name="download_unsupported_uri">サポートされていないダウンロードリンクです</string>
+    <string name="file_upload_error">ファイル選択画面を開けません</string>
+    <string name="tab_desktop_badge">PC</string>
+    <string name="clear_site_data_btn">Cookieとキャッシュを消去</string>
+    <string name="site_data_cleared">サイトデータを消去しました</string>
+    <string name="cert_issuer_label">証明書の発行元</string>
+    <string name="cert_valid_until_label">有効期限</string>
+    <string name="ui_mode_label">インターフェース表示</string>
+    <string name="ui_mode_phone">スマートフォン</string>
+    <string name="ui_mode_tv">テレビ (TV)</string>
+</resources>

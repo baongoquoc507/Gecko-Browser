@@ -6,6 +6,7 @@ ext {
 }
 
 android {
+    namespace "com.example.geckobrowser"
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
@@ -15,14 +16,28 @@ android {
         targetSdkVersion 30
         versionCode 1050
         versionName "0.5.0"
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        debugConfig {
+            storeFile file("${rootDir}/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
     buildTypes {
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+        debug {
+            signingConfig signingConfigs.debugConfig
         }
         release {
             minifyEnabled false
@@ -39,7 +54,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
 
-//    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 

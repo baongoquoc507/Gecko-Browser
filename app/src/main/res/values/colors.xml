@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFF</color>
-    <color name="colorPrimaryDark">#303030</color>
-    <color name="colorPrimaryDarkTranslucent">#aa000000</color>
-    <color name="colorAccent">#DDDD00</color>
+    <color name="colorPrimary">#2563EB</color>
+    <color name="colorPrimaryDark">#1E293B</color>
+    <color name="colorAccent">#2563EB</color>
+    <color name="colorPrimaryDarkTranslucent">#AA000000</color>
+
+    <color name="bg_app">#F8FAFC</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_omnibox">#EEF2F7</color>
+    <color name="bg_shield_pill">#E2E8F0</color>
+    <color name="bg_private_banner">#5B21B6</color>
+    <color name="bg_private_omnibox">#EDE9FE</color>
+    <color name="border_subtle">#E2E8F0</color>
+
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_on_accent">#FFFFFF</color>
+
+    <color name="accent_blue">#2563EB</color>
+    <color name="accent_secure">#10B981</color>
+    <color name="accent_insecure">#EF4444</color>
+    <color name="accent_private">#7C3AED</color>
+    <color name="accent_star">#F59E0B</color>
+
+    <color name="nav_icon_tint">#334155</color>
+    <color name="nav_icon_disabled">#CBD5E1</color>
 </resources>

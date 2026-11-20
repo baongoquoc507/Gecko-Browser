@@ -1,0 +1,185 @@
+<resources>
+    <string name="app_name">Gecko Browser</string>
+    <string name="location_hint">Tìm kiếm hoặc nhập địa chỉ web</string>
+    <string name="_0">0</string>
+    <string name="trackers_blocked">Trình theo dõi đã chặn</string>
+    <string name="no_trackers_blocked">Không có trình theo dõi nào bị chặn trên trang này</string>
+    <string name="connection_secure">Kết nối HTTPS an toàn</string>
+    <string name="connection_insecure">Kết nối không bảo mật (HTTP)</string>
+    <string name="security_info_title">Bảo mật &amp; Quyền riêng tư</string>
+
+    <!-- Navigation & Actions -->
+    <string name="nav_back">Quay lại</string>
+    <string name="nav_forward">Tiến tới</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_tabs">Thẻ</string>
+    <string name="nav_more">Tùy chọn khác</string>
+    <string name="reload_page">Tải lại</string>
+    <string name="stop_loading">Dừng tải</string>
+    <string name="clear_url">Xóa địa chỉ</string>
+    <string name="bookmark_toggle">Đánh dấu trang</string>
+    <string name="bookmark_added">Đã thêm vào dấu trang</string>
+    <string name="bookmark_removed">Đã xóa khỏi dấu trang</string>
+
+    <!-- Tabs -->
+    <string name="tabs_title">Các thẻ đang mở</string>
+    <string name="new_tab">Thẻ mới</string>
+    <string name="new_private_tab">Thẻ ẩn danh mới</string>
+    <string name="close_tab">Đóng thẻ</string>
+    <string name="close_all_tabs">Đóng tất cả</string>
+    <string name="untitled_tab">Thẻ mới</string>
+    <string name="private_browsing_banner">Duyệt web ẩn danh — Không lưu lịch sử</string>
+    <string name="private_badge">Ẩn danh</string>
+
+    <!-- More Menu & Features -->
+    <string name="menu_bookmarks">Dấu trang</string>
+    <string name="menu_history">Lịch sử</string>
+    <string name="menu_find_in_page">Tìm trong trang</string>
+    <string name="menu_share">Chia sẻ trang</string>
+    <string name="menu_copy_link">Sao chép liên kết</string>
+    <string name="menu_desktop_site">Trang web cho máy tính</string>
+    <string name="menu_desktop_site_on">Chế độ máy tính: BẬT</string>
+    <string name="menu_desktop_site_off">Chế độ máy tính: TẮT</string>
+    <string name="menu_settings">Cài đặt</string>
+    <string name="link_copied">Đã sao chép liên kết</string>
+    <string name="share_chooser_title">Chia sẻ liên kết qua</string>
+
+    <!-- Bookmarks & History -->
+    <string name="bookmarks_empty">Chưa có dấu trang nào. Nhấn biểu tượng ngôi sao để lưu trang.</string>
+    <string name="history_empty">Lịch sử duyệt web trống.</string>
+    <string name="clear_all">Xóa tất cả</string>
+    <string name="delete_item">Xóa</string>
+    <string name="search_filter_hint">Lọc theo tiêu đề hoặc URL…</string>
+
+    <!-- Find in Page -->
+    <string name="find_hint">Tìm trong trang…</string>
+    <string name="find_prev">Kết quả trước</string>
+    <string name="find_next">Kết quả tiếp</string>
+    <string name="find_close">Đóng thanh tìm kiếm</string>
+
+    <!-- Settings -->
+    <string name="settings">Cài đặt</string>
+    <string name="save">Lưu</string>
+    <string name="settings_saved">Đã lưu cài đặt</string>
+
+    <string name="section_appearance">Giao diện &amp; Ngôn ngữ</string>
+    <string name="language_label">Ngôn ngữ</string>
+    <string name="language_system">Mặc định hệ thống</string>
+    <string name="language_en">English</string>
+    <string name="language_vi">Tiếng Việt</string>
+    <string name="language_es">Español</string>
+    <string name="language_fr">Français</string>
+    <string name="language_ja">日本語</string>
+
+    <string name="theme_label">Chủ đề</string>
+    <string name="theme_system">Theo hệ thống</string>
+    <string name="theme_light">Sáng</string>
+    <string name="theme_dark">Tối</string>
+
+    <string name="title1_browsing_settings">Cài đặt duyệt web</string>
+    <string name="homepage_label">URL trang chủ</string>
+    <string name="homepage_hint">https://start.duckduckgo.com</string>
+    <string name="disable_javascript">Tắt JavaScript</string>
+    <string name="disable_tracking_protection">Tắt chống theo dõi</string>
+    <string name="desktop_mode">Chế độ máy tính (Mặc định)</string>
+    <string name="private_mode">Mặc định duyệt ẩn danh</string>
+    <string name="clear_tabs_on_exit">Xóa thẻ khi thoát</string>
+    <string name="custom_user_agent">User Agent tùy chỉnh</string>
+    <string name="custom_user_agent_hint">Để trống để dùng mặc định</string>
+
+    <string name="title2_ui_settings">Giao diện</string>
+    <string name="autohide_search_bar">Tự ẩn thanh điều hướng khi cuộn</string>
+    <string name="hide_white_splash">Ẩn màn hình trắng khi tải</string>
+
+    <string name="title3_search_settings">Công cụ tìm kiếm</string>
+    <string name="search_engine_preset">Nhà cung cấp tìm kiếm</string>
+    <string name="search_engine">URL tìm kiếm tùy chỉnh</string>
+    <string name="search_engine_hint">https://duckduckgo.com/?q=</string>
+    <string name="search_preset_ddg">DuckDuckGo</string>
+    <string name="search_preset_google">Google</string>
+    <string name="search_preset_bing">Bing</string>
+    <string name="search_preset_brave">Brave Search</string>
+    <string name="search_preset_ecosia">Ecosia</string>
+    <string name="search_preset_custom">Tùy chỉnh</string>
+
+    <string name="section_data">Quyền riêng tư &amp; Dữ liệu</string>
+    <string name="clear_history_btn">Xóa lịch sử duyệt web</string>
+    <string name="clear_bookmarks_btn">Xóa tất cả dấu trang</string>
+    <string name="clear_cache_btn">Xóa bộ nhớ đệm &amp; dữ liệu trang</string>
+    <string name="history_cleared">Đã xóa lịch sử</string>
+    <string name="bookmarks_cleared">Đã xóa dấu trang</string>
+    <string name="cache_cleared">Đã xóa bộ nhớ đệm và dữ liệu trang</string>
+
+    <!-- Downloads -->
+    <string name="menu_downloads">Tệp đã tải xuống</string>
+    <string name="download_confirm_title">Tải xuống tệp</string>
+    <string name="download_confirm_message">Bạn muốn tải xuống %1$s?</string>
+    <string name="download_action">Tải xuống</string>
+    <string name="download_started">Đang tải xuống: %1$s</string>
+    <string name="download_failed">Không thể bắt đầu tải xuống</string>
+    <string name="downloads_empty">Chưa có tệp tải xuống nào.</string>
+    <string name="downloads_cleared">Đã xóa danh sách tải xuống</string>
+    <string name="download_status_running">Đang tải…</string>
+    <string name="download_status_done">Hoàn tất</string>
+    <string name="download_status_failed">Thất bại</string>
+    <string name="download_open_error">Không có ứng dụng hỗ trợ mở tệp này</string>
+
+    <!-- Context Menu & Quick Tools -->
+    <string name="context_open_new_tab">Mở trong thẻ mới</string>
+    <string name="context_open_private_tab">Mở trong thẻ ẩn danh</string>
+    <string name="context_copy_link">Sao chép địa chỉ liên kết</string>
+    <string name="context_share_link">Chia sẻ liên kết</string>
+    <string name="context_open_image">Mở hình ảnh trong thẻ mới</string>
+    <string name="context_download_image">Tải hình ảnh xuống</string>
+    <string name="context_copy_image_url">Sao chép URL hình ảnh</string>
+    <string name="menu_add_homescreen">Thêm vào màn hình chính</string>
+    <string name="shortcut_added">Đã thêm lối tắt vào màn hình chính</string>
+    <string name="shortcut_unsupported">Trình khởi chạy không hỗ trợ tạo lối tắt</string>
+    <string name="menu_reopen_tab">Mở lại thẻ vừa đóng</string>
+    <string name="no_closed_tabs">Không có thẻ nào vừa đóng</string>
+
+    <!-- Search Suggestions & Speed Dial -->
+    <string name="search_suggestions">Gợi ý tìm kiếm</string>
+    <string name="quick_access_title">Truy cập nhanh</string>
+    <string name="tab_history_title">Lịch sử thẻ</string>
+    <string name="auth_username_hint">Tên đăng nhập</string>
+    <string name="auth_password_hint">Mật khẩu</string>
+    <string name="auth_title">Yêu cầu xác thực</string>
+    <string name="external_app_error">Không tìm thấy ứng dụng để mở liên kết này</string>
+
+    <!-- Start Page, Voice Search & Enhanced Browser Actions -->
+    <string name="voice_search">Tìm kiếm bằng giọng nói</string>
+    <string name="voice_search_unavailable">Thiết bị không hỗ trợ tìm kiếm giọng nói</string>
+    <string name="find_matches">%1$d/%2$d</string>
+    <string name="menu_new_tab">Thẻ mới</string>
+    <string name="menu_duplicate_tab">Nhân đôi thẻ</string>
+    <string name="menu_open_external">Mở bằng ứng dụng ngoài</string>
+    <string name="menu_quick_wipe">Xóa toàn bộ dữ liệu duyệt web</string>
+    <string name="quick_wipe_confirm_title">Xóa toàn bộ dữ liệu?</string>
+    <string name="quick_wipe_confirm_message">Thao tác này sẽ đóng tất cả thẻ và xóa lịch sử, cookie cùng bộ nhớ đệm trang web.</string>
+    <string name="quick_wipe_action">Xóa tất cả</string>
+    <string name="quick_wipe_done">Đã xóa toàn bộ dữ liệu duyệt web</string>
+    <string name="close_other_tabs">Đóng các thẻ khác</string>
+    <string name="edit_bookmark">Sửa dấu trang</string>
+    <string name="bookmark_title_hint">Tiêu đề</string>
+    <string name="bookmark_url_hint">URL</string>
+    <string name="bookmark_updated">Đã cập nhật dấu trang</string>
+    <string name="start_page_subtitle">Duyệt web nhanh, riêng tư trên di động</string>
+    <string name="add_quick_site">Thêm lối tắt</string>
+    <string name="remove_quick_site_confirm">Xóa lối tắt %1$s?</string>
+    <string name="quick_site_removed">Đã xóa lối tắt</string>
+    <string name="quick_site_added">Đã thêm lối tắt</string>
+    <string name="use_start_page">Dùng Trang bắt đầu tích hợp</string>
+    <string name="download_copy_url">Sao chép URL tải xuống</string>
+    <string name="download_open">Mở tệp</string>
+    <string name="download_unsupported_uri">Định dạng liên kết tải xuống không được hỗ trợ</string>
+    <string name="file_upload_error">Không thể mở trình chọn tệp</string>
+    <string name="tab_desktop_badge">PC</string>
+    <string name="clear_site_data_btn">Xóa cookie &amp; bộ nhớ đệm trang</string>
+    <string name="site_data_cleared">Đã xóa dữ liệu trang web</string>
+    <string name="cert_issuer_label">Tổ chức cấp chứng chỉ</string>
+    <string name="cert_valid_until_label">Hết hạn vào</string>
+    <string name="ui_mode_label">Kiểu giao diện</string>
+    <string name="ui_mode_phone">Điện thoại</string>
+    <string name="ui_mode_tv">TV</string>
+</resources>
