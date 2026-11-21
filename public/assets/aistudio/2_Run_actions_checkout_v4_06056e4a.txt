@@ -1,0 +1,73 @@
+﻿2026-11-21T11:38:08.3299516Z ##[group]Run actions/checkout@v4
+2026-11-21T11:38:08.3300723Z with:
+2026-11-21T11:38:08.3301541Z   repository: baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.3309200Z   token: ***
+2026-11-21T11:38:08.3309964Z   ssh-strict: true
+2026-11-21T11:38:08.3310746Z   ssh-user: git
+2026-11-21T11:38:08.3311542Z   persist-credentials: true
+2026-11-21T11:38:08.3312503Z   clean: true
+2026-11-21T11:38:08.3313308Z   sparse-checkout-cone-mode: true
+2026-11-21T11:38:08.3314248Z   fetch-depth: 1
+2026-11-21T11:38:08.3315021Z   fetch-tags: false
+2026-11-21T11:38:08.3315820Z   show-progress: true
+2026-11-21T11:38:08.3316626Z   lfs: false
+2026-11-21T11:38:08.3317389Z   submodules: false
+2026-11-21T11:38:08.3318199Z   set-safe-directory: true
+2026-11-21T11:38:08.3319110Z   allow-unsafe-pr-checkout: false
+2026-11-21T11:38:08.3320225Z ##[endgroup]
+2026-11-21T11:38:08.6000750Z Syncing repository: baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.6004047Z ##[group]Getting Git version info
+2026-11-21T11:38:08.6005476Z Working directory is '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-21T11:38:08.6007450Z [command]/usr/bin/git version
+2026-11-21T11:38:08.6008432Z git version 2.56.1
+2026-11-21T11:38:08.6019367Z ##[endgroup]
+2026-11-21T11:38:08.6032666Z Temporarily overriding HOME='/home/runner/work/_temp/671a39c5-110d-4035-b3e1-55bffa34fda9' before making global git config changes
+2026-11-21T11:38:08.6036355Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-21T11:38:08.6039583Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-21T11:38:08.6101207Z Deleting the contents of '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-21T11:38:08.6104800Z ##[group]Initializing the repository
+2026-11-21T11:38:08.6108593Z [command]/usr/bin/git init /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-21T11:38:08.6226074Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-21T11:38:08.6228632Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-21T11:38:08.6230240Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-21T11:38:08.6231540Z hint: call:
+2026-11-21T11:38:08.6232694Z hint:
+2026-11-21T11:38:08.6233976Z hint: 	git config --global init.defaultBranch <name>
+2026-11-21T11:38:08.6235532Z hint:
+2026-11-21T11:38:08.6237065Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-21T11:38:08.6239344Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-21T11:38:08.6241174Z hint:
+2026-11-21T11:38:08.6242385Z hint: 	git branch -m <name>
+2026-11-21T11:38:08.6243530Z hint:
+2026-11-21T11:38:08.6245140Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-21T11:38:08.6247122Z Initialized empty Git repository in /home/runner/work/Gecko-Browser/Gecko-Browser/.git/
+2026-11-21T11:38:08.6254698Z [command]/usr/bin/git remote add origin https://github.com/baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.6439330Z ##[endgroup]
+2026-11-21T11:38:08.6441551Z ##[group]Disabling automatic garbage collection
+2026-11-21T11:38:08.6443429Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-21T11:38:08.6477336Z ##[endgroup]
+2026-11-21T11:38:08.6479202Z ##[group]Setting up auth
+2026-11-21T11:38:08.6483127Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-21T11:38:08.6519320Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-21T11:38:08.6935651Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-21T11:38:08.6966923Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-21T11:38:08.7206812Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-21T11:38:08.7238213Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-21T11:38:08.7479365Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-21T11:38:08.7516789Z ##[endgroup]
+2026-11-21T11:38:08.7518137Z ##[group]Fetching the repository
+2026-11-21T11:38:08.7525168Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9c086a1a55a6086f2a1722a1ffd1259ad75fbba3:refs/remotes/origin/master
+2026-11-21T11:38:09.3071506Z From https://github.com/baongoquoc507/Gecko-Browser
+2026-11-21T11:38:09.3074661Z  * [new ref]         9c086a1a55a6086f2a1722a1ffd1259ad75fbba3 -> origin/master
+2026-11-21T11:38:09.3080329Z ##[endgroup]
+2026-11-21T11:38:09.3082354Z ##[group]Determining the checkout info
+2026-11-21T11:38:09.3084530Z ##[endgroup]
+2026-11-21T11:38:09.3085436Z [command]/usr/bin/git sparse-checkout disable
+2026-11-21T11:38:09.3229059Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-21T11:38:09.3259977Z ##[group]Checking out the ref
+2026-11-21T11:38:09.3264847Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-11-21T11:38:09.3499996Z Reset branch 'master'
+2026-11-21T11:38:09.3503098Z branch 'master' set up to track 'origin/master'.
+2026-11-21T11:38:09.3510654Z ##[endgroup]
+2026-11-21T11:38:09.3558010Z [command]/usr/bin/git log -1 --format=%H
+2026-11-21T11:38:09.3580689Z 9c086a1a55a6086f2a1722a1ffd1259ad75fbba3

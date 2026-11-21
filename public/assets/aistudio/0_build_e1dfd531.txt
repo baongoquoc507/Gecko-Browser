@@ -1,0 +1,408 @@
+﻿2026-11-21T11:38:06.8974070Z Current runner version: '2.338.2'
+2026-11-21T11:38:06.8996595Z ##[group]Runner Image Provisioner
+2026-11-21T11:38:06.8997338Z Hosted Compute Agent
+2026-11-21T11:38:06.8997906Z Version: 20261111.635
+2026-11-21T11:38:06.8998447Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-21T11:38:06.8999088Z Build Date: 2026-11-11T01:49:01Z
+2026-11-21T11:38:06.8999726Z Worker ID: {baffc915-9682-4737-a18f-40cf72486dd2}
+2026-11-21T11:38:06.9000343Z Region: centralus
+2026-11-21T11:38:06.9000879Z Cloud: Azure
+2026-11-21T11:38:06.9001340Z ##[endgroup]
+2026-11-21T11:38:06.9002836Z ##[group]Operating System
+2026-11-21T11:38:06.9003383Z Ubuntu
+2026-11-21T11:38:06.9003864Z 26.04.1
+2026-11-21T11:38:06.9004346Z LTS
+2026-11-21T11:38:06.9004799Z ##[endgroup]
+2026-11-21T11:38:06.9005245Z ##[group]Runner Image
+2026-11-21T11:38:06.9006004Z Image: ubuntu-26.04
+2026-11-21T11:38:06.9006511Z Version: 20261116.202.1
+2026-11-21T11:38:06.9007983Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-21T11:38:06.9009243Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-21T11:38:06.9010069Z ##[endgroup]
+2026-11-21T11:38:06.9010956Z ##[group]GITHUB_TOKEN Permissions
+2026-11-21T11:38:06.9013770Z Contents: write
+2026-11-21T11:38:06.9014284Z Metadata: read
+2026-11-21T11:38:06.9014831Z ##[endgroup]
+2026-11-21T11:38:06.9017039Z Secret source: Actions
+2026-11-21T11:38:06.9017920Z Cache mode: write
+2026-11-21T11:38:06.9018502Z Prepare workflow directory
+2026-11-21T11:38:06.9337013Z Prepare all required actions
+2026-11-21T11:38:06.9376965Z Getting action download info
+2026-11-21T11:38:07.1755634Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-21T11:38:07.2812098Z Download action repository 'actions/setup-java@v5' (SHA:b6effb05e454b25005698d916606bdc6ffcbf961)
+2026-11-21T11:38:07.8325941Z Download action repository 'softprops/action-gh-release@v2' (SHA:3bb12739c298aeb8a4eeaf626c5b8d85266b0e65)
+2026-11-21T11:38:08.2356149Z Complete job name: build
+2026-11-21T11:38:08.3299554Z ##[group]Run actions/checkout@v4
+2026-11-21T11:38:08.3300731Z with:
+2026-11-21T11:38:08.3301546Z   repository: baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.3309203Z   token: ***
+2026-11-21T11:38:08.3309968Z   ssh-strict: true
+2026-11-21T11:38:08.3310750Z   ssh-user: git
+2026-11-21T11:38:08.3311546Z   persist-credentials: true
+2026-11-21T11:38:08.3312510Z   clean: true
+2026-11-21T11:38:08.3313321Z   sparse-checkout-cone-mode: true
+2026-11-21T11:38:08.3314252Z   fetch-depth: 1
+2026-11-21T11:38:08.3315025Z   fetch-tags: false
+2026-11-21T11:38:08.3315824Z   show-progress: true
+2026-11-21T11:38:08.3316640Z   lfs: false
+2026-11-21T11:38:08.3317396Z   submodules: false
+2026-11-21T11:38:08.3318203Z   set-safe-directory: true
+2026-11-21T11:38:08.3319114Z   allow-unsafe-pr-checkout: false
+2026-11-21T11:38:08.3320231Z ##[endgroup]
+2026-11-21T11:38:08.6000835Z Syncing repository: baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.6004076Z ##[group]Getting Git version info
+2026-11-21T11:38:08.6005567Z Working directory is '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-21T11:38:08.6007458Z [command]/usr/bin/git version
+2026-11-21T11:38:08.6008437Z git version 2.56.1
+2026-11-21T11:38:08.6019397Z ##[endgroup]
+2026-11-21T11:38:08.6032697Z Temporarily overriding HOME='/home/runner/work/_temp/671a39c5-110d-4035-b3e1-55bffa34fda9' before making global git config changes
+2026-11-21T11:38:08.6036368Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-21T11:38:08.6039596Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-21T11:38:08.6101267Z Deleting the contents of '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-21T11:38:08.6104813Z ##[group]Initializing the repository
+2026-11-21T11:38:08.6108604Z [command]/usr/bin/git init /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-21T11:38:08.6226167Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-21T11:38:08.6228669Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-21T11:38:08.6230246Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-21T11:38:08.6231545Z hint: call:
+2026-11-21T11:38:08.6232708Z hint:
+2026-11-21T11:38:08.6233987Z hint: 	git config --global init.defaultBranch <name>
+2026-11-21T11:38:08.6235545Z hint:
+2026-11-21T11:38:08.6237077Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-21T11:38:08.6239361Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-21T11:38:08.6241182Z hint:
+2026-11-21T11:38:08.6242394Z hint: 	git branch -m <name>
+2026-11-21T11:38:08.6243541Z hint:
+2026-11-21T11:38:08.6245152Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-21T11:38:08.6247130Z Initialized empty Git repository in /home/runner/work/Gecko-Browser/Gecko-Browser/.git/
+2026-11-21T11:38:08.6254743Z [command]/usr/bin/git remote add origin https://github.com/baongoquoc507/Gecko-Browser
+2026-11-21T11:38:08.6439418Z ##[endgroup]
+2026-11-21T11:38:08.6441572Z ##[group]Disabling automatic garbage collection
+2026-11-21T11:38:08.6443441Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-21T11:38:08.6477366Z ##[endgroup]
+2026-11-21T11:38:08.6479214Z ##[group]Setting up auth
+2026-11-21T11:38:08.6483147Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-21T11:38:08.6519353Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-21T11:38:08.6935760Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-21T11:38:08.6967420Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-21T11:38:08.7206918Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-21T11:38:08.7238267Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-21T11:38:08.7479466Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-21T11:38:08.7516822Z ##[endgroup]
+2026-11-21T11:38:08.7518143Z ##[group]Fetching the repository
+2026-11-21T11:38:08.7525184Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9c086a1a55a6086f2a1722a1ffd1259ad75fbba3:refs/remotes/origin/master
+2026-11-21T11:38:09.3071581Z From https://github.com/baongoquoc507/Gecko-Browser
+2026-11-21T11:38:09.3074678Z  * [new ref]         9c086a1a55a6086f2a1722a1ffd1259ad75fbba3 -> origin/master
+2026-11-21T11:38:09.3080348Z ##[endgroup]
+2026-11-21T11:38:09.3082423Z ##[group]Determining the checkout info
+2026-11-21T11:38:09.3084543Z ##[endgroup]
+2026-11-21T11:38:09.3085443Z [command]/usr/bin/git sparse-checkout disable
+2026-11-21T11:38:09.3229140Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-21T11:38:09.3260005Z ##[group]Checking out the ref
+2026-11-21T11:38:09.3264869Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-11-21T11:38:09.3500077Z Reset branch 'master'
+2026-11-21T11:38:09.3503119Z branch 'master' set up to track 'origin/master'.
+2026-11-21T11:38:09.3510671Z ##[endgroup]
+2026-11-21T11:38:09.3558032Z [command]/usr/bin/git log -1 --format=%H
+2026-11-21T11:38:09.3580713Z 9c086a1a55a6086f2a1722a1ffd1259ad75fbba3
+2026-11-21T11:38:09.4024234Z ##[group]Run actions/setup-java@v5
+2026-11-21T11:38:09.4025253Z with:
+2026-11-21T11:38:09.4025915Z   java-version: 17
+2026-11-21T11:38:09.4026636Z   distribution: temurin
+2026-11-21T11:38:09.4027387Z   cache: gradle
+2026-11-21T11:38:09.4028299Z   java-package: jdk
+2026-11-21T11:38:09.4029040Z   check-latest: false
+2026-11-21T11:38:09.4029771Z   set-default: true
+2026-11-21T11:38:09.4030501Z   verify-signature: false
+2026-11-21T11:38:09.4031274Z   server-id: github
+2026-11-21T11:38:09.4032118Z   server-username: GITHUB_ACTOR
+2026-11-21T11:38:09.4032980Z   server-password: GITHUB_TOKEN
+2026-11-21T11:38:09.4033831Z   overwrite-settings: true
+2026-11-21T11:38:09.4034620Z   job-status: success
+2026-11-21T11:38:09.4041797Z   token: ***
+2026-11-21T11:38:09.4042610Z   show-download-progress: false
+2026-11-21T11:38:09.4043422Z ##[endgroup]
+2026-11-21T11:38:09.5782818Z ##[group]Installed distributions
+2026-11-21T11:38:09.5829535Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-21T11:38:09.5830709Z Setting Java 17.0.21+9 as the default
+2026-11-21T11:38:09.5838602Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-21T11:38:09.5895452Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-21T11:38:09.5896360Z 
+2026-11-21T11:38:09.5896786Z Java configuration:
+2026-11-21T11:38:09.5897807Z   Distribution: temurin
+2026-11-21T11:38:09.5898815Z   Version: 17.0.21+9
+2026-11-21T11:38:09.5900121Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:09.5901166Z 
+2026-11-21T11:38:09.5902523Z ##[endgroup]
+2026-11-21T11:38:09.5932441Z Creating settings.xml with server-id: github
+2026-11-21T11:38:09.5933942Z Writing to /home/runner/.m2/settings.xml
+2026-11-21T11:38:09.5936512Z Configured MAVEN_ARGS to include -ntp to suppress Maven transfer progress logs. Set 'show-download-progress: true' to keep the download progress output.
+2026-11-21T11:38:09.8267231Z gradle cache is not found
+2026-11-21T11:38:09.9577784Z Cache hit for: setup-java-Linux-x64-gradle-wrapper-54b475c40ac768de85d86cc6a4b285b5db5335a7cfaa85d475a725a03b77fd32
+2026-11-21T11:38:11.1508329Z Received 134217728 of 273374057 (49.1%), 127.1 MBs/sec
+2026-11-21T11:38:11.8523517Z Received 273374057 of 273374057 (100.0%), 152.6 MBs/sec
+2026-11-21T11:38:11.8524338Z Cache Size: ~261 MB (273374057 B)
+2026-11-21T11:38:11.8634216Z [command]/usr/bin/tar -xf /home/runner/work/_temp/2136a6ce-e946-47d8-bab1-91e384e87d09/cache.tzst -P -C /home/runner/work/Gecko-Browser/Gecko-Browser --use-compress-program unzstd
+2026-11-21T11:38:12.1818306Z Cache restored successfully
+2026-11-21T11:38:12.1935726Z gradle-wrapper cache restored from key: setup-java-Linux-x64-gradle-wrapper-54b475c40ac768de85d86cc6a4b285b5db5335a7cfaa85d475a725a03b77fd32
+2026-11-21T11:38:12.2142391Z ##[group]Run if [ -f debug.keystore.base64 ]; then
+2026-11-21T11:38:12.2142796Z [36;1mif [ -f debug.keystore.base64 ]; then[0m
+2026-11-21T11:38:12.2143119Z [36;1m  base64 -d debug.keystore.base64 > debug.keystore[0m
+2026-11-21T11:38:12.2143434Z [36;1melif [ ! -f debug.keystore ]; then[0m
+2026-11-21T11:38:12.2144086Z [36;1m  keytool -genkeypair -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"[0m
+2026-11-21T11:38:12.2144719Z [36;1mfi[0m
+2026-11-21T11:38:12.2178635Z shell: /usr/bin/bash -e {0}
+2026-11-21T11:38:12.2178881Z env:
+2026-11-21T11:38:12.2179163Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:12.2179621Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:12.2179952Z   MAVEN_ARGS: -ntp
+2026-11-21T11:38:12.2180134Z ##[endgroup]
+2026-11-21T11:38:13.7944042Z Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+2026-11-21T11:38:13.7945188Z 	for: CN=Android Debug, O=Android, C=US
+2026-11-21T11:38:14.0923675Z [Storing debug.keystore]
+2026-11-21T11:38:14.2290544Z ##[group]Run chmod +x gradlew
+2026-11-21T11:38:14.2290847Z [36;1mchmod +x gradlew[0m
+2026-11-21T11:38:14.2321142Z shell: /usr/bin/bash -e {0}
+2026-11-21T11:38:14.2321370Z env:
+2026-11-21T11:38:14.2321637Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2322372Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2322710Z   MAVEN_ARGS: -ntp
+2026-11-21T11:38:14.2322890Z ##[endgroup]
+2026-11-21T11:38:14.2422792Z ##[group]Run ./gradlew build
+2026-11-21T11:38:14.2423107Z [36;1m./gradlew build[0m
+2026-11-21T11:38:14.2449202Z shell: /usr/bin/bash -e {0}
+2026-11-21T11:38:14.2449430Z env:
+2026-11-21T11:38:14.2449697Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2450095Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2450408Z   MAVEN_ARGS: -ntp
+2026-11-21T11:38:14.2450590Z ##[endgroup]
+2026-11-21T11:38:15.1382097Z 
+2026-11-21T11:38:15.1383125Z Welcome to Gradle 9.3.1!
+2026-11-21T11:38:15.1383461Z 
+2026-11-21T11:38:15.1384418Z Here are the highlights of this release:
+2026-11-21T11:38:15.1385308Z  - Test reporting improvements
+2026-11-21T11:38:15.1386088Z  - Error and warning improvements
+2026-11-21T11:38:15.1386935Z  - Build authoring improvements
+2026-11-21T11:38:15.1387195Z 
+2026-11-21T11:38:15.1388799Z For more details see https://docs.gradle.org/9.3.1/release-notes.html
+2026-11-21T11:38:15.1389355Z 
+2026-11-21T11:38:15.3353494Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-21T11:38:40.1332797Z 
+2026-11-21T11:38:40.1373943Z > Configure project :app
+2026-11-21T11:38:40.1401720Z WARNING: The option setting 'android.enableJetifier=true' is deprecated.
+2026-11-21T11:38:40.1433020Z The current default is 'false'.
+2026-11-21T11:38:40.1445331Z It will be removed in version 10.0 of the Android Gradle plugin.
+2026-11-21T11:38:44.4346041Z Checking the license for package Android SDK Platform 33 in /usr/local/lib/android/sdk/licenses
+2026-11-21T11:38:44.4380726Z License for package Android SDK Platform 33 accepted.
+2026-11-21T11:38:44.5336294Z Preparing "Install Android SDK Platform 33 (revision 3)".
+2026-11-21T11:38:47.1332483Z "Install Android SDK Platform 33 (revision 3)" ready.
+2026-11-21T11:38:47.1333045Z Installing Android SDK Platform 33 in /usr/local/lib/android/sdk/platforms/android-33
+2026-11-21T11:38:47.1333467Z "Install Android SDK Platform 33 (revision 3)" complete.
+2026-11-21T11:38:47.7343479Z "Install Android SDK Platform 33 (revision 3)" finished.
+2026-11-21T11:38:48.6334913Z [=========                              ] 25%                                   
+2026-11-21T11:38:48.6338812Z > Task :app:preBuild UP-TO-DATE
+2026-11-21T11:38:48.6339325Z > Task :app:preDebugBuild UP-TO-DATE
+2026-11-21T11:38:48.6339878Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+2026-11-21T11:38:48.7343348Z > Task :app:generateDebugResources
+2026-11-21T11:38:48.9343221Z > Task :app:packageDebugResources
+2026-11-21T11:39:04.9373232Z > Task :app:processDebugNavigationResources
+2026-11-21T11:39:05.0343267Z > Task :app:generateDebugAssets UP-TO-DATE
+2026-11-21T11:39:05.0436737Z > Task :app:javaPreCompileDebug
+2026-11-21T11:39:05.1343265Z > Task :app:parseDebugLocalResources
+2026-11-21T11:39:05.1372851Z > Task :app:mergeDebugAssets
+2026-11-21T11:39:05.2356006Z > Task :app:generateDebugRFile
+2026-11-21T11:39:06.1333572Z > Task :app:compressDebugAssets
+2026-11-21T11:39:06.7332267Z > Task :app:checkDebugDuplicateClasses
+2026-11-21T11:39:06.7333010Z > Task :app:compileDebugKotlin NO-SOURCE
+2026-11-21T11:39:09.6336217Z Note: /home/runner/work/Gecko-Browser/Gecko-Browser/app/src/main/java/com/example/geckobrowser/MainActivity.java uses or overrides a deprecated API.
+2026-11-21T11:39:09.6337075Z 
+2026-11-21T11:39:09.6403224Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-21T11:39:09.6403781Z > Task :app:compileDebugJavaWithJavac
+2026-11-21T11:39:10.4335174Z 
+2026-11-21T11:39:10.4355078Z > Task :app:processDebugJavaRes NO-SOURCE
+2026-11-21T11:39:10.8343870Z > Task :app:checkDebugAarMetadata
+2026-11-21T11:39:10.8344613Z > Task :app:mapDebugSourceSetPaths
+2026-11-21T11:39:11.0332260Z > Task :app:mergeDebugJavaResource
+2026-11-21T11:39:11.2332058Z > Task :app:compileDebugNavigationResources
+2026-11-21T11:39:11.8333170Z > Task :app:createDebugCompatibleScreenManifests
+2026-11-21T11:39:11.8392219Z > Task :app:extractDeepLinksDebug
+2026-11-21T11:39:12.5333393Z > Task :app:mergeDebugResources
+2026-11-21T11:39:12.6333913Z > Task :app:processDebugMainManifest
+2026-11-21T11:39:12.7331566Z > Task :app:processDebugManifest
+2026-11-21T11:39:13.2332199Z > Task :app:desugarDebugFileDependencies
+2026-11-21T11:39:34.9379025Z > Task :app:mergeDebugJniLibFolders
+2026-11-21T11:39:34.9413239Z > Task :app:processDebugManifestForPackage
+2026-11-21T11:39:35.9353148Z > Task :app:validateSigningDebug
+2026-11-21T11:39:36.0343062Z > Task :app:writeDebugAppMetadata
+2026-11-21T11:39:36.0352739Z > Task :app:writeDebugSigningConfigVersions
+2026-11-21T11:39:36.0382686Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-11-21T11:39:36.0402618Z > Task :app:mergeReleaseJniLibFolders
+2026-11-21T11:39:36.5352848Z > Task :app:processDebugResources
+2026-11-21T11:39:38.1336712Z > Task :app:mergeDebugNativeLibs
+2026-11-21T11:39:38.7333930Z > Task :app:mergeReleaseNativeLibs
+2026-11-21T11:39:38.7363373Z > Task :app:dexBuilderDebug
+2026-11-21T11:39:39.5347093Z > Task :app:checkReleaseDuplicateClasses
+2026-11-21T11:39:39.5395786Z > Task :app:generateReleaseResources
+2026-11-21T11:39:39.7337743Z > Task :app:packageReleaseResources
+2026-11-21T11:39:39.7342820Z > Task :app:processReleaseNavigationResources
+2026-11-21T11:39:39.8394402Z > Task :app:parseReleaseLocalResources
+2026-11-21T11:39:39.9422973Z > Task :app:generateReleaseRFile
+2026-11-21T11:39:39.9452522Z > Task :app:compileReleaseKotlin NO-SOURCE
+2026-11-21T11:39:39.9500845Z > Task :app:javaPreCompileRelease
+2026-11-21T11:39:40.0333046Z > Task :app:mergeExtDexDebug
+2026-11-21T11:39:40.2342370Z 
+2026-11-21T11:39:40.2372899Z > Task :app:stripReleaseDebugSymbols
+2026-11-21T11:39:40.2385595Z Unable to strip the following libraries, packaging them as they are: libfreebl3.so, libgkcodecs.so, libipcclientcerts.so, liblgpllibs.so, libmozavcodec.so, libmozavutil.so, libmozglue.so, libnss3.so, libnssckbi.so, libplugin-container.so, libsoftokn3.so, libxul.so. Run with --info option to learn more.
+2026-11-21T11:39:40.7332150Z 
+2026-11-21T11:39:40.7355094Z > Task :app:stripDebugDebugSymbols
+2026-11-21T11:39:40.7393997Z Unable to strip the following libraries, packaging them as they are: libfreebl3.so, libgkcodecs.so, libipcclientcerts.so, liblgpllibs.so, libmozavcodec.so, libmozavutil.so, libmozglue.so, libnss3.so, libnssckbi.so, libplugin-container.so, libsoftokn3.so, libxul.so. Run with --info option to learn more.
+2026-11-21T11:39:40.9333899Z Note: /home/runner/work/Gecko-Browser/Gecko-Browser/app/src/main/java/com/example/geckobrowser/MainActivity.java uses or overrides a deprecated API.
+2026-11-21T11:39:40.9374476Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-21T11:39:40.9374924Z 
+2026-11-21T11:39:40.9403418Z > Task :app:compileReleaseJavaWithJavac
+2026-11-21T11:39:40.9432833Z 
+2026-11-21T11:39:40.9453214Z > Task :app:extractReleaseNativeSymbolTables
+2026-11-21T11:39:40.9462388Z > Task :app:checkReleaseAarMetadata
+2026-11-21T11:39:40.9462904Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-11-21T11:39:40.9463365Z > Task :app:mapReleaseSourceSetPaths
+2026-11-21T11:39:40.9463780Z > Task :app:compileReleaseNavigationResources
+2026-11-21T11:39:41.4356554Z > Task :app:createReleaseCompatibleScreenManifests
+2026-11-21T11:39:41.4383142Z > Task :app:extractDeepLinksRelease
+2026-11-21T11:39:41.5332206Z > Task :app:processReleaseMainManifest
+2026-11-21T11:39:41.5386759Z > Task :app:processReleaseManifest
+2026-11-21T11:39:41.5419150Z > Task :app:desugarReleaseFileDependencies
+2026-11-21T11:39:41.6353356Z > Task :app:mergeReleaseStartupProfile UP-TO-DATE
+2026-11-21T11:39:45.7335511Z > Task :app:mergeDexDebug
+2026-11-21T11:39:46.1346238Z > Task :app:mergeReleaseResources
+2026-11-21T11:39:58.6343173Z > Task :app:processReleaseManifestForPackage
+2026-11-21T11:39:59.4331296Z > Task :app:mergeReleaseArtProfile
+2026-11-21T11:39:59.4373010Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-11-21T11:39:59.4392697Z > Task :app:processReleaseResources
+2026-11-21T11:39:59.6335381Z > Task :app:mergeReleaseAssets
+2026-11-21T11:40:01.0363037Z > Task :app:dexBuilderRelease
+2026-11-21T11:40:01.4363778Z > Task :app:extractReleaseVersionControlInfo
+2026-11-21T11:40:01.5342980Z > Task :app:extractProguardFiles
+2026-11-21T11:40:02.2353745Z > Task :app:compressReleaseAssets
+2026-11-21T11:40:04.2332964Z > Task :app:mergeExtDexRelease
+2026-11-21T11:40:06.4350689Z > Task :app:generateReleaseLintVitalReportModel
+2026-11-21T11:40:08.4331535Z 
+2026-11-21T11:40:08.4335379Z > Task :app:mergeDexRelease
+2026-11-21T11:40:08.4336066Z ERROR: D8: Cannot fit requested classes in a single dex file (# methods: 66630 > 65536)
+2026-11-21T11:40:08.4364663Z com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+2026-11-21T11:40:08.4365499Z The number of method references in a .dex file cannot exceed 64K.
+2026-11-21T11:40:08.4366307Z Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+2026-11-21T11:40:08.4367385Z 	at com.android.builder.dexing.D8DexArchiveMerger.getMergingExceptionToRethrow(D8DexArchiveMerger.java:231)
+2026-11-21T11:40:08.4368500Z 	at com.android.builder.dexing.D8DexArchiveMerger.mergeDexArchives(D8DexArchiveMerger.java:219)
+2026-11-21T11:40:08.4369517Z 	at com.android.build.gradle.internal.tasks.DexMergingWorkAction.merge(DexMergingTask.kt:820)
+2026-11-21T11:40:08.4370487Z 	at com.android.build.gradle.internal.tasks.DexMergingWorkAction.run(DexMergingTask.kt:775)
+2026-11-21T11:40:08.4371553Z 	at com.android.build.gradle.internal.profile.ProfileAwareWorkAction.execute(ProfileAwareWorkAction.kt:66)
+2026-11-21T11:40:08.4372803Z 	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
+2026-11-21T11:40:08.4373806Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:64)
+2026-11-21T11:40:08.4374814Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:61)
+2026-11-21T11:40:08.4375820Z 	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:102)
+2026-11-21T11:40:08.4376869Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:61)
+2026-11-21T11:40:08.4377749Z 	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+2026-11-21T11:40:08.4378467Z 	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+2026-11-21T11:40:08.4379542Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+2026-11-21T11:40:08.4380938Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-21T11:40:08.4382311Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-21T11:40:08.4383421Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-21T11:40:08.4384528Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+2026-11-21T11:40:08.4385635Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-21T11:40:08.4386708Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-21T11:40:08.4387754Z 	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+2026-11-21T11:40:08.4388757Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:58)
+2026-11-21T11:40:08.4389819Z 	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:176)
+2026-11-21T11:40:08.4390659Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+2026-11-21T11:40:08.4391657Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:194)
+2026-11-21T11:40:08.4393783Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:127)
+2026-11-21T11:40:08.4395064Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:169)
+2026-11-21T11:40:08.4395978Z 	at org.gradle.internal.Factories$1.create(Factories.java:30)
+2026-11-21T11:40:08.4396843Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withLocksAcquired$0(DefaultWorkerLeaseService.java:269)
+2026-11-21T11:40:08.4397958Z 	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:42)
+2026-11-21T11:40:08.4398997Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:267)
+2026-11-21T11:40:08.4400059Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:259)
+2026-11-21T11:40:08.4401105Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+2026-11-21T11:40:08.4402373Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
+2026-11-21T11:40:08.4403574Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
+2026-11-21T11:40:08.4404844Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+2026-11-21T11:40:08.4405846Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+2026-11-21T11:40:08.4406549Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+2026-11-21T11:40:08.4407393Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-21T11:40:08.4408377Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-21T11:40:08.4409505Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+2026-11-21T11:40:08.4410394Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+2026-11-21T11:40:08.4411049Z 	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-21T11:40:08.4411781Z Caused by: com.android.tools.r8.CompilationFailedException: Compilation failed to complete, position: null
+2026-11-21T11:40:08.4412696Z 	at Version.fakeStackEntry(Version_9.1.31.java:0)
+2026-11-21T11:40:08.4413390Z 	at com.android.tools.r8.r0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:1)
+2026-11-21T11:40:08.4414387Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:81)
+2026-11-21T11:40:08.4415419Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:32)
+2026-11-21T11:40:08.4416469Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:31)
+2026-11-21T11:40:08.4417493Z 	at com.android.tools.r8.internal.lw0.b(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:2)
+2026-11-21T11:40:08.4418466Z 	at com.android.tools.r8.D8.run(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:11)
+2026-11-21T11:40:08.4419422Z 	at com.android.builder.dexing.D8DexArchiveMerger.mergeDexArchives(D8DexArchiveMerger.java:217)
+2026-11-21T11:40:08.4420059Z 	... 40 more
+2026-11-21T11:40:08.4420670Z Caused by: com.android.tools.r8.internal.j: Cannot fit requested classes in a single dex file (# methods: 66630 > 65536)
+2026-11-21T11:40:08.4421710Z 	at com.android.tools.r8.internal.yp3.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:21)
+2026-11-21T11:40:08.4422923Z 	at com.android.tools.r8.internal.rm2.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:27)
+2026-11-21T11:40:08.4424366Z 	at com.android.tools.r8.dex.j.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:72)
+2026-11-21T11:40:08.4425330Z 	at com.android.tools.r8.dex.j.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:195)
+2026-11-21T11:40:08.4426289Z 	at com.android.tools.r8.D8.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:113)
+2026-11-21T11:40:08.4427213Z 	at com.android.tools.r8.D8.d(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:151)
+2026-11-21T11:40:08.4428126Z 	at com.android.tools.r8.D8.b(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:1)
+2026-11-21T11:40:08.4429101Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:28)
+2026-11-21T11:40:08.4429792Z 	... 43 more
+2026-11-21T11:40:08.4429947Z 
+2026-11-21T11:40:08.6331511Z 
+2026-11-21T11:40:08.6332626Z > Task :app:mergeDexRelease FAILED
+2026-11-21T11:40:11.9332110Z > Task :app:packageDebug
+2026-11-21T11:40:11.9333048Z > Task :app:createDebugApkListingFileRedirect
+2026-11-21T11:40:16.7339093Z 
+2026-11-21T11:40:16.7339785Z > Task :app:lintVitalAnalyzeRelease
+2026-11-21T11:40:16.7343579Z 
+2026-11-21T11:40:16.7344473Z [Incubating] Problems report is available at: file:///home/runner/work/Gecko-Browser/Gecko-Browser/build/reports/problems/problems-report.html
+2026-11-21T11:40:16.7345362Z 
+2026-11-21T11:40:16.7345915Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-11-21T11:40:16.7346513Z 
+2026-11-21T11:40:16.7347180Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-11-21T11:40:16.7347985Z 
+2026-11-21T11:40:16.7348829Z For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-11-21T11:40:16.7349877Z 67 actionable tasks: 66 executed, 1 up-to-date
+2026-11-21T11:40:16.7352560Z FAILURE: Build failed with an exception.
+2026-11-21T11:40:16.7362814Z 
+2026-11-21T11:40:16.7365399Z * What went wrong:
+2026-11-21T11:40:16.7375660Z Execution failed for task ':app:mergeDexRelease'.
+2026-11-21T11:40:16.7376665Z > A failure occurred while executing com.android.build.gradle.internal.tasks.DexMergingTaskDelegate
+2026-11-21T11:40:16.7377521Z    > There was a failure while executing work items
+2026-11-21T11:40:16.7378402Z       > A failure occurred while executing com.android.build.gradle.internal.tasks.DexMergingWorkAction
+2026-11-21T11:40:16.7380868Z          > com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+2026-11-21T11:40:16.7382086Z            The number of method references in a .dex file cannot exceed 64K.
+2026-11-21T11:40:16.7382986Z            Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+2026-11-21T11:40:16.7383647Z 
+2026-11-21T11:40:16.7383887Z * Try:
+2026-11-21T11:40:16.7384352Z > Run with --stacktrace option to get the stack trace.
+2026-11-21T11:40:16.7384975Z > Run with --info or --debug option to get more log output.
+2026-11-21T11:40:16.7385689Z > Run with --scan to get full insights from a Build Scan (powered by Develocity).
+2026-11-21T11:40:16.7386367Z > Get more help at https://help.gradle.org.
+2026-11-21T11:40:16.7386767Z 
+2026-11-21T11:40:16.7387039Z BUILD FAILED in 2m 2s
+2026-11-21T11:40:17.2204636Z ##[error]Process completed with exit code 1.
+2026-11-21T11:40:17.2395195Z Post job cleanup.
+2026-11-21T11:40:17.4262334Z Post job cleanup.
+2026-11-21T11:40:17.5385277Z [command]/usr/bin/git version
+2026-11-21T11:40:17.5463485Z git version 2.56.1
+2026-11-21T11:40:17.5498212Z Temporarily overriding HOME='/home/runner/work/_temp/73a32f59-53b3-4c04-bb9e-fc74e5b46a97' before making global git config changes
+2026-11-21T11:40:17.5519877Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-21T11:40:17.5521436Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-21T11:40:17.5633892Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-21T11:40:17.5693470Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-21T11:40:17.6079117Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-21T11:40:17.6118407Z http.https://github.com/.extraheader
+2026-11-21T11:40:17.6155082Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-21T11:40:17.6202979Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-21T11:40:17.6494682Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-21T11:40:17.6534857Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-21T11:40:17.6977218Z Cleaning up orphan processes
+2026-11-21T11:40:17.7262575Z Terminate orphan process: pid (2272) (java)
+2026-11-21T11:40:17.7357001Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

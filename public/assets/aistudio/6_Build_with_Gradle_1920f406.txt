@@ -1,0 +1,220 @@
+﻿2026-11-21T11:38:14.2422781Z ##[group]Run ./gradlew build
+2026-11-21T11:38:14.2423105Z [36;1m./gradlew build[0m
+2026-11-21T11:38:14.2449196Z shell: /usr/bin/bash -e {0}
+2026-11-21T11:38:14.2449428Z env:
+2026-11-21T11:38:14.2449694Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2450093Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:14.2450405Z   MAVEN_ARGS: -ntp
+2026-11-21T11:38:14.2450589Z ##[endgroup]
+2026-11-21T11:38:15.1381848Z 
+2026-11-21T11:38:15.1383105Z Welcome to Gradle 9.3.1!
+2026-11-21T11:38:15.1383456Z 
+2026-11-21T11:38:15.1384413Z Here are the highlights of this release:
+2026-11-21T11:38:15.1385304Z  - Test reporting improvements
+2026-11-21T11:38:15.1386071Z  - Error and warning improvements
+2026-11-21T11:38:15.1386929Z  - Build authoring improvements
+2026-11-21T11:38:15.1387179Z 
+2026-11-21T11:38:15.1388794Z For more details see https://docs.gradle.org/9.3.1/release-notes.html
+2026-11-21T11:38:15.1389288Z 
+2026-11-21T11:38:15.3353444Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-21T11:38:40.1332740Z 
+2026-11-21T11:38:40.1373903Z > Configure project :app
+2026-11-21T11:38:40.1401688Z WARNING: The option setting 'android.enableJetifier=true' is deprecated.
+2026-11-21T11:38:40.1432985Z The current default is 'false'.
+2026-11-21T11:38:40.1445309Z It will be removed in version 10.0 of the Android Gradle plugin.
+2026-11-21T11:38:44.4345990Z Checking the license for package Android SDK Platform 33 in /usr/local/lib/android/sdk/licenses
+2026-11-21T11:38:44.4380688Z License for package Android SDK Platform 33 accepted.
+2026-11-21T11:38:44.5336241Z Preparing "Install Android SDK Platform 33 (revision 3)".
+2026-11-21T11:38:47.1332430Z "Install Android SDK Platform 33 (revision 3)" ready.
+2026-11-21T11:38:47.1333040Z Installing Android SDK Platform 33 in /usr/local/lib/android/sdk/platforms/android-33
+2026-11-21T11:38:47.1333465Z "Install Android SDK Platform 33 (revision 3)" complete.
+2026-11-21T11:38:47.7343378Z "Install Android SDK Platform 33 (revision 3)" finished.
+2026-11-21T11:38:48.6334858Z [=========                              ] 25%                                   
+2026-11-21T11:38:48.6338802Z > Task :app:preBuild UP-TO-DATE
+2026-11-21T11:38:48.6339321Z > Task :app:preDebugBuild UP-TO-DATE
+2026-11-21T11:38:48.6339874Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+2026-11-21T11:38:48.7343298Z > Task :app:generateDebugResources
+2026-11-21T11:38:48.9343166Z > Task :app:packageDebugResources
+2026-11-21T11:39:04.9373178Z > Task :app:processDebugNavigationResources
+2026-11-21T11:39:05.0343214Z > Task :app:generateDebugAssets UP-TO-DATE
+2026-11-21T11:39:05.0436679Z > Task :app:javaPreCompileDebug
+2026-11-21T11:39:05.1343215Z > Task :app:parseDebugLocalResources
+2026-11-21T11:39:05.1372816Z > Task :app:mergeDebugAssets
+2026-11-21T11:39:05.2355957Z > Task :app:generateDebugRFile
+2026-11-21T11:39:06.1333524Z > Task :app:compressDebugAssets
+2026-11-21T11:39:06.7332177Z > Task :app:checkDebugDuplicateClasses
+2026-11-21T11:39:06.7333008Z > Task :app:compileDebugKotlin NO-SOURCE
+2026-11-21T11:39:09.6336165Z Note: /home/runner/work/Gecko-Browser/Gecko-Browser/app/src/main/java/com/example/geckobrowser/MainActivity.java uses or overrides a deprecated API.
+2026-11-21T11:39:09.6337070Z 
+2026-11-21T11:39:09.6403188Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-21T11:39:09.6403777Z > Task :app:compileDebugJavaWithJavac
+2026-11-21T11:39:10.4335111Z 
+2026-11-21T11:39:10.4355058Z > Task :app:processDebugJavaRes NO-SOURCE
+2026-11-21T11:39:10.8343821Z > Task :app:checkDebugAarMetadata
+2026-11-21T11:39:10.8344609Z > Task :app:mapDebugSourceSetPaths
+2026-11-21T11:39:11.0332206Z > Task :app:mergeDebugJavaResource
+2026-11-21T11:39:11.2331877Z > Task :app:compileDebugNavigationResources
+2026-11-21T11:39:11.8333117Z > Task :app:createDebugCompatibleScreenManifests
+2026-11-21T11:39:11.8392167Z > Task :app:extractDeepLinksDebug
+2026-11-21T11:39:12.5333343Z > Task :app:mergeDebugResources
+2026-11-21T11:39:12.6333154Z > Task :app:processDebugMainManifest
+2026-11-21T11:39:12.7331513Z > Task :app:processDebugManifest
+2026-11-21T11:39:13.2332141Z > Task :app:desugarDebugFileDependencies
+2026-11-21T11:39:34.9378964Z > Task :app:mergeDebugJniLibFolders
+2026-11-21T11:39:34.9413211Z > Task :app:processDebugManifestForPackage
+2026-11-21T11:39:35.9353090Z > Task :app:validateSigningDebug
+2026-11-21T11:39:36.0343016Z > Task :app:writeDebugAppMetadata
+2026-11-21T11:39:36.0352726Z > Task :app:writeDebugSigningConfigVersions
+2026-11-21T11:39:36.0382665Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-11-21T11:39:36.0402599Z > Task :app:mergeReleaseJniLibFolders
+2026-11-21T11:39:36.5352808Z > Task :app:processDebugResources
+2026-11-21T11:39:38.1336658Z > Task :app:mergeDebugNativeLibs
+2026-11-21T11:39:38.7333876Z > Task :app:mergeReleaseNativeLibs
+2026-11-21T11:39:38.7363336Z > Task :app:dexBuilderDebug
+2026-11-21T11:39:39.5347039Z > Task :app:checkReleaseDuplicateClasses
+2026-11-21T11:39:39.5395693Z > Task :app:generateReleaseResources
+2026-11-21T11:39:39.7337695Z > Task :app:packageReleaseResources
+2026-11-21T11:39:39.7342804Z > Task :app:processReleaseNavigationResources
+2026-11-21T11:39:39.8394342Z > Task :app:parseReleaseLocalResources
+2026-11-21T11:39:39.9422916Z > Task :app:generateReleaseRFile
+2026-11-21T11:39:39.9452497Z > Task :app:compileReleaseKotlin NO-SOURCE
+2026-11-21T11:39:39.9500811Z > Task :app:javaPreCompileRelease
+2026-11-21T11:39:40.0332998Z > Task :app:mergeExtDexDebug
+2026-11-21T11:39:40.2342306Z 
+2026-11-21T11:39:40.2372872Z > Task :app:stripReleaseDebugSymbols
+2026-11-21T11:39:40.2385575Z Unable to strip the following libraries, packaging them as they are: libfreebl3.so, libgkcodecs.so, libipcclientcerts.so, liblgpllibs.so, libmozavcodec.so, libmozavutil.so, libmozglue.so, libnss3.so, libnssckbi.so, libplugin-container.so, libsoftokn3.so, libxul.so. Run with --info option to learn more.
+2026-11-21T11:39:40.7332090Z 
+2026-11-21T11:39:40.7355073Z > Task :app:stripDebugDebugSymbols
+2026-11-21T11:39:40.7393932Z Unable to strip the following libraries, packaging them as they are: libfreebl3.so, libgkcodecs.so, libipcclientcerts.so, liblgpllibs.so, libmozavcodec.so, libmozavutil.so, libmozglue.so, libnss3.so, libnssckbi.so, libplugin-container.so, libsoftokn3.so, libxul.so. Run with --info option to learn more.
+2026-11-21T11:39:40.9333849Z Note: /home/runner/work/Gecko-Browser/Gecko-Browser/app/src/main/java/com/example/geckobrowser/MainActivity.java uses or overrides a deprecated API.
+2026-11-21T11:39:40.9374419Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-21T11:39:40.9374921Z 
+2026-11-21T11:39:40.9403370Z > Task :app:compileReleaseJavaWithJavac
+2026-11-21T11:39:40.9432781Z 
+2026-11-21T11:39:40.9453188Z > Task :app:extractReleaseNativeSymbolTables
+2026-11-21T11:39:40.9462381Z > Task :app:checkReleaseAarMetadata
+2026-11-21T11:39:40.9462899Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-11-21T11:39:40.9463361Z > Task :app:mapReleaseSourceSetPaths
+2026-11-21T11:39:40.9463754Z > Task :app:compileReleaseNavigationResources
+2026-11-21T11:39:41.4356505Z > Task :app:createReleaseCompatibleScreenManifests
+2026-11-21T11:39:41.4383100Z > Task :app:extractDeepLinksRelease
+2026-11-21T11:39:41.5332157Z > Task :app:processReleaseMainManifest
+2026-11-21T11:39:41.5386727Z > Task :app:processReleaseManifest
+2026-11-21T11:39:41.5418204Z > Task :app:desugarReleaseFileDependencies
+2026-11-21T11:39:41.6353304Z > Task :app:mergeReleaseStartupProfile UP-TO-DATE
+2026-11-21T11:39:45.7335457Z > Task :app:mergeDexDebug
+2026-11-21T11:39:46.1346181Z > Task :app:mergeReleaseResources
+2026-11-21T11:39:58.6343119Z > Task :app:processReleaseManifestForPackage
+2026-11-21T11:39:59.4331239Z > Task :app:mergeReleaseArtProfile
+2026-11-21T11:39:59.4372962Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-11-21T11:39:59.4392680Z > Task :app:processReleaseResources
+2026-11-21T11:39:59.6335330Z > Task :app:mergeReleaseAssets
+2026-11-21T11:40:01.0362986Z > Task :app:dexBuilderRelease
+2026-11-21T11:40:01.4363264Z > Task :app:extractReleaseVersionControlInfo
+2026-11-21T11:40:01.5342929Z > Task :app:extractProguardFiles
+2026-11-21T11:40:02.2353695Z > Task :app:compressReleaseAssets
+2026-11-21T11:40:04.2332913Z > Task :app:mergeExtDexRelease
+2026-11-21T11:40:06.4350644Z > Task :app:generateReleaseLintVitalReportModel
+2026-11-21T11:40:08.4331417Z 
+2026-11-21T11:40:08.4335367Z > Task :app:mergeDexRelease
+2026-11-21T11:40:08.4336062Z ERROR: D8: Cannot fit requested classes in a single dex file (# methods: 66630 > 65536)
+2026-11-21T11:40:08.4364636Z com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+2026-11-21T11:40:08.4365495Z The number of method references in a .dex file cannot exceed 64K.
+2026-11-21T11:40:08.4366304Z Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+2026-11-21T11:40:08.4367380Z 	at com.android.builder.dexing.D8DexArchiveMerger.getMergingExceptionToRethrow(D8DexArchiveMerger.java:231)
+2026-11-21T11:40:08.4368483Z 	at com.android.builder.dexing.D8DexArchiveMerger.mergeDexArchives(D8DexArchiveMerger.java:219)
+2026-11-21T11:40:08.4369514Z 	at com.android.build.gradle.internal.tasks.DexMergingWorkAction.merge(DexMergingTask.kt:820)
+2026-11-21T11:40:08.4370484Z 	at com.android.build.gradle.internal.tasks.DexMergingWorkAction.run(DexMergingTask.kt:775)
+2026-11-21T11:40:08.4371539Z 	at com.android.build.gradle.internal.profile.ProfileAwareWorkAction.execute(ProfileAwareWorkAction.kt:66)
+2026-11-21T11:40:08.4372799Z 	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
+2026-11-21T11:40:08.4373802Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:64)
+2026-11-21T11:40:08.4374811Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:61)
+2026-11-21T11:40:08.4375817Z 	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:102)
+2026-11-21T11:40:08.4376857Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:61)
+2026-11-21T11:40:08.4377746Z 	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+2026-11-21T11:40:08.4378464Z 	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+2026-11-21T11:40:08.4379538Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+2026-11-21T11:40:08.4380934Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-21T11:40:08.4382307Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-21T11:40:08.4383418Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-21T11:40:08.4384518Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+2026-11-21T11:40:08.4385632Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-21T11:40:08.4386705Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-21T11:40:08.4387751Z 	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+2026-11-21T11:40:08.4388754Z 	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:58)
+2026-11-21T11:40:08.4389816Z 	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:176)
+2026-11-21T11:40:08.4390656Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+2026-11-21T11:40:08.4391654Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:194)
+2026-11-21T11:40:08.4393622Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:127)
+2026-11-21T11:40:08.4395061Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:169)
+2026-11-21T11:40:08.4395974Z 	at org.gradle.internal.Factories$1.create(Factories.java:30)
+2026-11-21T11:40:08.4396840Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withLocksAcquired$0(DefaultWorkerLeaseService.java:269)
+2026-11-21T11:40:08.4397955Z 	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:42)
+2026-11-21T11:40:08.4398991Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:267)
+2026-11-21T11:40:08.4400056Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:259)
+2026-11-21T11:40:08.4401102Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+2026-11-21T11:40:08.4402365Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
+2026-11-21T11:40:08.4403559Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
+2026-11-21T11:40:08.4404841Z 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+2026-11-21T11:40:08.4405843Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+2026-11-21T11:40:08.4406546Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+2026-11-21T11:40:08.4407390Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-21T11:40:08.4408374Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-21T11:40:08.4409497Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+2026-11-21T11:40:08.4410391Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+2026-11-21T11:40:08.4411046Z 	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-21T11:40:08.4411778Z Caused by: com.android.tools.r8.CompilationFailedException: Compilation failed to complete, position: null
+2026-11-21T11:40:08.4412683Z 	at Version.fakeStackEntry(Version_9.1.31.java:0)
+2026-11-21T11:40:08.4413386Z 	at com.android.tools.r8.r0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:1)
+2026-11-21T11:40:08.4414383Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:81)
+2026-11-21T11:40:08.4415416Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:32)
+2026-11-21T11:40:08.4416466Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:31)
+2026-11-21T11:40:08.4417485Z 	at com.android.tools.r8.internal.lw0.b(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:2)
+2026-11-21T11:40:08.4418463Z 	at com.android.tools.r8.D8.run(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:11)
+2026-11-21T11:40:08.4419419Z 	at com.android.builder.dexing.D8DexArchiveMerger.mergeDexArchives(D8DexArchiveMerger.java:217)
+2026-11-21T11:40:08.4420056Z 	... 40 more
+2026-11-21T11:40:08.4420666Z Caused by: com.android.tools.r8.internal.j: Cannot fit requested classes in a single dex file (# methods: 66630 > 65536)
+2026-11-21T11:40:08.4421706Z 	at com.android.tools.r8.internal.yp3.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:21)
+2026-11-21T11:40:08.4422919Z 	at com.android.tools.r8.internal.rm2.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:27)
+2026-11-21T11:40:08.4424225Z 	at com.android.tools.r8.dex.j.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:72)
+2026-11-21T11:40:08.4425327Z 	at com.android.tools.r8.dex.j.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:195)
+2026-11-21T11:40:08.4426286Z 	at com.android.tools.r8.D8.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:113)
+2026-11-21T11:40:08.4427210Z 	at com.android.tools.r8.D8.d(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:151)
+2026-11-21T11:40:08.4428123Z 	at com.android.tools.r8.D8.b(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:1)
+2026-11-21T11:40:08.4429098Z 	at com.android.tools.r8.internal.lw0.a(R8_9.1.31_ffb8f76e0cfe19f6a6aff10b55ad38bc82c7544bc91f5b7fd86bc80f9b2412e7:28)
+2026-11-21T11:40:08.4429790Z 	... 43 more
+2026-11-21T11:40:08.4429934Z 
+2026-11-21T11:40:08.6331456Z 
+2026-11-21T11:40:08.6332617Z > Task :app:mergeDexRelease FAILED
+2026-11-21T11:40:11.9332059Z > Task :app:packageDebug
+2026-11-21T11:40:11.9333042Z > Task :app:createDebugApkListingFileRedirect
+2026-11-21T11:40:16.7338995Z 
+2026-11-21T11:40:16.7339780Z > Task :app:lintVitalAnalyzeRelease
+2026-11-21T11:40:16.7343567Z 
+2026-11-21T11:40:16.7344467Z [Incubating] Problems report is available at: file:///home/runner/work/Gecko-Browser/Gecko-Browser/build/reports/problems/problems-report.html
+2026-11-21T11:40:16.7345356Z 
+2026-11-21T11:40:16.7345911Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-11-21T11:40:16.7346511Z 
+2026-11-21T11:40:16.7347177Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-11-21T11:40:16.7347982Z 
+2026-11-21T11:40:16.7348825Z For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-11-21T11:40:16.7349872Z 67 actionable tasks: 66 executed, 1 up-to-date
+2026-11-21T11:40:16.7352551Z FAILURE: Build failed with an exception.
+2026-11-21T11:40:16.7362798Z 
+2026-11-21T11:40:16.7365365Z * What went wrong:
+2026-11-21T11:40:16.7375650Z Execution failed for task ':app:mergeDexRelease'.
+2026-11-21T11:40:16.7376661Z > A failure occurred while executing com.android.build.gradle.internal.tasks.DexMergingTaskDelegate
+2026-11-21T11:40:16.7377518Z    > There was a failure while executing work items
+2026-11-21T11:40:16.7378398Z       > A failure occurred while executing com.android.build.gradle.internal.tasks.DexMergingWorkAction
+2026-11-21T11:40:16.7380859Z          > com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+2026-11-21T11:40:16.7382081Z            The number of method references in a .dex file cannot exceed 64K.
+2026-11-21T11:40:16.7382982Z            Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+2026-11-21T11:40:16.7383643Z 
+2026-11-21T11:40:16.7383884Z * Try:
+2026-11-21T11:40:16.7384347Z > Run with --stacktrace option to get the stack trace.
+2026-11-21T11:40:16.7384957Z > Run with --info or --debug option to get more log output.
+2026-11-21T11:40:16.7385685Z > Run with --scan to get full insights from a Build Scan (powered by Develocity).
+2026-11-21T11:40:16.7386364Z > Get more help at https://help.gradle.org.
+2026-11-21T11:40:16.7386764Z 
+2026-11-21T11:40:16.7387035Z BUILD FAILED in 2m 2s
+2026-11-21T11:40:17.2204605Z ##[error]Process completed with exit code 1.

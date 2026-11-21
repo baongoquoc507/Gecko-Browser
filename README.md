@@ -47,7 +47,7 @@ A lightweight, privacy-focused Android web browser powered by **Mozilla GeckoVie
 | **Gradle Wrapper** | `9.3.1` |
 | **compileSdkVersion** | `33` |
 | **targetSdkVersion** | `30` |
-| **minSdkVersion** | `16` (Android 4.1+) |
+| **minSdkVersion** | `16` (Android 4.1+, MultiDex enabled) |
 
 ---
 
@@ -62,6 +62,7 @@ A lightweight, privacy-focused Android web browser powered by **Mozilla GeckoVie
 │       ├── main/
 │       │   ├── AndroidManifest.xml
 │       │   ├── java/com/example/geckobrowser/
+│       │   │   ├── GeckoBrowserApp.java       # MultiDexApplication subclass for API < 21 support
 │       │   │   ├── MainActivity.java          # Tabs, GeckoRuntime/GeckoSession lifecycle, UI & delegates
 │       │   │   ├── BrowserDialogs.java        # Tab grid, Chrome More sheet, bookmarks/history, security info
 │       │   │   ├── BrowserPromptDelegate.java # JS alert/confirm/prompt, auth, choice, and file pickers

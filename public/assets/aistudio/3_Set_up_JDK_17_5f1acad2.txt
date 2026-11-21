@@ -1,0 +1,40 @@
+﻿2026-11-21T11:38:09.4024192Z ##[group]Run actions/setup-java@v5
+2026-11-21T11:38:09.4025245Z with:
+2026-11-21T11:38:09.4025911Z   java-version: 17
+2026-11-21T11:38:09.4026632Z   distribution: temurin
+2026-11-21T11:38:09.4027383Z   cache: gradle
+2026-11-21T11:38:09.4028294Z   java-package: jdk
+2026-11-21T11:38:09.4029036Z   check-latest: false
+2026-11-21T11:38:09.4029768Z   set-default: true
+2026-11-21T11:38:09.4030497Z   verify-signature: false
+2026-11-21T11:38:09.4031271Z   server-id: github
+2026-11-21T11:38:09.4032115Z   server-username: GITHUB_ACTOR
+2026-11-21T11:38:09.4032976Z   server-password: GITHUB_TOKEN
+2026-11-21T11:38:09.4033828Z   overwrite-settings: true
+2026-11-21T11:38:09.4034617Z   job-status: success
+2026-11-21T11:38:09.4041793Z   token: ***
+2026-11-21T11:38:09.4042606Z   show-download-progress: false
+2026-11-21T11:38:09.4043417Z ##[endgroup]
+2026-11-21T11:38:09.5782739Z ##[group]Installed distributions
+2026-11-21T11:38:09.5829491Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-21T11:38:09.5830612Z Setting Java 17.0.21+9 as the default
+2026-11-21T11:38:09.5838592Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-21T11:38:09.5895407Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-21T11:38:09.5896349Z 
+2026-11-21T11:38:09.5896778Z Java configuration:
+2026-11-21T11:38:09.5897774Z   Distribution: temurin
+2026-11-21T11:38:09.5898796Z   Version: 17.0.21+9
+2026-11-21T11:38:09.5900113Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-21T11:38:09.5901161Z 
+2026-11-21T11:38:09.5902516Z ##[endgroup]
+2026-11-21T11:38:09.5932382Z Creating settings.xml with server-id: github
+2026-11-21T11:38:09.5933935Z Writing to /home/runner/.m2/settings.xml
+2026-11-21T11:38:09.5936504Z Configured MAVEN_ARGS to include -ntp to suppress Maven transfer progress logs. Set 'show-download-progress: true' to keep the download progress output.
+2026-11-21T11:38:09.8267150Z gradle cache is not found
+2026-11-21T11:38:09.9577714Z Cache hit for: setup-java-Linux-x64-gradle-wrapper-54b475c40ac768de85d86cc6a4b285b5db5335a7cfaa85d475a725a03b77fd32
+2026-11-21T11:38:11.1508277Z Received 134217728 of 273374057 (49.1%), 127.1 MBs/sec
+2026-11-21T11:38:11.8523453Z Received 273374057 of 273374057 (100.0%), 152.6 MBs/sec
+2026-11-21T11:38:11.8524330Z Cache Size: ~261 MB (273374057 B)
+2026-11-21T11:38:11.8634148Z [command]/usr/bin/tar -xf /home/runner/work/_temp/2136a6ce-e946-47d8-bab1-91e384e87d09/cache.tzst -P -C /home/runner/work/Gecko-Browser/Gecko-Browser --use-compress-program unzstd
+2026-11-21T11:38:12.1818239Z Cache restored successfully
+2026-11-21T11:38:12.1935658Z gradle-wrapper cache restored from key: setup-java-Linux-x64-gradle-wrapper-54b475c40ac768de85d86cc6a4b285b5db5335a7cfaa85d475a725a03b77fd32
