@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 ext {
-    geckoviewChannel = "-beta" //if nightly or beta wanted use "-nightly" or "-beta"
-    geckoviewVersion = "80.0.20200728204253"
+    geckoviewChannel = "" //if nightly or beta wanted use "-nightly" or "-beta"
+    geckoviewVersion = "118.0.20231009140911"
 }
 
 android {
     namespace "com.example.geckobrowser"
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.example.geckobrowser"

@@ -55,6 +55,7 @@ import org.mozilla.geckoview.GeckoSession;
 import org.mozilla.geckoview.GeckoSessionSettings;
 import org.mozilla.geckoview.GeckoView;
 import org.mozilla.geckoview.StorageController;
+import org.mozilla.geckoview.WebResponse;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -69,6 +70,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -1158,9 +1160,10 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
         session.setPermissionDelegate(new GeckoSession.PermissionDelegate() {
+            @Nullable
             @Override
-            public void onContentPermissionRequest(@NonNull GeckoSession s, @Nullable String uri, int type, @NonNull Callback callback) {
-                callback.reject();
+            public GeckoResult<Integer> onContentPermissionRequest(@NonNull GeckoSession s, @NonNull ContentPermission perm) {
+                return GeckoResult.fromValue(ContentPermission.VALUE_DENY);
             }
 
             @Override
@@ -2254,7 +2257,10 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         @Override
-        public void onLocationChange(@NonNull GeckoSession session, @Nullable String url) {
+        public void onLocationChange(
+                @NonNull GeckoSession session,
+                @Nullable String url,
+                @NonNull List<GeckoSession.PermissionDelegate.ContentPermission> perms) {
             if (url != null) {
                 if (shouldIgnoreBlankReset(tab, url)) {
                     return;
@@ -2376,13 +2382,61 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         @Override
-        public void onExternalResponse(@NonNull GeckoSession session, @NonNull GeckoSession.WebResponseInfo response) {
+        public void onExternalResponse(@NonNull GeckoSession session, @NonNull WebResponse response) {
+            String contentType = getHeaderIgnoreCase(response.headers, "content-type");
+            if (contentType != null && contentType.contains(";")) {
+                contentType = contentType.substring(0, contentType.indexOf(';')).trim();
+            }
+            String disposition = getHeaderIgnoreCase(response.headers, "content-disposition");
+            String filename = extractFilenameFromContentDisposition(disposition);
             BrowserHelper.promptAndEnqueueDownload(
                     MainActivity.this,
                     response.uri,
-                    response.filename,
-                    response.contentType
+                    filename,
+                    contentType
             );
+        }
+
+        @Nullable
+        private String getHeaderIgnoreCase(@Nullable Map<String, String> headers, @NonNull String key) {
+            if (headers == null || headers.isEmpty()) {
+                return null;
+            }
+            String direct = headers.get(key);
+            if (direct != null) {
+                return direct;
+            }
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                if (entry.getKey() != null && entry.getKey().equalsIgnoreCase(key)) {
+                    return entry.getValue();
+                }
+            }
+            return null;
+        }
+
+        @Nullable
+        private String extractFilenameFromContentDisposition(@Nullable String disposition) {
+            if (disposition == null || disposition.isEmpty()) {
+                return null;
+            }
+            String lower = disposition.toLowerCase(Locale.ROOT);
+            int idx = lower.indexOf("filename=");
+            if (idx < 0) {
+                return null;
+            }
+            String part = disposition.substring(idx + 9).trim();
+            if (part.startsWith("\"")) {
+                int endQuote = part.indexOf('"', 1);
+                if (endQuote > 1) {
+                    return part.substring(1, endQuote).trim();
+                }
+            }
+            int semi = part.indexOf(';');
+            if (semi >= 0) {
+                part = part.substring(0, semi);
+            }
+            part = part.replace("\"", "").trim();
+            return part.isEmpty() ? null : part;
         }
 
         @Override
