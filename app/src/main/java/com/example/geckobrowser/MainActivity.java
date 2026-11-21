@@ -824,7 +824,7 @@ public class MainActivity extends AppCompatActivity implements
                     mainHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (token != suggestionRequestToken || !urlEditText.hasFocus()) {
+                            if (isActivityUnavailable() || token != suggestionRequestToken || !urlEditText.hasFocus()) {
                                 return;
                             }
                             for (String s : fetched) {
@@ -841,6 +841,13 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         }).start();
+    }
+
+    private boolean isActivityUnavailable() {
+        if (isFinishing()) {
+            return true;
+        }
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed();
     }
 
     private void restoreOrCreateInitialTabs(Intent launchIntent) {
@@ -947,7 +954,10 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private BrowserTab openNewTabInternal(String initialUrl, boolean isPrivate, boolean switchToIt, boolean loadInitial) {
-        String targetUrl = (initialUrl == null || initialUrl.trim().isEmpty()) ? homepageUrl : initialUrl.trim();
+        String trimmed = initialUrl != null ? initialUrl.trim() : "";
+        String targetUrl = loadInitial
+                ? (trimmed.isEmpty() ? homepageUrl : trimmed)
+                : trimmed;
         BrowserTab tab = new BrowserTab(
                 nextTabId++,
                 targetUrl,
@@ -970,15 +980,18 @@ public class MainActivity extends AppCompatActivity implements
             openNewTab(homepageUrl, BrowserDataStore.isPrivateModeDefault(this), true);
             return;
         }
-        BrowserTab previousTab = getCurrentTab();
-        if (previousTab != null && previousTab.session != null && previousTab != tabs.get(Math.max(0, Math.min(index, tabs.size() - 1)))) {
-            previousTab.session.setActive(false);
-        }
         if (index < 0 || index >= tabs.size()) {
             index = 0;
         }
+        BrowserTab previousTab = getCurrentTab();
+        BrowserTab tab = tabs.get(index);
+        if (previousTab != null && previousTab != tab) {
+            resetFullscreenIfNeeded();
+            if (previousTab.session != null) {
+                previousTab.session.setActive(false);
+            }
+        }
         activeTabIndex = index;
-        BrowserTab tab = tabs.get(activeTabIndex);
 
         boolean createdNow = false;
         if (tab.session == null) {
@@ -1009,6 +1022,9 @@ public class MainActivity extends AppCompatActivity implements
     private void closeTab(int index) {
         if (index < 0 || index >= tabs.size()) {
             return;
+        }
+        if (index == activeTabIndex) {
+            resetFullscreenIfNeeded();
         }
         BrowserTab removed = tabs.remove(index);
         if (!removed.isPrivate && removed.url != null && !removed.url.isEmpty()) {
@@ -1092,15 +1108,25 @@ public class MainActivity extends AppCompatActivity implements
         }
         tab.url = target;
         if (BrowserDataStore.START_PAGE_URL.equals(target)) {
+            tab.isResettingToHome = true;
             tab.title = getString(R.string.app_name);
             tab.isSecure = true;
+            tab.certIssuer = null;
+            tab.certValidUntil = null;
             tab.isLoading = false;
             tab.progress = 100;
+            if (tab.session != null) {
+                tab.session.stop();
+                tab.session.loadUri("about:blank");
+            }
             updateChromeForTab(tab);
         } else {
+            tab.isResettingToHome = false;
             startPageContainer.setVisibility(View.GONE);
             mGeckoView.setVisibility(View.VISIBLE);
-            tab.session.loadUri(target);
+            if (tab.session != null) {
+                tab.session.loadUri(target);
+            }
         }
     }
 
@@ -1390,6 +1416,9 @@ public class MainActivity extends AppCompatActivity implements
         tab.session.getFinder().find(query, flags).accept(new GeckoResult.Consumer<GeckoSession.FinderResult>() {
             @Override
             public void accept(@Nullable GeckoSession.FinderResult res) {
+                if (isActivityUnavailable()) {
+                    return;
+                }
                 if (res != null && findBar.getVisibility() == View.VISIBLE) {
                     findMatchCountText.setText(getString(R.string.find_matches, res.current, res.total));
                     findMatchCountText.setVisibility(View.VISIBLE);
@@ -1417,6 +1446,22 @@ public class MainActivity extends AppCompatActivity implements
             }
         } else {
             decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+    private void resetFullscreenIfNeeded() {
+        if (isFullscreen) {
+            isFullscreen = false;
+            if (toolbarView != null) {
+                toolbarView.setVisibility(View.VISIBLE);
+            }
+            if (bottomNavContainer != null) {
+                bottomNavContainer.setVisibility(isTvMode ? View.GONE : View.VISIBLE);
+            }
+            if (fullscreenContainer != null) {
+                fullscreenContainer.setVisibility(View.GONE);
+            }
+            applyFullscreenSystemUi(false);
         }
     }
 
@@ -1451,19 +1496,29 @@ public class MainActivity extends AppCompatActivity implements
         for (int i = tabs.size() - 1; i >= 0; i--) {
             BrowserTab t = tabs.get(i);
             if (t != current) {
+                if (!t.isPrivate && t.url != null && !t.url.isEmpty()) {
+                    closedTabs.add(0, new BrowserDataStore.SavedTab(t.url, t.title, false));
+                    if (closedTabs.size() > MAX_CLOSED_TABS) {
+                        closedTabs.remove(closedTabs.size() - 1);
+                    }
+                }
                 if (t.session != null) {
+                    if (mGeckoView != null && mGeckoView.getSession() == t.session) {
+                        mGeckoView.releaseSession();
+                    }
                     t.session.close();
                     t.session = null;
                 }
                 tabs.remove(i);
             }
         }
-        activeTabIndex = 0;
+        activeTabIndex = Math.max(0, tabs.indexOf(current));
         refreshTabCount();
     }
 
     @Override
     public void onCloseAllTabs() {
+        resetFullscreenIfNeeded();
         for (BrowserTab t : tabs) {
             if (t.session != null) {
                 if (mGeckoView.getSession() == t.session) {
@@ -1506,7 +1561,11 @@ public class MainActivity extends AppCompatActivity implements
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, title);
         }
         shareIntent.putExtra(Intent.EXTRA_TEXT, url);
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_chooser_title)));
+        try {
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.share_chooser_title)));
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.external_app_error, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -1524,6 +1583,12 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onQuickSitesUpdated() {
         refreshSpeedDial();
+    }
+
+    @Override
+    public long getActiveTabId() {
+        BrowserTab cur = getCurrentTab();
+        return cur != null ? cur.id : -1L;
     }
 
     // ---- BrowserPromptDelegate.FilePickerHost ----
@@ -1593,8 +1658,7 @@ public class MainActivity extends AppCompatActivity implements
             pendingFileResult = null;
 
             if (resultCode == RESULT_OK && data != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
-                        && data.getClipData() != null
+                if (data.getClipData() != null
                         && data.getClipData().getItemCount() > 0) {
                     ClipData clip = data.getClipData();
                     Uri[] uris = new Uri[clip.getItemCount()];
@@ -1698,6 +1762,11 @@ public class MainActivity extends AppCompatActivity implements
 
     // ---- GeckoSession Delegates ----
 
+    private boolean shouldIgnoreBlankReset(BrowserTab tab, @Nullable String url) {
+        return (tab.isResettingToHome || BrowserDataStore.START_PAGE_URL.equals(tab.url))
+                && "about:blank".equalsIgnoreCase(url);
+    }
+
     private class TabProgressDelegate implements GeckoSession.ProgressDelegate {
         private final BrowserTab tab;
 
@@ -1707,6 +1776,10 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         public void onPageStart(@NonNull GeckoSession session, @NonNull String url) {
+            if (shouldIgnoreBlankReset(tab, url)) {
+                return;
+            }
+            tab.isResettingToHome = false;
             tab.url = url;
             tab.isLoading = true;
             tab.progress = 10;
@@ -1725,6 +1798,16 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         public void onPageStop(@NonNull GeckoSession session, boolean success) {
+            if (tab.isResettingToHome || BrowserDataStore.START_PAGE_URL.equals(tab.url)) {
+                tab.isResettingToHome = false;
+                tab.isLoading = false;
+                tab.progress = 100;
+                if (tab == getCurrentTab()) {
+                    updateNavButtons(tab);
+                    updateProgressUI(tab);
+                }
+                return;
+            }
             tab.isLoading = false;
             tab.progress = 100;
             if (!tab.isPrivate && success) {
@@ -1738,6 +1821,9 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         public void onProgressChange(@NonNull GeckoSession session, int progress) {
+            if (tab.isResettingToHome || BrowserDataStore.START_PAGE_URL.equals(tab.url)) {
+                return;
+            }
             tab.progress = progress;
             tab.isLoading = progress > 0 && progress < 100;
             if (tab == getCurrentTab()) {
@@ -1748,6 +1834,9 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         public void onSecurityChange(@NonNull GeckoSession session, @NonNull SecurityInformation securityInfo) {
+            if (tab.isResettingToHome || BrowserDataStore.START_PAGE_URL.equals(tab.url)) {
+                return;
+            }
             tab.isSecure = securityInfo.isSecure;
             X509Certificate cert = securityInfo.certificate;
             if (cert != null) {
@@ -1777,6 +1866,10 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         public void onLocationChange(@NonNull GeckoSession session, @Nullable String url) {
             if (url != null) {
+                if (shouldIgnoreBlankReset(tab, url)) {
+                    return;
+                }
+                tab.isResettingToHome = false;
                 tab.url = url;
                 tab.isSecure = url.startsWith("https://");
                 if (tab == getCurrentTab()) {
@@ -1847,6 +1940,9 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         public void onTitleChange(@NonNull GeckoSession session, @Nullable String title) {
+            if (tab.isResettingToHome || BrowserDataStore.START_PAGE_URL.equals(tab.url)) {
+                return;
+            }
             if (title != null) {
                 tab.title = title;
                 if (!tab.isPrivate && tab.url != null && !tab.url.isEmpty()) {
@@ -1887,6 +1983,9 @@ public class MainActivity extends AppCompatActivity implements
                 int screenX,
                 int screenY,
                 @NonNull final ContextElement element) {
+            if (isActivityUnavailable()) {
+                return;
+            }
             final List<String> labels = new ArrayList<>();
             final List<Runnable> actions = new ArrayList<>();
 

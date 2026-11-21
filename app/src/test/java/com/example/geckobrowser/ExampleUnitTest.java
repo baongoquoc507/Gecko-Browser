@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ExampleUnitTest {
     @Test
@@ -21,5 +22,21 @@ public class ExampleUnitTest {
             sb.append('x');
         }
         assertEquals(80, BrowserHelper.sanitizeFilename(sb.toString()).length());
+    }
+
+    @Test
+    public void guessFilename_prefersSanitizedSuggestedFilename() {
+        assertEquals("invoice_2025.pdf", BrowserHelper.guessFilename("https://example.com/file", "invoice 2025.pdf", "application/pdf"));
+        assertEquals("report.csv", BrowserHelper.guessFilename(null, "report.csv", null));
+    }
+
+    @Test
+    public void browserTab_hasSafeDefaults() {
+        BrowserTab tab = new BrowserTab(7L, "https://example.com", "Example", true, false);
+        assertEquals(7L, tab.id);
+        assertTrue(tab.isPrivate);
+        assertTrue(tab.isSecure);
+        assertFalse(tab.isResettingToHome);
+        assertFalse(tab.desktopMode);
     }
 }

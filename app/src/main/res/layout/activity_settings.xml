@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
     android:orientation="vertical">
 
     <!-- Top App Bar -->
@@ -339,8 +338,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowSearchSuggestions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -389,8 +392,12 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/rowDisableJs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -417,8 +424,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowDisableTp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -445,8 +456,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowDesktopMode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -473,8 +488,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowPrivateMode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -501,8 +520,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowClearTabsOnExit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -586,8 +609,12 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/rowAutoHideBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"
@@ -614,8 +641,12 @@
                         android:background="@color/border_subtle" />
 
                     <LinearLayout
+                        android:id="@+id/rowHideWhiteSplash"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:minHeight="54dp"
                         android:orientation="horizontal"

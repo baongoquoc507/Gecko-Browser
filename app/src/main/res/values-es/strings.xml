@@ -34,7 +34,6 @@
     <string name="menu_find_in_page">Buscar en la página</string>
     <string name="menu_share">Compartir página</string>
     <string name="menu_copy_link">Copiar enlace</string>
-    <string name="menu_desktop_site">Sitio de escritorio</string>
     <string name="menu_desktop_site_on">Sitio de escritorio: SÍ</string>
     <string name="menu_desktop_site_off">Sitio de escritorio: NO</string>
     <string name="menu_settings">Ajustes</string>

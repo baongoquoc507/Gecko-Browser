@@ -1,0 +1,8 @@
+2026-11-20T15:13:23.9730000Z Evaluating build.if
+2026-11-20T15:13:23.9730000Z Evaluating: success()
+2026-11-20T15:13:23.9730000Z Result: true
+2026-11-20T15:13:24.1710000Z Requested labels: ubuntu-latest
+2026-11-20T15:13:24.1710000Z Job defined at: baongoquoc507/Gecko-Browser/.github/workflows/android.yml@refs/heads/master
+2026-11-20T15:13:24.1710000Z Waiting for a runner to pick up this job...
+2026-11-20T15:13:24.5930000Z Job is about to start running on the hosted runner: GitHub Actions 1000000127
+2026-11-20T15:13:24.5920000Z Job is waiting for a hosted runner to come online.

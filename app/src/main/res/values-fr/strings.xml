@@ -34,7 +34,6 @@
     <string name="menu_find_in_page">Rechercher dans la page</string>
     <string name="menu_share">Partager la page</string>
     <string name="menu_copy_link">Copier le lien</string>
-    <string name="menu_desktop_site">Version ordinateur</string>
     <string name="menu_desktop_site_on">Version ordinateur : OUI</string>
     <string name="menu_desktop_site_off">Version ordinateur : NON</string>
     <string name="menu_settings">Paramètres</string>

@@ -3,6 +3,7 @@ package com.example.geckobrowser;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -52,13 +53,22 @@ public final class BrowserDialogs {
         void onCopyLink(String url);
 
         void onQuickSitesUpdated();
+
+        long getActiveTabId();
     }
 
     private BrowserDialogs() {
     }
 
+    private static boolean isActivityUnavailable(Activity activity) {
+        if (activity == null || activity.isFinishing()) {
+            return true;
+        }
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed();
+    }
+
     public static void showSecurityDialog(final Activity activity, BrowserTab tab, final BrowserActions actions) {
-        if (tab == null) {
+        if (tab == null || isActivityUnavailable(activity)) {
             return;
         }
         boolean secure = tab.isSecure || (tab.url != null && (tab.url.startsWith("https://") || BrowserDataStore.START_PAGE_URL.equals(tab.url)));
@@ -100,7 +110,7 @@ public final class BrowserDialogs {
     }
 
     public static void showTabSessionHistoryDialog(Activity activity, final BrowserTab tab) {
-        if (tab == null || tab.session == null || tab.historyList == null || tab.historyList.isEmpty()) {
+        if (isActivityUnavailable(activity) || tab == null || tab.session == null || tab.historyList == null || tab.historyList.isEmpty()) {
             return;
         }
         final int size = tab.historyList.size();
@@ -131,6 +141,9 @@ public final class BrowserDialogs {
             final int activeTabIndex,
             final String homepageUrl,
             final BrowserActions actions) {
+        if (isActivityUnavailable(activity)) {
+            return;
+        }
         View panel = LayoutInflater.from(activity).inflate(R.layout.dialog_list_panel, null);
         ListView listView = panel.findViewById(R.id.panelListView);
 
@@ -157,7 +170,7 @@ public final class BrowserDialogs {
                 })
                 .create();
 
-        final TabsAdapter adapter = new TabsAdapter(activity, tabs, activeTabIndex, dialog, actions);
+        final TabsAdapter adapter = new TabsAdapter(activity, tabs, dialog, actions);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -169,9 +182,20 @@ public final class BrowserDialogs {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (tabs.size() > 1) {
-                    dialog.dismiss();
-                    actions.onCloseOtherTabs();
+                if (tabs.size() > 1 && position >= 0 && position < tabs.size()) {
+                    final int targetPos = position;
+                    new AlertDialog.Builder(activity)
+                            .setTitle(R.string.close_other_tabs)
+                            .setPositiveButton(R.string.close_other_tabs, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface d, int which) {
+                                    actions.onSwitchTab(targetPos);
+                                    actions.onCloseOtherTabs();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                     return true;
                 }
                 return false;
@@ -184,6 +208,9 @@ public final class BrowserDialogs {
             final Activity activity,
             final boolean isBookmarks,
             final BrowserActions actions) {
+        if (isActivityUnavailable(activity)) {
+            return;
+        }
         View panel = LayoutInflater.from(activity).inflate(R.layout.dialog_list_panel, null);
         EditText filterInput = panel.findViewById(R.id.panelFilterInput);
         final TextView emptyText = panel.findViewById(R.id.panelEmptyText);
@@ -242,7 +269,7 @@ public final class BrowserDialogs {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position < 0 || position >= filteredItems.size()) {
+                if (position < 0 || position >= filteredItems.size() || isActivityUnavailable(activity)) {
                     return false;
                 }
                 final BrowserDataStore.SavedPage page = filteredItems.get(position);
@@ -304,6 +331,9 @@ public final class BrowserDialogs {
     }
 
     public static void showAddQuickSiteDialog(final Activity activity, final BrowserActions actions) {
+        if (isActivityUnavailable(activity)) {
+            return;
+        }
         int pad = (int) (16 * activity.getResources().getDisplayMetrics().density);
         LinearLayout layout = new LinearLayout(activity);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -342,6 +372,9 @@ public final class BrowserDialogs {
             final List<BrowserDataStore.SavedPage> filteredItems,
             final SavedPagesAdapter adapter,
             final BrowserActions actions) {
+        if (isActivityUnavailable(activity)) {
+            return;
+        }
         int pad = (int) (16 * activity.getResources().getDisplayMetrics().density);
         LinearLayout layout = new LinearLayout(activity);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -394,19 +427,16 @@ public final class BrowserDialogs {
     private static class TabsAdapter extends BaseAdapter {
         private final Activity activity;
         private final List<BrowserTab> tabs;
-        private final int activeTabIndex;
         private final AlertDialog parentDialog;
         private final BrowserActions actions;
 
         TabsAdapter(
                 Activity activity,
                 List<BrowserTab> tabs,
-                int activeTabIndex,
                 AlertDialog parentDialog,
                 BrowserActions actions) {
             this.activity = activity;
             this.tabs = tabs;
-            this.activeTabIndex = activeTabIndex;
             this.parentDialog = parentDialog;
             this.actions = actions;
         }
@@ -446,7 +476,7 @@ public final class BrowserDialogs {
             titleView.setText(title);
             urlView.setText(tab.url != null ? tab.url : "");
 
-            boolean isActive = (position == activeTabIndex);
+            boolean isActive = (tab.id == actions.getActiveTabId());
             titleView.setTextColor(ContextCompat.getColor(
                     activity,
                     isActive ? R.color.accent_blue : R.color.text_primary

@@ -24,9 +24,16 @@ public final class LocaleHelper {
     public static final String UI_MODE_PHONE = "phone";
     public static final String UI_MODE_TV = "tv";
 
-    private static final Locale SYSTEM_DEFAULT_LOCALE = Locale.getDefault();
-
     private LocaleHelper() {
+    }
+
+    @SuppressWarnings("deprecation")
+    private static Locale getSystemDefaultLocale() {
+        Configuration sysConfig = Resources.getSystem().getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !sysConfig.getLocales().isEmpty()) {
+            return sysConfig.getLocales().get(0);
+        }
+        return sysConfig.locale != null ? sysConfig.locale : Locale.getDefault();
     }
 
     public static String getSavedLanguage(Context context) {
@@ -38,7 +45,7 @@ public final class LocaleHelper {
         context.getSharedPreferences(PREFS_SETTINGS, Context.MODE_PRIVATE)
                 .edit()
                 .putString(KEY_LANGUAGE, langCode)
-                .commit();
+                .apply();
     }
 
     public static String getSavedTheme(Context context) {
@@ -50,7 +57,7 @@ public final class LocaleHelper {
         context.getSharedPreferences(PREFS_SETTINGS, Context.MODE_PRIVATE)
                 .edit()
                 .putString(KEY_THEME, themeMode)
-                .commit();
+                .apply();
     }
 
     public static String getSavedUiMode(Context context) {
@@ -67,7 +74,7 @@ public final class LocaleHelper {
         context.getSharedPreferences(PREFS_SETTINGS, Context.MODE_PRIVATE)
                 .edit()
                 .putString(KEY_UI_MODE, UI_MODE_TV.equals(uiMode) ? UI_MODE_TV : UI_MODE_PHONE)
-                .commit();
+                .apply();
     }
 
     public static void applyTheme(Context context) {
@@ -82,11 +89,12 @@ public final class LocaleHelper {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public static Context wrapContext(Context context) {
         String lang = getSavedLanguage(context);
         Locale targetLocale;
-        if (LANG_SYSTEM.equals(lang) || lang.isEmpty()) {
-            targetLocale = SYSTEM_DEFAULT_LOCALE;
+        if (LANG_SYSTEM.equals(lang) || lang == null || lang.isEmpty()) {
+            targetLocale = getSystemDefaultLocale();
         } else {
             targetLocale = new Locale(lang);
         }

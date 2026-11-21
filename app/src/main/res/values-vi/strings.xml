@@ -37,7 +37,6 @@
     <string name="menu_find_in_page">Tìm trong trang</string>
     <string name="menu_share">Chia sẻ trang</string>
     <string name="menu_copy_link">Sao chép liên kết</string>
-    <string name="menu_desktop_site">Trang web cho máy tính</string>
     <string name="menu_desktop_site_on">Chế độ máy tính: BẬT</string>
     <string name="menu_desktop_site_off">Chế độ máy tính: TẮT</string>
     <string name="menu_settings">Cài đặt</string>

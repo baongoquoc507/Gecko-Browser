@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
@@ -32,6 +33,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 public final class BrowserHelper {
 
@@ -146,7 +148,7 @@ public final class BrowserHelper {
             }
             String header = dataUri.substring(5, comma);
             String payload = dataUri.substring(comma + 1);
-            boolean isBase64 = header.contains(";base64");
+            boolean isBase64 = header.toLowerCase(Locale.ROOT).contains(";base64");
             String detectedMime = header.contains(";") ? header.substring(0, header.indexOf(';')) : header;
             String mime = !detectedMime.isEmpty() ? detectedMime : (fallbackMime != null ? fallbackMime : "application/octet-stream");
             byte[] bytes = isBase64 ? Base64.decode(payload, Base64.DEFAULT) : Uri.decode(payload).getBytes("UTF-8");
@@ -255,17 +257,29 @@ public final class BrowserHelper {
 
     private static void openDownloadedFile(Context context, BrowserDataStore.DownloadRecord record) {
         try {
-            DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-            if (dm != null && record.downloadId >= 0) {
-                Uri fileUri = dm.getUriForDownloadedFile(record.downloadId);
-                if (fileUri != null) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    String mime = record.mimeType != null && !record.mimeType.isEmpty() ? record.mimeType : "*/*";
-                    intent.setDataAndType(fileUri, mime);
-                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                    return;
+            String mime = record.mimeType != null && !record.mimeType.isEmpty() ? record.mimeType : "*/*";
+            Uri fileUri = null;
+            if (record.downloadId >= 0) {
+                DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+                if (dm != null) {
+                    fileUri = dm.getUriForDownloadedFile(record.downloadId);
                 }
+            } else if (record.url != null && !record.url.isEmpty()) {
+                File localFile = new File(record.url);
+                if (localFile.exists()) {
+                    fileUri = FileProvider.getUriForFile(
+                            context,
+                            context.getPackageName() + ".fileprovider",
+                            localFile
+                    );
+                }
+            }
+            if (fileUri != null) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(fileUri, mime);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                return;
             }
             Toast.makeText(context, R.string.download_open_error, Toast.LENGTH_SHORT).show();
         } catch (ActivityNotFoundException e) {

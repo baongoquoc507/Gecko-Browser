@@ -15,6 +15,7 @@ public class BrowserTab {
     public boolean isLoading;
     public int progress;
     public boolean isSecure;
+    public boolean isResettingToHome;
     public String certIssuer;
     public String certValidUntil;
     public final ArrayList<String> blockedTrackers = new ArrayList<>();

@@ -1,0 +1,656 @@
+﻿2026-11-20T15:13:27.1078642Z ##[debug]Starting: build
+2026-11-20T15:13:27.1100875Z ##[debug]Cleaning runner temp folder: /home/runner/work/_temp
+2026-11-20T15:13:27.1308912Z ##[debug]Starting: Set up job
+2026-11-20T15:13:27.1309922Z Current runner version: '2.338.2'
+2026-11-20T15:13:27.1336011Z ##[group]Runner Image Provisioner
+2026-11-20T15:13:27.1337183Z Hosted Compute Agent
+2026-11-20T15:13:27.1337959Z Version: 20261103.629
+2026-11-20T15:13:27.1338876Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-20T15:13:27.1340051Z Build Date: 2026-11-03T17:26:59Z
+2026-11-20T15:13:27.1340985Z Worker ID: {f338354b-e58b-437a-b570-c88374f61f0a}
+2026-11-20T15:13:27.1341986Z Region: eastus2
+2026-11-20T15:13:27.1342716Z Cloud: Azure
+2026-11-20T15:13:27.1343351Z ##[endgroup]
+2026-11-20T15:13:27.1345371Z ##[group]Operating System
+2026-11-20T15:13:27.1346019Z Ubuntu
+2026-11-20T15:13:27.1346568Z 26.04.1
+2026-11-20T15:13:27.1347072Z LTS
+2026-11-20T15:13:27.1347582Z ##[endgroup]
+2026-11-20T15:13:27.1348201Z ##[group]Runner Image
+2026-11-20T15:13:27.1349035Z Image: ubuntu-26.04
+2026-11-20T15:13:27.1349624Z Version: 20261111.196.1
+2026-11-20T15:13:27.1351138Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-20T15:13:27.1352713Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-20T15:13:27.1353650Z ##[endgroup]
+2026-11-20T15:13:27.1354963Z ##[group]GITHUB_TOKEN Permissions
+2026-11-20T15:13:27.1357446Z Contents: read
+2026-11-20T15:13:27.1358115Z Metadata: read
+2026-11-20T15:13:27.1358668Z Packages: read
+2026-11-20T15:13:27.1359185Z ##[endgroup]
+2026-11-20T15:13:27.1361327Z Secret source: Actions
+2026-11-20T15:13:27.1362244Z Cache mode: write
+2026-11-20T15:13:27.1363055Z ##[debug]Primary repository: baongoquoc507/Gecko-Browser
+2026-11-20T15:13:27.1363853Z Prepare workflow directory
+2026-11-20T15:13:27.1457384Z ##[debug]Creating pipeline directory: '/home/runner/work/Gecko-Browser'
+2026-11-20T15:13:27.1462664Z ##[debug]Creating workspace directory: '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-20T15:13:27.1465460Z ##[debug]Update context data
+2026-11-20T15:13:27.1470274Z ##[debug]Evaluating job-level environment variables
+2026-11-20T15:13:27.1787754Z ##[debug]Evaluating job container
+2026-11-20T15:13:27.1792980Z ##[debug]Evaluating job service containers
+2026-11-20T15:13:27.1796968Z ##[debug]Evaluating job defaults
+2026-11-20T15:13:27.1841745Z Prepare all required actions
+2026-11-20T15:13:27.1915992Z Getting action download info
+2026-11-20T15:13:27.4103648Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-20T15:13:27.4138215Z ##[debug]Copied action archive '/opt/actionarchivecache/actions_checkout/11d5960a326750d5838078e36cf38b85af677262.tar.gz' to '/home/runner/work/_actions/_temp_0fe69c17-303e-49a6-a3ce-2676c858c5cf/bcdb0cae-7cb4-47fb-918b-34e25ef866be.tar.gz'
+2026-11-20T15:13:27.5011834Z ##[debug]Unwrap 'actions-checkout-11d5960' to '/home/runner/work/_actions/actions/checkout/v4'
+2026-11-20T15:13:27.5117335Z ##[debug]Archive '/home/runner/work/_actions/_temp_0fe69c17-303e-49a6-a3ce-2676c858c5cf/bcdb0cae-7cb4-47fb-918b-34e25ef866be.tar.gz' has been unzipped into '/home/runner/work/_actions/actions/checkout/v4'.
+2026-11-20T15:13:27.5212171Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-20T15:13:27.6617650Z ##[debug]Download 'https://codeload.github.com/actions/setup-java/tar.gz/cf277c60eb25467037889841efdb72551f06f6c3' to '/home/runner/work/_actions/_temp_b3afd1f6-f027-4d3a-a569-ae70d42a79a8/a285cfc2-b55b-410d-afcb-a7e6b035b2ce.tar.gz'
+2026-11-20T15:13:27.7153496Z ##[debug]Unwrap 'setup-java-cf277c60eb25467037889841efdb72551f06f6c3' to '/home/runner/work/_actions/actions/setup-java/v4'
+2026-11-20T15:13:27.7736502Z ##[debug]Archive '/home/runner/work/_actions/_temp_b3afd1f6-f027-4d3a-a569-ae70d42a79a8/a285cfc2-b55b-410d-afcb-a7e6b035b2ce.tar.gz' has been unzipped into '/home/runner/work/_actions/actions/setup-java/v4'.
+2026-11-20T15:13:27.8248107Z ##[debug]action.yml for action: '/home/runner/work/_actions/actions/checkout/v4/action.yml'.
+2026-11-20T15:13:27.9036989Z ##[debug]action.yml for action: '/home/runner/work/_actions/actions/setup-java/v4/action.yml'.
+2026-11-20T15:13:27.9210059Z ##[debug]Set step '__actions_checkout' display name to: 'Run actions/checkout@v4'
+2026-11-20T15:13:27.9215220Z ##[debug]Set step '__actions_setup-java' display name to: 'Set up JDK 17'
+2026-11-20T15:13:27.9218636Z ##[debug]Set step '__run' display name to: 'Grant execute permission for gradlew'
+2026-11-20T15:13:27.9221347Z ##[debug]Set step '__run_2' display name to: 'Build with Gradle'
+2026-11-20T15:13:27.9222295Z Complete job name: build
+2026-11-20T15:13:27.9252080Z ##[debug]Collect running processes for tracking orphan processes.
+2026-11-20T15:13:27.9512923Z ##[debug]Finishing: Set up job
+2026-11-20T15:13:27.9654675Z ##[debug]Evaluating condition for step: 'Run actions/checkout@v4'
+2026-11-20T15:13:27.9691558Z ##[debug]Evaluating: success()
+2026-11-20T15:13:27.9697064Z ##[debug]Evaluating success:
+2026-11-20T15:13:27.9711266Z ##[debug]=> true
+2026-11-20T15:13:27.9717887Z ##[debug]Result: true
+2026-11-20T15:13:27.9744760Z ##[debug]Starting: Run actions/checkout@v4
+2026-11-20T15:13:27.9832931Z ##[debug]Register post job cleanup for action: actions/checkout@v4
+2026-11-20T15:13:27.9937938Z ##[debug]Loading inputs
+2026-11-20T15:13:27.9950951Z ##[debug]Evaluating: github.repository
+2026-11-20T15:13:27.9952185Z ##[debug]Evaluating Index:
+2026-11-20T15:13:27.9954514Z ##[debug]..Evaluating github:
+2026-11-20T15:13:27.9956081Z ##[debug]..=> Object
+2026-11-20T15:13:27.9961627Z ##[debug]..Evaluating String:
+2026-11-20T15:13:27.9962691Z ##[debug]..=> 'repository'
+2026-11-20T15:13:27.9966638Z ##[debug]=> 'baongoquoc507/Gecko-Browser'
+2026-11-20T15:13:27.9968811Z ##[debug]Result: 'baongoquoc507/Gecko-Browser'
+2026-11-20T15:13:27.9975391Z ##[debug]Evaluating: github.token
+2026-11-20T15:13:27.9976384Z ##[debug]Evaluating Index:
+2026-11-20T15:13:27.9977366Z ##[debug]..Evaluating github:
+2026-11-20T15:13:27.9978250Z ##[debug]..=> Object
+2026-11-20T15:13:27.9979043Z ##[debug]..Evaluating String:
+2026-11-20T15:13:27.9979793Z ##[debug]..=> 'token'
+2026-11-20T15:13:27.9984339Z ##[debug]=> '***'
+2026-11-20T15:13:27.9988762Z ##[debug]Result: '***'
+2026-11-20T15:13:28.0018317Z ##[debug]Loading env
+2026-11-20T15:13:28.0090733Z ##[group]Run actions/checkout@v4
+2026-11-20T15:13:28.0091613Z with:
+2026-11-20T15:13:28.0092292Z   repository: baongoquoc507/Gecko-Browser
+2026-11-20T15:13:28.0097040Z   token: ***
+2026-11-20T15:13:28.0097644Z   ssh-strict: true
+2026-11-20T15:13:28.0098259Z   ssh-user: git
+2026-11-20T15:13:28.0098834Z   persist-credentials: true
+2026-11-20T15:13:28.0099505Z   clean: true
+2026-11-20T15:13:28.0100078Z   sparse-checkout-cone-mode: true
+2026-11-20T15:13:28.0100732Z   fetch-depth: 1
+2026-11-20T15:13:28.0101362Z   fetch-tags: false
+2026-11-20T15:13:28.0101930Z   show-progress: true
+2026-11-20T15:13:28.0102520Z   lfs: false
+2026-11-20T15:13:28.0103066Z   submodules: false
+2026-11-20T15:13:28.0103618Z   set-safe-directory: true
+2026-11-20T15:13:28.0104316Z   allow-unsafe-pr-checkout: false
+2026-11-20T15:13:28.0105434Z ##[endgroup]
+2026-11-20T15:13:28.2800264Z ##[debug]GITHUB_WORKSPACE = '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-20T15:13:28.2803278Z ##[debug]qualified repository = 'baongoquoc507/Gecko-Browser'
+2026-11-20T15:13:28.2805446Z ##[debug]ref = 'refs/heads/master'
+2026-11-20T15:13:28.2807353Z ##[debug]commit = '89cf005092868839de57cbc9bd12b636c27d42d1'
+2026-11-20T15:13:28.2809065Z ##[debug]clean = true
+2026-11-20T15:13:28.2810555Z ##[debug]filter = undefined
+2026-11-20T15:13:28.2812056Z ##[debug]fetch depth = 1
+2026-11-20T15:13:28.2813435Z ##[debug]fetch tags = false
+2026-11-20T15:13:28.2815244Z ##[debug]show progress = true
+2026-11-20T15:13:28.2816818Z ##[debug]lfs = false
+2026-11-20T15:13:28.2818243Z ##[debug]submodules = false
+2026-11-20T15:13:28.2819771Z ##[debug]recursive submodules = false
+2026-11-20T15:13:28.2821307Z ##[debug]GitHub Host URL = 
+2026-11-20T15:13:28.2823361Z ##[debug]allow unsafe PR checkout = false
+2026-11-20T15:13:28.2826138Z ::add-matcher::/home/runner/work/_actions/actions/checkout/v4/dist/problem-matcher.json
+2026-11-20T15:13:28.2936690Z ##[debug]Added matchers: 'checkout-git'. Problem matchers scan action output for known warning or error strings and report these inline.
+2026-11-20T15:13:28.2945063Z Syncing repository: baongoquoc507/Gecko-Browser
+2026-11-20T15:13:28.2947829Z ::group::Getting Git version info
+2026-11-20T15:13:28.2950069Z ##[group]Getting Git version info
+2026-11-20T15:13:28.2951549Z Working directory is '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-20T15:13:28.2953562Z ##[debug]Getting git version
+2026-11-20T15:13:28.2954641Z [command]/usr/bin/git version
+2026-11-20T15:13:28.2955878Z git version 2.56.1
+2026-11-20T15:13:28.2957429Z ##[debug]0
+2026-11-20T15:13:28.2959218Z ##[debug]git version 2.56.1
+2026-11-20T15:13:28.2960161Z ##[debug]
+2026-11-20T15:13:28.2961740Z ##[debug]Set git useragent to: git/2.56.1 (github-actions-checkout)
+2026-11-20T15:13:28.2963671Z ::endgroup::
+2026-11-20T15:13:28.2964544Z ##[endgroup]
+2026-11-20T15:13:28.2970892Z ::add-mask::***
+2026-11-20T15:13:28.2974735Z Temporarily overriding HOME='/home/runner/work/_temp/85b2eccc-aade-4381-b1ae-7ede22d169e2' before making global git config changes
+2026-11-20T15:13:28.2977413Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T15:13:28.2979339Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-20T15:13:28.3030708Z ##[debug]0
+2026-11-20T15:13:28.3032103Z ##[debug]
+2026-11-20T15:13:28.3037842Z Deleting the contents of '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-20T15:13:28.3041388Z ::group::Initializing the repository
+2026-11-20T15:13:28.3042677Z ##[group]Initializing the repository
+2026-11-20T15:13:28.3046810Z [command]/usr/bin/git init /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-20T15:13:28.3152882Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-20T15:13:28.3154428Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-20T15:13:28.3156514Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-20T15:13:28.3157532Z hint: call:
+2026-11-20T15:13:28.3158353Z hint:
+2026-11-20T15:13:28.3159044Z hint: 	git config --global init.defaultBranch <name>
+2026-11-20T15:13:28.3160192Z hint:
+2026-11-20T15:13:28.3161149Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-20T15:13:28.3162737Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-20T15:13:28.3163816Z hint:
+2026-11-20T15:13:28.3164371Z hint: 	git branch -m <name>
+2026-11-20T15:13:28.3165373Z hint:
+2026-11-20T15:13:28.3166618Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-20T15:13:28.3168305Z Initialized empty Git repository in /home/runner/work/Gecko-Browser/Gecko-Browser/.git/
+2026-11-20T15:13:28.3174756Z ##[debug]0
+2026-11-20T15:13:28.3176950Z ##[debug]Initialized empty Git repository in /home/runner/work/Gecko-Browser/Gecko-Browser/.git/
+2026-11-20T15:13:28.3178582Z ##[debug]
+2026-11-20T15:13:28.3179842Z [command]/usr/bin/git remote add origin https://github.com/baongoquoc507/Gecko-Browser
+2026-11-20T15:13:28.3232045Z ##[debug]0
+2026-11-20T15:13:28.3233621Z ##[debug]
+2026-11-20T15:13:28.3235378Z ::endgroup::
+2026-11-20T15:13:28.3236392Z ##[endgroup]
+2026-11-20T15:13:28.3237913Z ::group::Disabling automatic garbage collection
+2026-11-20T15:13:28.3239148Z ##[group]Disabling automatic garbage collection
+2026-11-20T15:13:28.3240330Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-20T15:13:28.3273005Z ##[debug]0
+2026-11-20T15:13:28.3275197Z ##[debug]
+2026-11-20T15:13:28.3277150Z ::endgroup::
+2026-11-20T15:13:28.3278052Z ##[endgroup]
+2026-11-20T15:13:28.3279427Z ::group::Setting up auth
+2026-11-20T15:13:28.3280319Z ##[group]Setting up auth
+2026-11-20T15:13:28.3282002Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T15:13:28.3307985Z ##[debug]1
+2026-11-20T15:13:28.3309486Z ##[debug]
+2026-11-20T15:13:28.3314478Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T15:13:28.3757707Z ##[debug]0
+2026-11-20T15:13:28.3760058Z ##[debug]
+2026-11-20T15:13:28.3766913Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T15:13:28.3801344Z ##[debug]1
+2026-11-20T15:13:28.3803562Z ##[debug]
+2026-11-20T15:13:28.3810431Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T15:13:28.4036806Z ##[debug]0
+2026-11-20T15:13:28.4038125Z ##[debug]
+2026-11-20T15:13:28.4043566Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T15:13:28.4069973Z ##[debug]1
+2026-11-20T15:13:28.4071390Z ##[debug]
+2026-11-20T15:13:28.4075603Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T15:13:28.4296865Z ##[debug]0
+2026-11-20T15:13:28.4298027Z ##[debug]
+2026-11-20T15:13:28.4307971Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-20T15:13:28.4339146Z ##[debug]0
+2026-11-20T15:13:28.4340558Z ##[debug]
+2026-11-20T15:13:28.4351587Z ::endgroup::
+2026-11-20T15:13:28.4352479Z ##[endgroup]
+2026-11-20T15:13:28.4353786Z ::group::Fetching the repository
+2026-11-20T15:13:28.4354548Z ##[group]Fetching the repository
+2026-11-20T15:13:28.4361763Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +89cf005092868839de57cbc9bd12b636c27d42d1:refs/remotes/origin/master
+2026-11-20T15:13:28.8554073Z From https://github.com/baongoquoc507/Gecko-Browser
+2026-11-20T15:13:28.8556915Z  * [new ref]         89cf005092868839de57cbc9bd12b636c27d42d1 -> origin/master
+2026-11-20T15:13:28.8561491Z ##[debug]0
+2026-11-20T15:13:28.8564246Z ##[debug]
+2026-11-20T15:13:28.8566982Z ::endgroup::
+2026-11-20T15:13:28.8568372Z ##[endgroup]
+2026-11-20T15:13:28.8571268Z ::group::Determining the checkout info
+2026-11-20T15:13:28.8573345Z ##[group]Determining the checkout info
+2026-11-20T15:13:28.8576477Z ::endgroup::
+2026-11-20T15:13:28.8577722Z ##[endgroup]
+2026-11-20T15:13:28.8579673Z [command]/usr/bin/git sparse-checkout disable
+2026-11-20T15:13:28.8653564Z ##[debug]0
+2026-11-20T15:13:28.8655717Z ##[debug]
+2026-11-20T15:13:28.8659217Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-20T15:13:28.8718060Z ##[debug]0
+2026-11-20T15:13:28.8720061Z ##[debug]
+2026-11-20T15:13:28.8722191Z ::group::Checking out the ref
+2026-11-20T15:13:28.8724025Z ##[group]Checking out the ref
+2026-11-20T15:13:28.8732097Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-11-20T15:13:28.8945511Z Reset branch 'master'
+2026-11-20T15:13:28.8949602Z branch 'master' set up to track 'origin/master'.
+2026-11-20T15:13:28.8955463Z ##[debug]0
+2026-11-20T15:13:28.8957939Z ##[debug]branch 'master' set up to track 'origin/master'.
+2026-11-20T15:13:28.8959751Z ##[debug]
+2026-11-20T15:13:28.8961881Z ::endgroup::
+2026-11-20T15:13:28.8963120Z ##[endgroup]
+2026-11-20T15:13:28.8999335Z ##[debug]0
+2026-11-20T15:13:28.9002055Z ##[debug]commit 89cf005092868839de57cbc9bd12b636c27d42d1
+2026-11-20T15:13:28.9004021Z ##[debug]Author: baongoquoc507 <baongoquoc507@gmail.com>
+2026-11-20T15:13:28.9006609Z ##[debug]Date:   Fri Nov 20 22:06:52 2026 +0700
+2026-11-20T15:13:28.9008500Z ##[debug]
+2026-11-20T15:13:28.9009789Z ##[debug]    Update android.yml
+2026-11-20T15:13:28.9011167Z ##[debug]
+2026-11-20T15:13:28.9012755Z [command]/usr/bin/git log -1 --format=%H
+2026-11-20T15:13:28.9024514Z 89cf005092868839de57cbc9bd12b636c27d42d1
+2026-11-20T15:13:28.9028225Z ##[debug]0
+2026-11-20T15:13:28.9031186Z ##[debug]89cf005092868839de57cbc9bd12b636c27d42d1
+2026-11-20T15:13:28.9033387Z ##[debug]
+2026-11-20T15:13:28.9036431Z ##[debug]Unsetting HOME override
+2026-11-20T15:13:28.9044767Z ::remove-matcher owner=checkout-git::
+2026-11-20T15:13:28.9059195Z ##[debug]Removed matchers: 'checkout-git'
+2026-11-20T15:13:28.9126581Z ##[debug]Node Action run completed with exit code 0
+2026-11-20T15:13:28.9167824Z ##[debug]Save intra-action state isPost = true
+2026-11-20T15:13:28.9169864Z ##[debug]Save intra-action state setSafeDirectory = true
+2026-11-20T15:13:28.9172376Z ##[debug]Save intra-action state repositoryPath = /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-20T15:13:28.9180713Z ##[debug]Set output commit = 89cf005092868839de57cbc9bd12b636c27d42d1
+2026-11-20T15:13:28.9183067Z ##[debug]Set output ref = refs/heads/master
+2026-11-20T15:13:28.9205927Z ##[debug]Finishing: Run actions/checkout@v4
+2026-11-20T15:13:28.9240268Z ##[debug]Evaluating condition for step: 'Set up JDK 17'
+2026-11-20T15:13:28.9246879Z ##[debug]Evaluating: success()
+2026-11-20T15:13:28.9248807Z ##[debug]Evaluating success:
+2026-11-20T15:13:28.9250590Z ##[debug]=> true
+2026-11-20T15:13:28.9252377Z ##[debug]Result: true
+2026-11-20T15:13:28.9254630Z ##[debug]Starting: Set up JDK 17
+2026-11-20T15:13:28.9355091Z ##[debug]Register post job cleanup for action: actions/setup-java@v4
+2026-11-20T15:13:28.9397482Z ##[debug]Loading inputs
+2026-11-20T15:13:28.9443406Z ##[debug]Evaluating: job.status
+2026-11-20T15:13:28.9444633Z ##[debug]Evaluating Index:
+2026-11-20T15:13:28.9445902Z ##[debug]..Evaluating job:
+2026-11-20T15:13:28.9447153Z ##[debug]..=> Object
+2026-11-20T15:13:28.9448265Z ##[debug]..Evaluating String:
+2026-11-20T15:13:28.9449454Z ##[debug]..=> 'status'
+2026-11-20T15:13:28.9450644Z ##[debug]=> 'success'
+2026-11-20T15:13:28.9451703Z ##[debug]Result: 'success'
+2026-11-20T15:13:28.9461890Z ##[debug]Evaluating: (((github.server_url == 'https://github.com') && github.token) || '')
+2026-11-20T15:13:28.9464014Z ##[debug]Evaluating Or:
+2026-11-20T15:13:28.9467461Z ##[debug]..Evaluating And:
+2026-11-20T15:13:28.9470215Z ##[debug]....Evaluating Equal:
+2026-11-20T15:13:28.9472004Z ##[debug]......Evaluating Index:
+2026-11-20T15:13:28.9473626Z ##[debug]........Evaluating github:
+2026-11-20T15:13:28.9475123Z ##[debug]........=> Object
+2026-11-20T15:13:28.9476335Z ##[debug]........Evaluating String:
+2026-11-20T15:13:28.9477597Z ##[debug]........=> 'server_url'
+2026-11-20T15:13:28.9478954Z ##[debug]......=> 'https://github.com'
+2026-11-20T15:13:28.9480280Z ##[debug]......Evaluating String:
+2026-11-20T15:13:28.9481521Z ##[debug]......=> 'https://github.com'
+2026-11-20T15:13:28.9485890Z ##[debug]....=> true
+2026-11-20T15:13:28.9487176Z ##[debug]....Evaluating Index:
+2026-11-20T15:13:28.9488377Z ##[debug]......Evaluating github:
+2026-11-20T15:13:28.9489636Z ##[debug]......=> Object
+2026-11-20T15:13:28.9490753Z ##[debug]......Evaluating String:
+2026-11-20T15:13:28.9492000Z ##[debug]......=> 'token'
+2026-11-20T15:13:28.9501315Z ##[debug]....=> '***'
+2026-11-20T15:13:28.9509905Z ##[debug]..=> '***'
+2026-11-20T15:13:28.9518548Z ##[debug]=> '***'
+2026-11-20T15:13:28.9532076Z ##[debug]Expanded: ((('https://github.com' == 'https://github.com') && '***') || '')
+2026-11-20T15:13:28.9541392Z ##[debug]Result: '***'
+2026-11-20T15:13:28.9555668Z ##[debug]Loading env
+2026-11-20T15:13:28.9574425Z ##[group]Run actions/setup-java@v4
+2026-11-20T15:13:28.9575695Z with:
+2026-11-20T15:13:28.9576710Z   java-version: 17
+2026-11-20T15:13:28.9577720Z   distribution: temurin
+2026-11-20T15:13:28.9578767Z   cache: gradle
+2026-11-20T15:13:28.9579732Z   java-package: jdk
+2026-11-20T15:13:28.9580743Z   check-latest: false
+2026-11-20T15:13:28.9581799Z   server-id: github
+2026-11-20T15:13:28.9582818Z   server-username: GITHUB_ACTOR
+2026-11-20T15:13:28.9583976Z   server-password: GITHUB_TOKEN
+2026-11-20T15:13:28.9585370Z   overwrite-settings: true
+2026-11-20T15:13:28.9586504Z   job-status: success
+2026-11-20T15:13:28.9594585Z   token: ***
+2026-11-20T15:13:28.9595670Z ##[endgroup]
+2026-11-20T15:13:29.1325286Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-20T15:13:29.1338682Z ::group::Installed distributions
+2026-11-20T15:13:29.1340104Z ##[group]Installed distributions
+2026-11-20T15:13:29.1342528Z ##[debug]isExplicit: 11.0.33-10
+2026-11-20T15:13:29.1344696Z ##[debug]explicit? true
+2026-11-20T15:13:29.1347062Z ##[debug]isExplicit: 17.0.21-9
+2026-11-20T15:13:29.1349560Z ##[debug]explicit? true
+2026-11-20T15:13:29.1351488Z ##[debug]isExplicit: 21.0.13-9
+2026-11-20T15:13:29.1353216Z ##[debug]explicit? true
+2026-11-20T15:13:29.1355229Z ##[debug]isExplicit: 25.0.5-8
+2026-11-20T15:13:29.1357059Z ##[debug]explicit? true
+2026-11-20T15:13:29.1470554Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-20T15:13:29.1472290Z Setting Java 17.0.21+9 as the default
+2026-11-20T15:13:29.1481225Z (node:2400) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T15:13:29.1484633Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T15:13:29.1486812Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-20T15:13:29.1550990Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-20T15:13:29.1552195Z 
+2026-11-20T15:13:29.1552804Z Java configuration:
+2026-11-20T15:13:29.1554313Z   Distribution: temurin
+2026-11-20T15:13:29.1555849Z   Version: 17.0.21+9
+2026-11-20T15:13:29.1557425Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.1558617Z 
+2026-11-20T15:13:29.1560062Z ::endgroup::
+2026-11-20T15:13:29.1560978Z ##[endgroup]
+2026-11-20T15:13:29.1570965Z ##[add-matcher]/home/runner/work/_actions/actions/setup-java/v4/.github/java.json
+2026-11-20T15:13:29.1586680Z ##[debug]Added matchers: 'java'. Problem matchers scan action output for known warning or error strings and report these inline.
+2026-11-20T15:13:29.1589952Z Creating settings.xml with server-id: github
+2026-11-20T15:13:29.1598787Z Writing to /home/runner/.m2/settings.xml
+2026-11-20T15:13:29.1605990Z ##[debug]followSymbolicLinks 'true'
+2026-11-20T15:13:29.1673877Z ##[debug]followSymbolicLinks 'true'
+2026-11-20T15:13:29.1676526Z ##[debug]implicitDescendants 'true'
+2026-11-20T15:13:29.1679246Z ##[debug]matchDirectories 'true'
+2026-11-20T15:13:29.1681807Z ##[debug]omitBrokenSymbolicLinks 'true'
+2026-11-20T15:13:29.1684737Z ##[debug]excludeHiddenFiles 'false'
+2026-11-20T15:13:29.1694475Z ##[debug]Search path '/home/runner/work/Gecko-Browser/Gecko-Browser'
+2026-11-20T15:13:29.1793684Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle
+2026-11-20T15:13:29.1797726Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle'.
+2026-11-20T15:13:29.1800628Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1
+2026-11-20T15:13:29.1803439Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1'.
+2026-11-20T15:13:29.1807260Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/checksums
+2026-11-20T15:13:29.1811081Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/checksums'.
+2026-11-20T15:13:29.1814560Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/checksums/checksums.lock
+2026-11-20T15:13:29.1863457Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/checksums/md5-checksums.bin
+2026-11-20T15:13:29.1885516Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/checksums/sha1-checksums.bin
+2026-11-20T15:13:29.1896835Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/executionHistory
+2026-11-20T15:13:29.1907363Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/executionHistory'.
+2026-11-20T15:13:29.1913218Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/executionHistory/executionHistory.bin
+2026-11-20T15:13:29.1981558Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/executionHistory/executionHistory.lock
+2026-11-20T15:13:29.1989896Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileChanges
+2026-11-20T15:13:29.1994675Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileChanges'.
+2026-11-20T15:13:29.2000011Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileChanges/last-build.bin
+2026-11-20T15:13:29.2004588Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileHashes
+2026-11-20T15:13:29.2009355Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileHashes'.
+2026-11-20T15:13:29.2013909Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileHashes/fileHashes.bin
+2026-11-20T15:13:29.2018777Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileHashes/fileHashes.lock
+2026-11-20T15:13:29.2024160Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/9.3.1/fileHashes/resourceHashesCache.bin
+2026-11-20T15:13:29.2034454Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/buildOutputCleanup
+2026-11-20T15:13:29.2038688Z ##[debug]Skip directory '/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/buildOutputCleanup'.
+2026-11-20T15:13:29.2045782Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+2026-11-20T15:13:29.2056065Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/.gradle/buildOutputCleanup/outputFiles.bin
+2026-11-20T15:13:29.2074165Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/app/build.gradle
+2026-11-20T15:13:29.2253969Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/build.gradle
+2026-11-20T15:13:29.2277089Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/gradle/wrapper/gradle-wrapper.properties
+2026-11-20T15:13:29.2311788Z ##[debug]/home/runner/work/Gecko-Browser/Gecko-Browser/settings.gradle
+2026-11-20T15:13:29.2319776Z ##[debug]Found 15 files to hash.
+2026-11-20T15:13:29.2326970Z ##[debug]primary key is setup-java-Linux-x64-gradle-75766dd3e269e8a6e54d753b80c40e5577667fcc0923c877e5b856c07cdc0066
+2026-11-20T15:13:29.2330901Z ##[debug]Cache service version: v2
+2026-11-20T15:13:29.2333552Z ##[debug]Resolved Keys:
+2026-11-20T15:13:29.2337567Z ##[debug]["setup-java-Linux-x64-gradle-75766dd3e269e8a6e54d753b80c40e5577667fcc0923c877e5b856c07cdc0066"]
+2026-11-20T15:13:29.2341968Z ##[debug]Checking zstd --quiet --version
+2026-11-20T15:13:29.2443385Z ##[debug]1.5.7
+2026-11-20T15:13:29.2446442Z ##[debug]zstd version: 1.5.7
+2026-11-20T15:13:29.2455431Z ##[debug][Request] GetCacheEntryDownloadURL https://results-receiver.actions.githubusercontent.com/twirp/github.actions.results.api.v1.CacheService/GetCacheEntryDownloadURL
+2026-11-20T15:13:29.3165238Z ##[debug][Response] - 200
+2026-11-20T15:13:29.3167573Z ##[debug]Headers: {
+2026-11-20T15:13:29.3168685Z ##[debug]  "content-length": "56",
+2026-11-20T15:13:29.3170059Z ##[debug]  "content-type": "application/json",
+2026-11-20T15:13:29.3171574Z ##[debug]  "date": "Fri, 20 Nov 2026 15:13:29 GMT",
+2026-11-20T15:13:29.3173485Z ##[debug]  "x-github-backend": "Kubernetes",
+2026-11-20T15:13:29.3175397Z ##[debug]  "x-github-request-id": "F484:26BBB8:26FC95:28ED91:6B006399",
+2026-11-20T15:13:29.3177027Z ##[debug]  "x-github-edge-region": "iad",
+2026-11-20T15:13:29.3178261Z ##[debug]  "server": "github.com"
+2026-11-20T15:13:29.3179342Z ##[debug]}
+2026-11-20T15:13:29.3181014Z ##[debug]Body: {
+2026-11-20T15:13:29.3181974Z ##[debug]  "ok": false,
+2026-11-20T15:13:29.3183048Z ##[debug]  "signed_download_url": "",
+2026-11-20T15:13:29.3184226Z ##[debug]  "matched_key": ""
+2026-11-20T15:13:29.3185507Z ##[debug]}
+2026-11-20T15:13:29.3189333Z ##[debug]Cache not found for version 5015d68fc48322bc962181073013e02b525502a4093566f767969e784014b308 of keys: setup-java-Linux-x64-gradle-75766dd3e269e8a6e54d753b80c40e5577667fcc0923c877e5b856c07cdc0066
+2026-11-20T15:13:29.3193278Z gradle cache is not found
+2026-11-20T15:13:29.3262164Z ##[debug]Node Action run completed with exit code 0
+2026-11-20T15:13:29.3274100Z ##[debug]JAVA_HOME='/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64'
+2026-11-20T15:13:29.3277326Z ##[debug]JAVA_HOME_17_X64='/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64'
+2026-11-20T15:13:29.3283094Z ##[debug]Save intra-action state cache-primary-key = setup-java-Linux-x64-gradle-75766dd3e269e8a6e54d753b80c40e5577667fcc0923c877e5b856c07cdc0066
+2026-11-20T15:13:29.3286600Z ##[debug]Set output distribution = Temurin-Hotspot
+2026-11-20T15:13:29.3288371Z ##[debug]Set output path = /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.3290157Z ##[debug]Set output version = 17.0.21+9
+2026-11-20T15:13:29.3291379Z ##[debug]Set output cache-hit = false
+2026-11-20T15:13:29.3296736Z ##[debug]Finishing: Set up JDK 17
+2026-11-20T15:13:29.3332375Z ##[debug]Evaluating condition for step: 'Grant execute permission for gradlew'
+2026-11-20T15:13:29.3337232Z ##[debug]Evaluating: success()
+2026-11-20T15:13:29.3338830Z ##[debug]Evaluating success:
+2026-11-20T15:13:29.3340360Z ##[debug]=> true
+2026-11-20T15:13:29.3341798Z ##[debug]Result: true
+2026-11-20T15:13:29.3343642Z ##[debug]Starting: Grant execute permission for gradlew
+2026-11-20T15:13:29.3373343Z ##[debug]Loading inputs
+2026-11-20T15:13:29.3377809Z ##[debug]Loading env
+2026-11-20T15:13:29.3405533Z ##[group]Run chmod +x gradlew
+2026-11-20T15:13:29.3406853Z [36;1mchmod +x gradlew[0m
+2026-11-20T15:13:29.3446965Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:13:29.3448044Z env:
+2026-11-20T15:13:29.3449298Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.3451302Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.3452839Z ##[endgroup]
+2026-11-20T15:13:29.3525830Z ##[debug]/usr/bin/bash -e /home/runner/work/_temp/f71de133-866e-4a80-bf79-40abe8b968e2.sh
+2026-11-20T15:13:29.3595298Z ##[debug]Finishing: Grant execute permission for gradlew
+2026-11-20T15:13:29.3615518Z ##[debug]Evaluating condition for step: 'Build with Gradle'
+2026-11-20T15:13:29.3619750Z ##[debug]Evaluating: success()
+2026-11-20T15:13:29.3621307Z ##[debug]Evaluating success:
+2026-11-20T15:13:29.3622812Z ##[debug]=> true
+2026-11-20T15:13:29.3624209Z ##[debug]Result: true
+2026-11-20T15:13:29.3626242Z ##[debug]Starting: Build with Gradle
+2026-11-20T15:13:29.3652718Z ##[debug]Loading inputs
+2026-11-20T15:13:29.3656681Z ##[debug]Loading env
+2026-11-20T15:13:29.3670438Z ##[group]Run ./gradlew build
+2026-11-20T15:13:29.3671583Z [36;1m./gradlew build[0m
+2026-11-20T15:13:29.3706484Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:13:29.3707557Z env:
+2026-11-20T15:13:29.3708828Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.3710763Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:13:29.3712285Z ##[endgroup]
+2026-11-20T15:13:29.3756053Z ##[debug]/usr/bin/bash -e /home/runner/work/_temp/29fa8a00-c846-41d4-84ca-e08ee556a597.sh
+2026-11-20T15:13:31.8654245Z Downloading https://services.gradle.org/distributions/gradle-9.3.1-bin.zip
+2026-11-20T15:13:34.7828523Z ..................................................................................................................................
+2026-11-20T15:13:34.7835283Z Unzipping /home/runner/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks/gradle-9.3.1-bin.zip to /home/runner/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks
+2026-11-20T15:13:35.6956114Z Set executable permissions for: /home/runner/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks/gradle-9.3.1/bin/gradle
+2026-11-20T15:13:36.4349202Z 
+2026-11-20T15:13:36.4350446Z Welcome to Gradle 9.3.1!
+2026-11-20T15:13:36.4351024Z 
+2026-11-20T15:13:36.4356582Z Here are the highlights of this release:
+2026-11-20T15:13:36.4357563Z  - Test reporting improvements
+2026-11-20T15:13:36.4358438Z  - Error and warning improvements
+2026-11-20T15:13:36.4359392Z  - Build authoring improvements
+2026-11-20T15:13:36.4360427Z 
+2026-11-20T15:13:36.4360864Z For more details see https://docs.gradle.org/9.3.1/release-notes.html
+2026-11-20T15:13:36.4361382Z 
+2026-11-20T15:13:36.5357673Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-20T15:14:03.4337319Z 
+2026-11-20T15:14:03.4363687Z > Configure project :app
+2026-11-20T15:14:03.4396352Z WARNING: The option setting 'android.enableJetifier=true' is deprecated.
+2026-11-20T15:14:03.4405929Z The current default is 'false'.
+2026-11-20T15:14:03.4407249Z It will be removed in version 10.0 of the Android Gradle plugin.
+2026-11-20T15:14:05.1356718Z WARNING: The specified Android SDK Build Tools version (30.0.1) is ignored, as it is below the minimum supported version (36.0.0) for Android Gradle Plugin 9.1.1.
+2026-11-20T15:14:05.1358853Z Android SDK Build Tools 36.0.0 will be used.
+2026-11-20T15:14:05.1365846Z To suppress this warning, remove "buildToolsVersion '30.0.1'" from your build.gradle file, as each version of the Android Gradle Plugin now has a default version of the build tools.
+2026-11-20T15:14:05.1369361Z WARNING: The specified Android SDK Build Tools version (30.0.1) is ignored, as it is below the minimum supported version (36.0.0) for Android Gradle Plugin 9.1.1.
+2026-11-20T15:14:05.1370941Z Android SDK Build Tools 36.0.0 will be used.
+2026-11-20T15:14:05.1387806Z To suppress this warning, remove "buildToolsVersion '30.0.1'" from your build.gradle file, as each version of the Android Gradle Plugin now has a default version of the build tools.
+2026-11-20T15:14:08.0370119Z Checking the license for package Android SDK Platform 30 in /usr/local/lib/android/sdk/licenses
+2026-11-20T15:14:08.0406769Z License for package Android SDK Platform 30 accepted.
+2026-11-20T15:14:08.1338440Z Preparing "Install Android SDK Platform 30 (revision 3)".
+2026-11-20T15:14:10.5337984Z "Install Android SDK Platform 30 (revision 3)" ready.
+2026-11-20T15:14:10.5339749Z Installing Android SDK Platform 30 in /usr/local/lib/android/sdk/platforms/android-30
+2026-11-20T15:14:10.5340722Z "Install Android SDK Platform 30 (revision 3)" complete.
+2026-11-20T15:14:10.8367120Z "Install Android SDK Platform 30 (revision 3)" finished.
+2026-11-20T15:14:11.8356947Z [=========                              ] 25%                                   
+2026-11-20T15:14:11.8358725Z > Task :app:preBuild UP-TO-DATE
+2026-11-20T15:14:11.8426691Z > Task :app:preDebugBuild UP-TO-DATE
+2026-11-20T15:14:11.8427472Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+2026-11-20T15:14:11.9340547Z > Task :app:generateDebugResources
+2026-11-20T15:14:12.1350838Z > Task :app:packageDebugResources
+2026-11-20T15:14:22.5355346Z 
+2026-11-20T15:14:22.5386278Z > Task :app:processDebugNavigationResources
+2026-11-20T15:14:22.5417969Z WARNING: [Processor] Library '/home/runner/.gradle/caches/modules-2/files-2.1/org.mozilla.geckoview/geckoview-beta/80.0.20200728204253/55c8055e67c35d440d33380a32a10839633c1ce4/geckoview-beta-80.0.20200728204253.aar' contains references to both AndroidX and old support library. This seems like the library is partially migrated. Jetifier will try to rewrite the library anyway.
+2026-11-20T15:14:22.5439130Z  Example of androidX reference: 'androidx/annotation/Nullable'
+2026-11-20T15:14:22.5446494Z  Example of support library reference: 'android/support/annotation/NonNull'
+2026-11-20T15:14:52.0355641Z 
+2026-11-20T15:14:52.0376817Z > Task :app:generateDebugAssets UP-TO-DATE
+2026-11-20T15:14:52.0386153Z > Task :app:javaPreCompileDebug
+2026-11-20T15:14:52.1342777Z > Task :app:parseDebugLocalResources
+2026-11-20T15:14:52.2337130Z > Task :app:mergeDebugAssets
+2026-11-20T15:14:53.2346306Z > Task :app:generateDebugRFile
+2026-11-20T15:14:53.2356215Z > Task :app:compressDebugAssets
+2026-11-20T15:14:53.3366514Z > Task :app:checkDebugDuplicateClasses
+2026-11-20T15:14:53.3397651Z > Task :app:compileDebugKotlin NO-SOURCE
+2026-11-20T15:14:56.0335637Z 
+2026-11-20T15:14:56.0358884Z Note: Some input files use or override a deprecated API.
+2026-11-20T15:14:56.0359697Z > Task :app:compileDebugJavaWithJavac
+2026-11-20T15:14:56.0361096Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-20T15:14:57.1339473Z 
+2026-11-20T15:14:57.1371276Z > Task :app:processDebugJavaRes NO-SOURCE
+2026-11-20T15:14:57.5338478Z > Task :app:mapDebugSourceSetPaths
+2026-11-20T15:14:57.5376568Z > Task :app:checkDebugAarMetadata
+2026-11-20T15:14:57.9366305Z > Task :app:compileDebugNavigationResources
+2026-11-20T15:14:58.0356477Z > Task :app:mergeDebugJavaResource
+2026-11-20T15:14:58.9346693Z > Task :app:createDebugCompatibleScreenManifests
+2026-11-20T15:14:58.9376199Z > Task :app:extractDeepLinksDebug
+2026-11-20T15:14:59.1346746Z > Task :app:mergeDebugResources
+2026-11-20T15:14:59.2337855Z > Task :app:processDebugMainManifest
+2026-11-20T15:14:59.4358016Z > Task :app:processDebugManifest
+2026-11-20T15:14:59.8355687Z > Task :app:desugarDebugFileDependencies
+2026-11-20T15:15:21.0356522Z > Task :app:processDebugManifestForPackage
+2026-11-20T15:15:22.1346654Z > Task :app:mergeDebugJniLibFolders
+2026-11-20T15:15:22.3366549Z > Task :app:validateSigningDebug FAILED
+2026-11-20T15:15:22.8336729Z > Task :app:processDebugResources
+2026-11-20T15:15:23.6337253Z > Task :app:mergeDebugNativeLibs
+2026-11-20T15:15:24.2350044Z 
+2026-11-20T15:15:24.2351233Z FAILURE: Build failed with an exception.
+2026-11-20T15:15:24.2351778Z 
+2026-11-20T15:15:24.2352061Z * What went wrong:
+2026-11-20T15:15:24.2352872Z Execution failed for task ':app:validateSigningDebug'.
+2026-11-20T15:15:24.2354027Z > Keystore file '/home/runner/work/Gecko-Browser/Gecko-Browser/debug.keystore' not found for signing config 'debugConfig'.
+2026-11-20T15:15:24.2355086Z 
+2026-11-20T15:15:24.2355429Z * Try:
+2026-11-20T15:15:24.2370797Z > Task :app:mergeExtDexDebug
+2026-11-20T15:15:24.2371649Z 
+2026-11-20T15:15:24.2372600Z [Incubating] Problems report is available at: file:///home/runner/work/Gecko-Browser/Gecko-Browser/build/reports/problems/problems-report.html
+2026-11-20T15:15:24.2373897Z 
+2026-11-20T15:15:24.2375256Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-11-20T15:15:24.2376152Z 
+2026-11-20T15:15:24.2377010Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-11-20T15:15:24.2377924Z 
+2026-11-20T15:15:24.2379127Z For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-11-20T15:15:24.2380528Z 26 actionable tasks: 26 executed
+2026-11-20T15:15:24.2386272Z > Run with --stacktrace option to get the stack trace.
+2026-11-20T15:15:24.2396240Z > Run with --info or --debug option to get more log output.
+2026-11-20T15:15:24.2403006Z > Run with --scan to get full insights from a Build Scan (powered by Develocity).
+2026-11-20T15:15:24.2404153Z > Get more help at https://help.gradle.org.
+2026-11-20T15:15:24.2409232Z 
+2026-11-20T15:15:24.2409494Z BUILD FAILED in 1m 52s
+2026-11-20T15:15:24.6928504Z ##[error]Process completed with exit code 1.
+2026-11-20T15:15:24.6937693Z ##[debug]Finishing: Build with Gradle
+2026-11-20T15:15:24.6970359Z ##[debug]Evaluating condition for step: 'Post Set up JDK 17'
+2026-11-20T15:15:24.6974083Z ##[debug]Evaluating: always()
+2026-11-20T15:15:24.6975140Z ##[debug]Evaluating always:
+2026-11-20T15:15:24.6976152Z ##[debug]=> true
+2026-11-20T15:15:24.6976737Z ##[debug]Result: true
+2026-11-20T15:15:24.6978016Z ##[debug]Starting: Post Set up JDK 17
+2026-11-20T15:15:24.7048222Z ##[debug]Loading inputs
+2026-11-20T15:15:24.7061082Z ##[debug]Evaluating: job.status
+2026-11-20T15:15:24.7061488Z ##[debug]Evaluating Index:
+2026-11-20T15:15:24.7061910Z ##[debug]..Evaluating job:
+2026-11-20T15:15:24.7062378Z ##[debug]..=> Object
+2026-11-20T15:15:24.7062794Z ##[debug]..Evaluating String:
+2026-11-20T15:15:24.7063225Z ##[debug]..=> 'status'
+2026-11-20T15:15:24.7063645Z ##[debug]=> 'failure'
+2026-11-20T15:15:24.7064070Z ##[debug]Result: 'failure'
+2026-11-20T15:15:24.7066528Z ##[debug]Evaluating: (((github.server_url == 'https://github.com') && github.token) || '')
+2026-11-20T15:15:24.7067337Z ##[debug]Evaluating Or:
+2026-11-20T15:15:24.7067731Z ##[debug]..Evaluating And:
+2026-11-20T15:15:24.7068128Z ##[debug]....Evaluating Equal:
+2026-11-20T15:15:24.7068531Z ##[debug]......Evaluating Index:
+2026-11-20T15:15:24.7068887Z ##[debug]........Evaluating github:
+2026-11-20T15:15:24.7069270Z ##[debug]........=> Object
+2026-11-20T15:15:24.7069651Z ##[debug]........Evaluating String:
+2026-11-20T15:15:24.7070022Z ##[debug]........=> 'server_url'
+2026-11-20T15:15:24.7070506Z ##[debug]......=> 'https://github.com'
+2026-11-20T15:15:24.7070886Z ##[debug]......Evaluating String:
+2026-11-20T15:15:24.7071232Z ##[debug]......=> 'https://github.com'
+2026-11-20T15:15:24.7071642Z ##[debug]....=> true
+2026-11-20T15:15:24.7072005Z ##[debug]....Evaluating Index:
+2026-11-20T15:15:24.7072426Z ##[debug]......Evaluating github:
+2026-11-20T15:15:24.7072784Z ##[debug]......=> Object
+2026-11-20T15:15:24.7073106Z ##[debug]......Evaluating String:
+2026-11-20T15:15:24.7073495Z ##[debug]......=> 'token'
+2026-11-20T15:15:24.7076222Z ##[debug]....=> '***'
+2026-11-20T15:15:24.7078649Z ##[debug]..=> '***'
+2026-11-20T15:15:24.7080979Z ##[debug]=> '***'
+2026-11-20T15:15:24.7083515Z ##[debug]Expanded: ((('https://github.com' == 'https://github.com') && '***') || '')
+2026-11-20T15:15:24.7086146Z ##[debug]Result: '***'
+2026-11-20T15:15:24.7090289Z ##[debug]Loading env
+2026-11-20T15:15:24.7096440Z Post job cleanup.
+2026-11-20T15:15:24.8460471Z (node:2664) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T15:15:24.8462687Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T15:15:24.8533363Z ##[debug]Node Action run completed with exit code 0
+2026-11-20T15:15:24.8537529Z ##[debug]Finishing: Post Set up JDK 17
+2026-11-20T15:15:24.8546195Z ##[debug]Evaluating condition for step: 'Post Run actions/checkout@v4'
+2026-11-20T15:15:24.8548453Z ##[debug]Evaluating: always()
+2026-11-20T15:15:24.8549038Z ##[debug]Evaluating always:
+2026-11-20T15:15:24.8549552Z ##[debug]=> true
+2026-11-20T15:15:24.8550068Z ##[debug]Result: true
+2026-11-20T15:15:24.8551081Z ##[debug]Starting: Post Run actions/checkout@v4
+2026-11-20T15:15:24.8616610Z ##[debug]Loading inputs
+2026-11-20T15:15:24.8619370Z ##[debug]Evaluating: github.repository
+2026-11-20T15:15:24.8619858Z ##[debug]Evaluating Index:
+2026-11-20T15:15:24.8620243Z ##[debug]..Evaluating github:
+2026-11-20T15:15:24.8620663Z ##[debug]..=> Object
+2026-11-20T15:15:24.8621086Z ##[debug]..Evaluating String:
+2026-11-20T15:15:24.8621483Z ##[debug]..=> 'repository'
+2026-11-20T15:15:24.8622037Z ##[debug]=> 'baongoquoc507/Gecko-Browser'
+2026-11-20T15:15:24.8622507Z ##[debug]Result: 'baongoquoc507/Gecko-Browser'
+2026-11-20T15:15:24.8625114Z ##[debug]Evaluating: github.token
+2026-11-20T15:15:24.8625735Z ##[debug]Evaluating Index:
+2026-11-20T15:15:24.8626112Z ##[debug]..Evaluating github:
+2026-11-20T15:15:24.8626561Z ##[debug]..=> Object
+2026-11-20T15:15:24.8626955Z ##[debug]..Evaluating String:
+2026-11-20T15:15:24.8627344Z ##[debug]..=> 'token'
+2026-11-20T15:15:24.8630159Z ##[debug]=> '***'
+2026-11-20T15:15:24.8632549Z ##[debug]Result: '***'
+2026-11-20T15:15:24.8648198Z ##[debug]Loading env
+2026-11-20T15:15:24.8654120Z Post job cleanup.
+2026-11-20T15:15:24.9546167Z ##[debug]Getting git version
+2026-11-20T15:15:24.9560726Z [command]/usr/bin/git version
+2026-11-20T15:15:24.9615964Z git version 2.56.1
+2026-11-20T15:15:24.9629913Z ##[debug]0
+2026-11-20T15:15:24.9631399Z ##[debug]git version 2.56.1
+2026-11-20T15:15:24.9631922Z ##[debug]
+2026-11-20T15:15:24.9633043Z ##[debug]Set git useragent to: git/2.56.1 (github-actions-checkout)
+2026-11-20T15:15:24.9634533Z ::add-mask::***
+2026-11-20T15:15:24.9649308Z Temporarily overriding HOME='/home/runner/work/_temp/50035366-80b4-4ae1-b126-bd1d95c2eca2' before making global git config changes
+2026-11-20T15:15:24.9651264Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T15:15:24.9655105Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Gecko-Browser/Gecko-Browser
+2026-11-20T15:15:24.9688746Z ##[debug]0
+2026-11-20T15:15:24.9689704Z ##[debug]
+2026-11-20T15:15:24.9697348Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T15:15:24.9726297Z ##[debug]1
+2026-11-20T15:15:24.9727782Z ##[debug]
+2026-11-20T15:15:24.9731705Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T15:15:24.9998904Z ##[debug]0
+2026-11-20T15:15:24.9999663Z ##[debug]
+2026-11-20T15:15:25.0006956Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T15:15:25.0037499Z http.https://github.com/.extraheader
+2026-11-20T15:15:25.0332801Z ##[debug]0
+2026-11-20T15:15:25.0333779Z ##[debug]http.https://github.com/.extraheader
+2026-11-20T15:15:25.0334203Z ##[debug]
+2026-11-20T15:15:25.0335186Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-20T15:15:25.0336334Z ##[debug]0
+2026-11-20T15:15:25.0336998Z ##[debug]
+2026-11-20T15:15:25.0338364Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T15:15:25.0402604Z ##[debug]0
+2026-11-20T15:15:25.0403180Z ##[debug]
+2026-11-20T15:15:25.0413690Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T15:15:25.0443210Z ##[debug]1
+2026-11-20T15:15:25.0452683Z ##[debug]
+2026-11-20T15:15:25.0453635Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T15:15:25.0701685Z ##[debug]0
+2026-11-20T15:15:25.0702070Z ##[debug]
+2026-11-20T15:15:25.0703638Z ##[debug]Unsetting HOME override
+2026-11-20T15:15:25.0778147Z ##[debug]Node Action run completed with exit code 0
+2026-11-20T15:15:25.0781382Z ##[debug]Finishing: Post Run actions/checkout@v4
+2026-11-20T15:15:25.0852731Z ##[debug]Starting: Complete job
+2026-11-20T15:15:25.0854712Z Uploading runner diagnostic logs
+2026-11-20T15:15:25.0868975Z ##[debug]Starting diagnostic file upload.
+2026-11-20T15:15:25.0869334Z ##[debug]Setting up diagnostic log folders.
+2026-11-20T15:15:25.0871231Z ##[debug]Creating diagnostic log files folder.
+2026-11-20T15:15:25.0880464Z ##[debug]Copying 1 worker diagnostic logs.
+2026-11-20T15:15:25.0890235Z ##[debug]Copying 1 runner diagnostic logs.
+2026-11-20T15:15:25.0891241Z ##[debug]Zipping diagnostic files.
+2026-11-20T15:15:25.0963364Z ##[debug]Uploading diagnostic metadata file.
+2026-11-20T15:15:25.0994151Z ##[debug]Diagnostic file upload complete.
+2026-11-20T15:15:25.0994696Z Completed runner diagnostic log upload
+2026-11-20T15:15:25.0995298Z Cleaning up orphan processes
+2026-11-20T15:15:25.1241373Z Terminate orphan process: pid (2461) (java)
+2026-11-20T15:15:25.1297068Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-11-20T15:15:25.1299063Z ##[debug]Finishing: Complete job
+2026-11-20T15:15:25.1333072Z ##[debug]Finishing: build

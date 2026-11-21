@@ -3,7 +3,6 @@
     <color name="colorPrimary">#3B82F6</color>
     <color name="colorPrimaryDark">#0B1120</color>
     <color name="colorAccent">#3B82F6</color>
-    <color name="colorPrimaryDarkTranslucent">#CC000000</color>
 
     <color name="bg_app">#0B1120</color>
     <color name="bg_surface">#111827</color>
