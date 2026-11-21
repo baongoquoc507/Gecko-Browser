@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3B82F6</color>
-    <color name="colorPrimaryDark">#0B1120</color>
-    <color name="colorAccent">#3B82F6</color>
+    <color name="colorPrimary">#8AB4F8</color>
+    <color name="colorPrimaryDark">#0E1117</color>
+    <color name="colorAccent">#8AB4F8</color>
 
-    <color name="bg_app">#0B1120</color>
-    <color name="bg_surface">#111827</color>
-    <color name="bg_omnibox">#1E293B</color>
-    <color name="bg_shield_pill">#334155</color>
-    <color name="bg_private_banner">#4C1D95</color>
-    <color name="bg_private_omnibox">#2E1065</color>
-    <color name="border_subtle">#1F2937</color>
+    <color name="bg_app">#0E1117</color>
+    <color name="bg_surface">#181C24</color>
+    <color name="bg_glass_bar">#EC1F242E</color>
+    <color name="bg_glass_stroke">#32394A</color>
+    <color name="bg_omnibox">#252A36</color>
+    <color name="bg_omnibox_stroke">#363D4F</color>
+    <color name="bg_shield_pill">#181C24</color>
+    <color name="bg_private_banner">#202124</color>
+    <color name="bg_private_omnibox">#2D2F34</color>
+    <color name="border_subtle">#262B38</color>
 
-    <color name="text_primary">#F8FAFC</color>
-    <color name="text_secondary">#94A3B8</color>
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#9AA0A6</color>
     <color name="text_on_accent">#FFFFFF</color>
 
-    <color name="accent_blue">#3B82F6</color>
-    <color name="accent_secure">#34D399</color>
-    <color name="accent_insecure">#F87171</color>
-    <color name="accent_private">#A78BFA</color>
-    <color name="accent_star">#FBBF24</color>
+    <color name="accent_blue">#8AB4F8</color>
+    <color name="accent_secure">#81C995</color>
+    <color name="accent_insecure">#F28B82</color>
+    <color name="accent_private">#C58AF9</color>
+    <color name="accent_star">#FDD663</color>
 
-    <color name="nav_icon_tint">#E2E8F0</color>
-    <color name="nav_icon_disabled">#475569</color>
+    <color name="nav_icon_tint">#E8EAED</color>
+    <color name="nav_icon_disabled">#4E5565</color>
 </resources>

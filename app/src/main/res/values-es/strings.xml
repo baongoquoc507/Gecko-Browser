@@ -171,4 +171,6 @@
     <string name="ui_mode_label">Diseño de interfaz</string>
     <string name="ui_mode_phone">Teléfono</string>
     <string name="ui_mode_tv">TV</string>
+    <string name="done_action">Listo</string>
+    <string name="incognito_title">Estás en modo Incógnito</string>
 </resources>

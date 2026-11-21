@@ -171,4 +171,6 @@
     <string name="ui_mode_label">インターフェース表示</string>
     <string name="ui_mode_phone">スマートフォン</string>
     <string name="ui_mode_tv">テレビ (TV)</string>
+    <string name="done_action">完了</string>
+    <string name="incognito_title">シークレット モードです</string>
 </resources>

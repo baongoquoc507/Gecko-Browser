@@ -171,4 +171,6 @@
     <string name="ui_mode_label">Disposition de l\'interface</string>
     <string name="ui_mode_phone">Téléphone</string>
     <string name="ui_mode_tv">TV</string>
+    <string name="done_action">Terminé</string>
+    <string name="incognito_title">Navigation privée activée</string>
 </resources>

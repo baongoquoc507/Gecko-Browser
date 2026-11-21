@@ -5,6 +5,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/bg_app</item>
+        <item name="android:statusBarColor">@color/bg_surface</item>
+        <item name="android:windowLightStatusBar">@bool/is_light_theme</item>
         <item name="android:forceDarkAllowed">true</item>
     </style>
 </resources>

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,8 +97,11 @@ public class MainActivity extends AppCompatActivity implements
     private boolean isTvMode;
 
     private GeckoView mGeckoView;
+    private ViewGroup tvTopHost;
+    private ViewGroup phoneBottomDock;
     private View toolbarView;
     private View bottomNavContainer;
+    private View bottomNavPill;
     private View tvNavCluster;
     private View tvNavTabsButton;
     private View privateBanner;
@@ -108,6 +113,26 @@ public class MainActivity extends AppCompatActivity implements
     private GridView startPageGridView;
     private FrameLayout fullscreenContainer;
 
+    private View startPageIncognitoPill;
+    private AppCompatImageView startPageIncognitoPillIcon;
+    private TextView startPageIncognitoPillText;
+    private AppCompatImageButton startPageSettingsBtn;
+    private AppCompatImageView startPageHeroLogo;
+    private TextView startPageHeroTitle;
+    private TextView startPageHeroSubtitle;
+    private View startPageSearchCard;
+    private AppCompatImageView startPageSearchIcon;
+    private TextView startPageSearchHint;
+    private View startPageBookmarksBg;
+    private View startPageHistoryBg;
+    private View startPageDownloadsBg;
+    private View startPageIncognitoBg;
+    private TextView startPageBookmarksLabel;
+    private TextView startPageHistoryLabel;
+    private TextView startPageDownloadsLabel;
+    private TextView startPageIncognitoLabel;
+    private TextView startPageQuickAccessTitle;
+
     private EditText urlEditText;
     private EditText findEditText;
     private TextView findMatchCountText;
@@ -116,9 +141,13 @@ public class MainActivity extends AppCompatActivity implements
     private TextView trackersCountView;
     private TextView tabsCountView;
     private TextView tvTabsCountView;
+    private View navPlusPillBg;
+    private AppCompatImageView navHomePlusIcon;
     private AppCompatImageButton clearUrlButton;
     private AppCompatImageButton voiceSearchButton;
+    private AppCompatImageButton startPageVoiceBtn;
     private AppCompatImageButton bookmarkButton;
+    private AppCompatImageButton shareUrlButton;
     private AppCompatImageButton reloadStopButton;
     private AppCompatImageButton navBackButton;
     private AppCompatImageButton navForwardButton;
@@ -145,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements
     private long nextTabId = 1L;
     private int scrollAnchorY = 0;
     private boolean isFullscreen = false;
+    private boolean currentTabPrivate = false;
 
     public static void clearBrowsingSiteData() {
         if (sRuntime != null) {
@@ -195,8 +225,11 @@ public class MainActivity extends AppCompatActivity implements
     private void bindViews() {
         mGeckoView = findViewById(R.id.geckoView);
         mGeckoView.setSaveEnabled(false);
+        tvTopHost = findViewById(R.id.tvTopHost);
+        phoneBottomDock = findViewById(R.id.phoneBottomDock);
         toolbarView = findViewById(R.id.toolbarView);
         bottomNavContainer = findViewById(R.id.bottomNavContainer);
+        bottomNavPill = findViewById(R.id.bottomNavPill);
         tvNavCluster = findViewById(R.id.tvNavCluster);
         tvNavTabsButton = findViewById(R.id.tvNavTabsButton);
         privateBanner = findViewById(R.id.privateBanner);
@@ -208,6 +241,26 @@ public class MainActivity extends AppCompatActivity implements
         startPageGridView = findViewById(R.id.startPageGridView);
         fullscreenContainer = findViewById(R.id.fullscreenContainer);
 
+        startPageIncognitoPill = findViewById(R.id.startPageIncognitoPill);
+        startPageIncognitoPillIcon = findViewById(R.id.startPageIncognitoPillIcon);
+        startPageIncognitoPillText = findViewById(R.id.startPageIncognitoPillText);
+        startPageSettingsBtn = findViewById(R.id.startPageSettingsBtn);
+        startPageHeroLogo = findViewById(R.id.startPageHeroLogo);
+        startPageHeroTitle = findViewById(R.id.startPageHeroTitle);
+        startPageHeroSubtitle = findViewById(R.id.startPageHeroSubtitle);
+        startPageSearchCard = findViewById(R.id.startPageSearchCard);
+        startPageSearchIcon = findViewById(R.id.startPageSearchIcon);
+        startPageSearchHint = findViewById(R.id.startPageSearchHint);
+        startPageBookmarksBg = findViewById(R.id.startPageBookmarksBg);
+        startPageHistoryBg = findViewById(R.id.startPageHistoryBg);
+        startPageDownloadsBg = findViewById(R.id.startPageDownloadsBg);
+        startPageIncognitoBg = findViewById(R.id.startPageIncognitoBg);
+        startPageBookmarksLabel = findViewById(R.id.startPageBookmarksLabel);
+        startPageHistoryLabel = findViewById(R.id.startPageHistoryLabel);
+        startPageDownloadsLabel = findViewById(R.id.startPageDownloadsLabel);
+        startPageIncognitoLabel = findViewById(R.id.startPageIncognitoLabel);
+        startPageQuickAccessTitle = findViewById(R.id.startPageQuickAccessTitle);
+
         urlEditText = findViewById(R.id.urlEditText);
         findEditText = findViewById(R.id.findEditText);
         findMatchCountText = findViewById(R.id.findMatchCountText);
@@ -216,9 +269,13 @@ public class MainActivity extends AppCompatActivity implements
         trackersCountView = findViewById(R.id.trackerCountView);
         tabsCountView = findViewById(R.id.tabsCountView);
         tvTabsCountView = findViewById(R.id.tvTabsCountView);
+        navPlusPillBg = findViewById(R.id.navPlusPillBg);
+        navHomePlusIcon = findViewById(R.id.navHomePlusIcon);
         clearUrlButton = findViewById(R.id.clearUrlButton);
         voiceSearchButton = findViewById(R.id.voiceSearchButton);
+        startPageVoiceBtn = findViewById(R.id.startPageVoiceBtn);
         bookmarkButton = findViewById(R.id.bookmarkButton);
+        shareUrlButton = findViewById(R.id.shareUrlButton);
         reloadStopButton = findViewById(R.id.reloadStopButton);
         navBackButton = findViewById(R.id.navBackButton);
         navForwardButton = findViewById(R.id.navForwardButton);
@@ -233,12 +290,39 @@ public class MainActivity extends AppCompatActivity implements
         speedDialAdapter = new SpeedDialAdapter();
         startPageGridView.setAdapter(speedDialAdapter);
 
+        if (startPageVoiceBtn != null) {
+            startPageVoiceBtn.setVisibility(voiceSearchSupported ? View.VISIBLE : View.GONE);
+        }
         updateOmniboxActionButtons(false);
+    }
+
+    private void reparentToolbar(ViewGroup targetHost, int index) {
+        if (toolbarView == null || targetHost == null) {
+            return;
+        }
+        if (toolbarView.getParent() == targetHost) {
+            return;
+        }
+        if (toolbarView.getParent() instanceof ViewGroup) {
+            ((ViewGroup) toolbarView.getParent()).removeView(toolbarView);
+        }
+        if (index >= 0 && index <= targetHost.getChildCount()) {
+            targetHost.addView(toolbarView, index);
+        } else {
+            targetHost.addView(toolbarView);
+        }
     }
 
     private void applyUiLayoutMode() {
         float density = getResources().getDisplayMetrics().density;
         if (isTvMode) {
+            reparentToolbar(tvTopHost, 0);
+            if (tvTopHost != null) {
+                tvTopHost.setVisibility(View.VISIBLE);
+            }
+            if (phoneBottomDock != null) {
+                phoneBottomDock.setVisibility(View.GONE);
+            }
             if (tvNavCluster != null) {
                 tvNavCluster.setVisibility(View.VISIBLE);
             }
@@ -252,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements
                 bottomNavContainer.setVisibility(View.GONE);
             }
             if (toolbarView != null) {
+                toolbarView.setVisibility(View.VISIBLE);
                 toolbarView.setPadding(
                         Math.round(24 * density),
                         Math.round(10 * density),
@@ -269,8 +354,16 @@ public class MainActivity extends AppCompatActivity implements
             int[] tvFocusIds = new int[]{
                     R.id.reloadStopButton,
                     R.id.bookmarkButton,
+                    R.id.shareUrlButton,
                     R.id.clearUrlButton,
                     R.id.voiceSearchButton,
+                    R.id.startPageVoiceBtn,
+                    R.id.startPageIncognitoPill,
+                    R.id.startPageSettingsBtn,
+                    R.id.startPageBookmarksBtn,
+                    R.id.startPageHistoryBtn,
+                    R.id.startPageDownloadsBtn,
+                    R.id.startPageIncognitoBtn,
                     R.id.securityShieldPill,
                     R.id.startPageAddShortcutBtn,
                     R.id.findPrevButton,
@@ -284,6 +377,13 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         } else {
+            reparentToolbar(phoneBottomDock, 0);
+            if (tvTopHost != null) {
+                tvTopHost.setVisibility(View.GONE);
+            }
+            if (phoneBottomDock != null && !isFullscreen) {
+                phoneBottomDock.setVisibility(View.VISIBLE);
+            }
             if (tvNavCluster != null) {
                 tvNavCluster.setVisibility(View.GONE);
             }
@@ -293,23 +393,24 @@ public class MainActivity extends AppCompatActivity implements
             if (tvNavMoreButton != null) {
                 tvNavMoreButton.setVisibility(View.GONE);
             }
-            if (bottomNavContainer != null && !isFullscreen) {
+            if (bottomNavContainer != null) {
                 bottomNavContainer.setVisibility(View.VISIBLE);
             }
             if (toolbarView != null) {
                 toolbarView.setPadding(
-                        Math.round(10 * density),
-                        Math.round(6 * density),
-                        Math.round(6 * density),
-                        Math.round(6 * density)
+                        Math.round(14 * density),
+                        Math.round(4 * density),
+                        Math.round(14 * density),
+                        Math.round(4 * density)
                 );
             }
             if (startPageContainer != null) {
-                int pad = Math.round(20 * density);
-                startPageContainer.setPadding(pad, pad, pad, pad);
+                int hPad = Math.round(20 * density);
+                int vPad = Math.round(12 * density);
+                startPageContainer.setPadding(hPad, vPad, hPad, vPad);
             }
             if (startPageGridView != null) {
-                startPageGridView.setColumnWidth(Math.round(96 * density));
+                startPageGridView.setColumnWidth(Math.round(76 * density));
             }
         }
     }
@@ -320,11 +421,11 @@ public class MainActivity extends AppCompatActivity implements
         autoHideBar = BrowserDataStore.isAutoHideBar(this);
         hideWhiteSplash = BrowserDataStore.isHideWhiteSplash(this);
         searchSuggestionsEnabled = BrowserDataStore.isSearchSuggestionsEnabled(this);
-        if (bottomNavContainer != null) {
-            if (isTvMode) {
-                bottomNavContainer.setVisibility(View.GONE);
-            } else if (!autoHideBar && !isFullscreen) {
-                bottomNavContainer.setVisibility(View.VISIBLE);
+        if (phoneBottomDock != null) {
+            if (isTvMode || isFullscreen) {
+                phoneBottomDock.setVisibility(View.GONE);
+            } else if (!autoHideBar) {
+                phoneBottomDock.setVisibility(View.VISIBLE);
             }
         }
     }
@@ -397,15 +498,29 @@ public class MainActivity extends AppCompatActivity implements
         urlEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                updateOmniboxActionButtons(hasFocus);
+                BrowserTab tab = getCurrentTab();
+                boolean isStartPage = tab != null && BrowserDataStore.START_PAGE_URL.equals(tab.url);
                 if (hasFocus) {
+                    if (!isTvMode && toolbarView != null) {
+                        toolbarView.setVisibility(View.VISIBLE);
+                    }
+                    urlEditText.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+                    if (tab != null && tab.url != null) {
+                        urlEditText.setText(isStartPage ? "" : tab.url);
+                        urlEditText.selectAll();
+                    }
+                    updateOmniboxActionButtons(true);
                     refreshOmniboxSuggestions(urlEditText.getText() != null ? urlEditText.getText().toString() : "");
                     suggestionsContainer.setVisibility(View.VISIBLE);
                 } else {
                     hideOmniboxSuggestions();
-                    BrowserTab tab = getCurrentTab();
+                    urlEditText.setGravity(Gravity.CENTER);
                     if (tab != null && tab.url != null) {
-                        urlEditText.setText(BrowserDataStore.START_PAGE_URL.equals(tab.url) ? "" : tab.url);
+                        urlEditText.setText(isStartPage ? "" : formatDisplayUrl(tab.url));
+                    }
+                    updateOmniboxActionButtons(false);
+                    if (!isTvMode && toolbarView != null && isStartPage) {
+                        toolbarView.setVisibility(View.GONE);
                     }
                 }
             }
@@ -460,6 +575,24 @@ public class MainActivity extends AppCompatActivity implements
                 toggleBookmarkForCurrentTab();
             }
         });
+
+        if (shareUrlButton != null) {
+            shareUrlButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    shareCurrentPage();
+                }
+            });
+        }
+
+        if (shareUrlButton != null) {
+            shareUrlButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    shareCurrentPage();
+                }
+            });
+        }
 
         reloadStopButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -525,14 +658,27 @@ public class MainActivity extends AppCompatActivity implements
         tvNavForwardButton.setOnClickListener(forwardClickListener);
         tvNavForwardButton.setOnLongClickListener(historyLongClickListener);
 
-        View.OnClickListener homeClickListener = new View.OnClickListener() {
+        View navHomeBtn = findViewById(R.id.navHomeButton);
+        navHomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BrowserTab cur = getCurrentTab();
+                openNewTab(homepageUrl, cur != null && cur.isPrivate, true);
+            }
+        });
+        navHomeBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                commitURL(homepageUrl);
+                return true;
+            }
+        });
+        tvNavHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 commitURL(homepageUrl);
             }
-        };
-        findViewById(R.id.navHomeButton).setOnClickListener(homeClickListener);
-        tvNavHomeButton.setOnClickListener(homeClickListener);
+        });
 
         View.OnClickListener tabsClickListener = new View.OnClickListener() {
             @Override
@@ -554,9 +700,32 @@ public class MainActivity extends AppCompatActivity implements
         findViewById(R.id.navMoreButton).setOnClickListener(moreClickListener);
         tvNavMoreButton.setOnClickListener(moreClickListener);
 
+        if (startPageIncognitoPill != null) {
+            startPageIncognitoPill.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BrowserTab cur = getCurrentTab();
+                    boolean targetPrivate = cur == null || !cur.isPrivate;
+                    openNewTab(homepageUrl, targetPrivate, true);
+                }
+            });
+        }
+
+        if (startPageSettingsBtn != null) {
+            startPageSettingsBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivityForResult(new Intent(MainActivity.this, SettingsActivity.class), REQUEST_SETTINGS);
+                }
+            });
+        }
+
         findViewById(R.id.startPageSearchCard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!isTvMode && toolbarView != null) {
+                    toolbarView.setVisibility(View.VISIBLE);
+                }
                 urlEditText.requestFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                 if (imm != null) {
@@ -564,6 +733,55 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         });
+
+        if (startPageVoiceBtn != null) {
+            startPageVoiceBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startVoiceSearch();
+                }
+            });
+        }
+
+        View startPageBookmarksBtn = findViewById(R.id.startPageBookmarksBtn);
+        if (startPageBookmarksBtn != null) {
+            startPageBookmarksBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BrowserDialogs.showSavedPagesDialog(MainActivity.this, true, MainActivity.this);
+                }
+            });
+        }
+
+        View startPageHistoryBtn = findViewById(R.id.startPageHistoryBtn);
+        if (startPageHistoryBtn != null) {
+            startPageHistoryBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BrowserDialogs.showSavedPagesDialog(MainActivity.this, false, MainActivity.this);
+                }
+            });
+        }
+
+        View startPageDownloadsBtn = findViewById(R.id.startPageDownloadsBtn);
+        if (startPageDownloadsBtn != null) {
+            startPageDownloadsBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BrowserHelper.showDownloadsDialog(MainActivity.this);
+                }
+            });
+        }
+
+        View startPageIncognitoBtn = findViewById(R.id.startPageIncognitoBtn);
+        if (startPageIncognitoBtn != null) {
+            startPageIncognitoBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openNewTab(homepageUrl, true, true);
+                }
+            });
+        }
 
         findViewById(R.id.startPageAddShortcutBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -667,11 +885,21 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void updateOmniboxActionButtons(boolean hasFocus) {
+        BrowserTab tab = getCurrentTab();
+        boolean isStartPage = tab == null || BrowserDataStore.START_PAGE_URL.equals(tab.url);
         boolean hasText = urlEditText.getText() != null && urlEditText.getText().length() > 0;
         boolean showClear = hasFocus && hasText;
         clearUrlButton.setVisibility(showClear ? View.VISIBLE : View.GONE);
-        boolean showVoice = voiceSearchSupported && !showClear;
+
+        boolean showVoice = voiceSearchSupported && !showClear && (hasFocus || isStartPage || isTvMode);
         voiceSearchButton.setVisibility(showVoice ? View.VISIBLE : View.GONE);
+
+        boolean showPageActions = !hasFocus && !isStartPage;
+        bookmarkButton.setVisibility(showPageActions ? View.VISIBLE : View.GONE);
+        if (shareUrlButton != null) {
+            shareUrlButton.setVisibility(showPageActions ? View.VISIBLE : View.GONE);
+        }
+        reloadStopButton.setVisibility((!hasFocus && !isStartPage) || isTvMode ? View.VISIBLE : View.GONE);
     }
 
     private void startVoiceSearch() {
@@ -913,16 +1141,16 @@ public class MainActivity extends AppCompatActivity implements
         session.setScrollDelegate(new GeckoSession.ScrollDelegate() {
             @Override
             public void onScrollChanged(@NonNull GeckoSession s, int scrollX, int scrollY) {
-                if (!autoHideBar || isTvMode || tab != getCurrentTab() || isFullscreen) {
+                if (!autoHideBar || isTvMode || tab != getCurrentTab() || isFullscreen || phoneBottomDock == null) {
                     return;
                 }
                 int delta = scrollY - scrollAnchorY;
-                boolean visible = bottomNavContainer.getVisibility() == View.VISIBLE;
+                boolean visible = phoneBottomDock.getVisibility() == View.VISIBLE;
                 if (delta > 36 && visible) {
-                    bottomNavContainer.setVisibility(View.GONE);
+                    phoneBottomDock.setVisibility(View.GONE);
                     scrollAnchorY = scrollY;
                 } else if (delta < -36 && !visible) {
-                    bottomNavContainer.setVisibility(View.VISIBLE);
+                    phoneBottomDock.setVisibility(View.VISIBLE);
                     scrollAnchorY = scrollY;
                 } else if ((visible && scrollY < scrollAnchorY) || (!visible && scrollY > scrollAnchorY)) {
                     scrollAnchorY = scrollY;
@@ -1013,8 +1241,8 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         scrollAnchorY = 0;
-        if (bottomNavContainer != null && !isFullscreen && !isTvMode) {
-            bottomNavContainer.setVisibility(View.VISIBLE);
+        if (phoneBottomDock != null && !isFullscreen && !isTvMode) {
+            phoneBottomDock.setVisibility(View.VISIBLE);
         }
         updateChromeForTab(tab);
     }
@@ -1130,6 +1358,21 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    private String formatDisplayUrl(String rawUrl) {
+        if (rawUrl == null || rawUrl.isEmpty() || BrowserDataStore.START_PAGE_URL.equals(rawUrl)) {
+            return "";
+        }
+        try {
+            Uri uri = Uri.parse(rawUrl);
+            String host = uri.getHost();
+            if (host != null && !host.isEmpty()) {
+                return host.startsWith("www.") ? host.substring(4) : host;
+            }
+        } catch (Exception ignored) {
+        }
+        return rawUrl;
+    }
+
     private void updateChromeForTab(BrowserTab tab) {
         if (tab == null) {
             return;
@@ -1137,19 +1380,140 @@ public class MainActivity extends AppCompatActivity implements
         boolean isStartPage = BrowserDataStore.START_PAGE_URL.equals(tab.url);
         startPageContainer.setVisibility(isStartPage ? View.VISIBLE : View.GONE);
 
+        if (!isTvMode && toolbarView != null) {
+            boolean showOmniboxBar = !isStartPage || urlEditText.hasFocus();
+            toolbarView.setVisibility(showOmniboxBar ? View.VISIBLE : View.GONE);
+        }
+
         if (!urlEditText.hasFocus()) {
-            urlEditText.setText(isStartPage ? "" : tab.url);
+            urlEditText.setGravity(Gravity.CENTER);
+            urlEditText.setText(isStartPage ? "" : formatDisplayUrl(tab.url));
         }
         if (!isFullscreen) {
             privateBanner.setVisibility(tab.isPrivate ? View.VISIBLE : View.GONE);
         }
         omniboxContainer.setBackgroundResource(tab.isPrivate ? R.drawable.bg_omnibox_private : R.drawable.bg_omnibox);
+        updateOmniboxActionButtons(urlEditText.hasFocus());
+        applyThemeForPrivateState(tab.isPrivate);
 
         updateSecurityIndicator(tab);
         updateBookmarkStar(tab.url);
         updateNavButtons(tab);
         updateProgressUI(tab);
         refreshTabCount();
+    }
+
+    private void applyThemeForPrivateState(boolean isPrivate) {
+        if (currentTabPrivate != isPrivate) {
+            currentTabPrivate = isPrivate;
+            if (speedDialAdapter != null) {
+                speedDialAdapter.notifyDataSetChanged();
+            }
+        }
+
+        if (startPageContainer != null) {
+            if (isPrivate) {
+                startPageContainer.setBackgroundColor(Color.parseColor("#202124"));
+            } else {
+                startPageContainer.setBackgroundColor(ContextCompat.getColor(this, R.color.bg_app));
+            }
+        }
+
+        if (startPageHeroLogo != null) {
+            if (isPrivate) {
+                startPageHeroLogo.setImageResource(R.drawable.ic_incognito_glasses);
+                ImageViewCompat.setImageTintList(startPageHeroLogo, ColorStateList.valueOf(Color.parseColor("#E8EAED")));
+            } else {
+                startPageHeroLogo.setImageResource(R.drawable.ic_chrome_ring);
+                ImageViewCompat.setImageTintList(startPageHeroLogo, null);
+            }
+        }
+
+        int primaryText = isPrivate ? Color.parseColor("#F1F5F9") : ContextCompat.getColor(this, R.color.text_primary);
+        int secondaryText = isPrivate ? Color.parseColor("#9AA0A6") : ContextCompat.getColor(this, R.color.text_secondary);
+
+        if (startPageHeroTitle != null) {
+            startPageHeroTitle.setText(isPrivate ? R.string.incognito_title : R.string.app_name);
+            startPageHeroTitle.setTextColor(primaryText);
+        }
+        if (startPageHeroSubtitle != null) {
+            startPageHeroSubtitle.setText(isPrivate ? R.string.private_browsing_banner : R.string.start_page_subtitle);
+            startPageHeroSubtitle.setTextColor(secondaryText);
+        }
+        if (startPageSearchCard != null) {
+            startPageSearchCard.setBackgroundResource(isPrivate ? R.drawable.bg_ios_omnibox_ntp_private : R.drawable.bg_ios_omnibox_ntp);
+        }
+        if (startPageSearchIcon != null) {
+            ImageViewCompat.setImageTintList(startPageSearchIcon, ColorStateList.valueOf(secondaryText));
+        }
+        if (startPageSearchHint != null) {
+            startPageSearchHint.setTextColor(secondaryText);
+        }
+
+        int squircleBg = isPrivate ? R.drawable.bg_ios_squircle_private : R.drawable.bg_ios_squircle;
+        if (startPageIncognitoPill != null) {
+            startPageIncognitoPill.setBackgroundResource(squircleBg);
+        }
+        if (startPageIncognitoPillText != null) {
+            startPageIncognitoPillText.setText(isPrivate ? R.string.done_action : R.string.private_badge);
+            startPageIncognitoPillText.setTextColor(primaryText);
+        }
+        if (startPageIncognitoPillIcon != null) {
+            int pillIconTint = isPrivate ? Color.parseColor("#A8C7FA") : ContextCompat.getColor(this, R.color.accent_private);
+            ImageViewCompat.setImageTintList(startPageIncognitoPillIcon, ColorStateList.valueOf(pillIconTint));
+        }
+        if (startPageSettingsBtn != null) {
+            startPageSettingsBtn.setBackgroundResource(squircleBg);
+            int settingsTint = isPrivate ? Color.parseColor("#E8EAED") : ContextCompat.getColor(this, R.color.nav_icon_tint);
+            ImageViewCompat.setImageTintList(startPageSettingsBtn, ColorStateList.valueOf(settingsTint));
+        }
+
+        if (startPageBookmarksBg != null) {
+            startPageBookmarksBg.setBackgroundResource(squircleBg);
+        }
+        if (startPageHistoryBg != null) {
+            startPageHistoryBg.setBackgroundResource(squircleBg);
+        }
+        if (startPageDownloadsBg != null) {
+            startPageDownloadsBg.setBackgroundResource(squircleBg);
+        }
+        if (startPageIncognitoBg != null) {
+            startPageIncognitoBg.setBackgroundResource(squircleBg);
+        }
+        if (startPageBookmarksLabel != null) {
+            startPageBookmarksLabel.setTextColor(secondaryText);
+        }
+        if (startPageHistoryLabel != null) {
+            startPageHistoryLabel.setTextColor(secondaryText);
+        }
+        if (startPageDownloadsLabel != null) {
+            startPageDownloadsLabel.setTextColor(secondaryText);
+        }
+        if (startPageIncognitoLabel != null) {
+            startPageIncognitoLabel.setTextColor(secondaryText);
+        }
+        if (startPageQuickAccessTitle != null) {
+            startPageQuickAccessTitle.setTextColor(primaryText);
+        }
+
+        if (bottomNavPill != null) {
+            bottomNavPill.setBackgroundResource(isPrivate ? R.drawable.bg_ios_glass_bar_private : R.drawable.bg_ios_glass_bar);
+        }
+        if (navPlusPillBg != null) {
+            navPlusPillBg.setBackgroundResource(isPrivate ? R.drawable.bg_ios_squircle_private : R.drawable.bg_shield_pill);
+        }
+        int bottomIconColor = isPrivate ? Color.parseColor("#E8EAED") : ContextCompat.getColor(this, R.color.nav_icon_tint);
+        if (navHomePlusIcon != null) {
+            ImageViewCompat.setImageTintList(navHomePlusIcon, ColorStateList.valueOf(bottomIconColor));
+        }
+        if (tabsCountView != null) {
+            tabsCountView.setTextColor(bottomIconColor);
+            tabsCountView.setBackgroundResource(isPrivate ? R.drawable.bg_tab_badge_private : R.drawable.bg_tab_badge);
+        }
+        View moreBtn = findViewById(R.id.navMoreButton);
+        if (moreBtn instanceof AppCompatImageButton) {
+            ImageViewCompat.setImageTintList((AppCompatImageButton) moreBtn, ColorStateList.valueOf(bottomIconColor));
+        }
     }
 
     private void updateSecurityIndicator(BrowserTab tab) {
@@ -1177,21 +1541,29 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void updateNavButtons(BrowserTab tab) {
-        int activeTint = ContextCompat.getColor(this, R.color.nav_icon_tint);
-        int disabledTint = ContextCompat.getColor(this, R.color.nav_icon_disabled);
+        int activeTint = tab.isPrivate
+                ? Color.parseColor("#E8EAED")
+                : ContextCompat.getColor(this, R.color.nav_icon_tint);
+        int disabledTint = tab.isPrivate
+                ? Color.parseColor("#5F6368")
+                : ContextCompat.getColor(this, R.color.nav_icon_disabled);
 
         navBackButton.setEnabled(tab.canGoBack);
         ImageViewCompat.setImageTintList(navBackButton, ColorStateList.valueOf(tab.canGoBack ? activeTint : disabledTint));
         if (tvNavBackButton != null) {
+            int tvActive = ContextCompat.getColor(this, R.color.nav_icon_tint);
+            int tvDisabled = ContextCompat.getColor(this, R.color.nav_icon_disabled);
             tvNavBackButton.setEnabled(tab.canGoBack);
-            ImageViewCompat.setImageTintList(tvNavBackButton, ColorStateList.valueOf(tab.canGoBack ? activeTint : disabledTint));
+            ImageViewCompat.setImageTintList(tvNavBackButton, ColorStateList.valueOf(tab.canGoBack ? tvActive : tvDisabled));
         }
 
         navForwardButton.setEnabled(tab.canGoForward);
         ImageViewCompat.setImageTintList(navForwardButton, ColorStateList.valueOf(tab.canGoForward ? activeTint : disabledTint));
         if (tvNavForwardButton != null) {
+            int tvActive = ContextCompat.getColor(this, R.color.nav_icon_tint);
+            int tvDisabled = ContextCompat.getColor(this, R.color.nav_icon_disabled);
             tvNavForwardButton.setEnabled(tab.canGoForward);
-            ImageViewCompat.setImageTintList(tvNavForwardButton, ColorStateList.valueOf(tab.canGoForward ? activeTint : disabledTint));
+            ImageViewCompat.setImageTintList(tvNavForwardButton, ColorStateList.valueOf(tab.canGoForward ? tvActive : tvDisabled));
         }
 
         reloadStopButton.setImageResource(tab.isLoading ? R.drawable.ic_close : R.drawable.ic_refresh);
@@ -1244,83 +1616,87 @@ public class MainActivity extends AppCompatActivity implements
         final BrowserTab tab = getCurrentTab();
         final boolean isDesktop = tab != null && tab.desktopMode;
 
-        String[] items = new String[]{
-                getString(R.string.menu_new_tab),
-                getString(R.string.new_private_tab),
-                getString(R.string.menu_reopen_tab),
-                getString(R.string.menu_duplicate_tab),
-                getString(R.string.menu_bookmarks),
-                getString(R.string.menu_history),
-                getString(R.string.menu_downloads),
-                getString(R.string.menu_find_in_page),
-                getString(isDesktop ? R.string.menu_desktop_site_on : R.string.menu_desktop_site_off),
-                getString(R.string.menu_share),
-                getString(R.string.menu_copy_link),
-                getString(R.string.menu_open_external),
-                getString(R.string.menu_add_homescreen),
-                getString(R.string.menu_quick_wipe),
-                getString(R.string.menu_settings)
-        };
+        BrowserDialogs.showChromeMoreMenuSheet(this, isDesktop, new BrowserDialogs.MoreMenuActions() {
+            @Override
+            public void onOpenBookmarks() {
+                BrowserDialogs.showSavedPagesDialog(MainActivity.this, true, MainActivity.this);
+            }
 
-        new AlertDialog.Builder(this)
-                .setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case 0:
-                                openNewTab(homepageUrl, false, true);
-                                break;
-                            case 1:
-                                openNewTab(homepageUrl, true, true);
-                                break;
-                            case 2:
-                                reopenLastClosedTab();
-                                break;
-                            case 3:
-                                if (tab != null) {
-                                    openNewTab(tab.url, tab.isPrivate, true);
-                                }
-                                break;
-                            case 4:
-                                BrowserDialogs.showSavedPagesDialog(MainActivity.this, true, MainActivity.this);
-                                break;
-                            case 5:
-                                BrowserDialogs.showSavedPagesDialog(MainActivity.this, false, MainActivity.this);
-                                break;
-                            case 6:
-                                BrowserHelper.showDownloadsDialog(MainActivity.this);
-                                break;
-                            case 7:
-                                openFindBar();
-                                break;
-                            case 8:
-                                toggleDesktopModeForCurrentTab();
-                                break;
-                            case 9:
-                                shareCurrentPage();
-                                break;
-                            case 10:
-                                onCopyLink(tab != null ? tab.url : null);
-                                break;
-                            case 11:
-                                openCurrentPageInExternalApp();
-                                break;
-                            case 12:
-                                if (tab != null) {
-                                    BrowserHelper.addShortcutToHomeScreen(MainActivity.this, tab.title, tab.url);
-                                }
-                                break;
-                            case 13:
-                                confirmQuickWipe();
-                                break;
-                            case 14:
-                                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                                startActivityForResult(intent, REQUEST_SETTINGS);
-                                break;
-                        }
-                    }
-                })
-                .show();
+            @Override
+            public void onOpenHistory() {
+                BrowserDialogs.showSavedPagesDialog(MainActivity.this, false, MainActivity.this);
+            }
+
+            @Override
+            public void onOpenDownloads() {
+                BrowserHelper.showDownloadsDialog(MainActivity.this);
+            }
+
+            @Override
+            public void onOpenSettings() {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivityForResult(intent, REQUEST_SETTINGS);
+            }
+
+            @Override
+            public void onNewNormalTab() {
+                openNewTab(homepageUrl, false, true);
+            }
+
+            @Override
+            public void onNewPrivateTab() {
+                openNewTab(homepageUrl, true, true);
+            }
+
+            @Override
+            public void onReopenClosedTab() {
+                reopenLastClosedTab();
+            }
+
+            @Override
+            public void onDuplicateCurrentTab() {
+                if (tab != null) {
+                    openNewTab(tab.url, tab.isPrivate, true);
+                }
+            }
+
+            @Override
+            public void onOpenFindInPage() {
+                openFindBar();
+            }
+
+            @Override
+            public void onToggleDesktopSite() {
+                toggleDesktopModeForCurrentTab();
+            }
+
+            @Override
+            public void onShareCurrentPage() {
+                shareCurrentPage();
+            }
+
+            @Override
+            public void onCopyCurrentLink() {
+                onCopyLink(tab != null ? tab.url : null);
+            }
+
+            @Override
+            public void onOpenExternalApp() {
+                openCurrentPageInExternalApp();
+            }
+
+            @Override
+            public void onAddToHomeScreen() {
+                if (tab != null) {
+                    BrowserHelper.addShortcutToHomeScreen(MainActivity.this, tab.title, tab.url);
+                }
+            }
+
+            @Override
+            public void onQuickWipe() {
+                confirmQuickWipe();
+            }
+        });
     }
 
     private void confirmQuickWipe() {
@@ -1452,11 +1828,25 @@ public class MainActivity extends AppCompatActivity implements
     private void resetFullscreenIfNeeded() {
         if (isFullscreen) {
             isFullscreen = false;
-            if (toolbarView != null) {
-                toolbarView.setVisibility(View.VISIBLE);
-            }
-            if (bottomNavContainer != null) {
-                bottomNavContainer.setVisibility(isTvMode ? View.GONE : View.VISIBLE);
+            if (isTvMode) {
+                if (tvTopHost != null) {
+                    tvTopHost.setVisibility(View.VISIBLE);
+                }
+                if (toolbarView != null) {
+                    toolbarView.setVisibility(View.VISIBLE);
+                }
+            } else {
+                if (phoneBottomDock != null) {
+                    phoneBottomDock.setVisibility(View.VISIBLE);
+                }
+                if (bottomNavContainer != null) {
+                    bottomNavContainer.setVisibility(View.VISIBLE);
+                }
+                BrowserTab cur = getCurrentTab();
+                boolean isStartPage = cur != null && BrowserDataStore.START_PAGE_URL.equals(cur.url);
+                if (toolbarView != null) {
+                    toolbarView.setVisibility((!isStartPage || urlEditText.hasFocus()) ? View.VISIBLE : View.GONE);
+                }
             }
             if (fullscreenContainer != null) {
                 fullscreenContainer.setVisibility(View.GONE);
@@ -1789,8 +2179,8 @@ public class MainActivity extends AppCompatActivity implements
             tab.certValidUntil = null;
             scrollAnchorY = 0;
             if (tab == getCurrentTab()) {
-                if (!isFullscreen && !isTvMode) {
-                    bottomNavContainer.setVisibility(View.VISIBLE);
+                if (!isFullscreen && !isTvMode && phoneBottomDock != null) {
+                    phoneBottomDock.setVisibility(View.VISIBLE);
                 }
                 updateChromeForTab(tab);
             }
@@ -1873,10 +2263,15 @@ public class MainActivity extends AppCompatActivity implements
                 tab.url = url;
                 tab.isSecure = url.startsWith("https://");
                 if (tab == getCurrentTab()) {
+                    if (!isTvMode && toolbarView != null) {
+                        toolbarView.setVisibility(View.VISIBLE);
+                    }
                     if (!urlEditText.hasFocus()) {
-                        urlEditText.setText(url);
+                        urlEditText.setGravity(Gravity.CENTER);
+                        urlEditText.setText(formatDisplayUrl(url));
                     }
                     startPageContainer.setVisibility(View.GONE);
+                    updateOmniboxActionButtons(urlEditText.hasFocus());
                     updateSecurityIndicator(tab);
                     updateBookmarkStar(url);
                 }
@@ -1957,8 +2352,21 @@ public class MainActivity extends AppCompatActivity implements
                 return;
             }
             isFullscreen = fullScreen;
-            toolbarView.setVisibility(fullScreen ? View.GONE : View.VISIBLE);
-            bottomNavContainer.setVisibility((fullScreen || isTvMode) ? View.GONE : View.VISIBLE);
+            if (isTvMode) {
+                if (tvTopHost != null) {
+                    tvTopHost.setVisibility(fullScreen ? View.GONE : View.VISIBLE);
+                }
+                toolbarView.setVisibility(fullScreen ? View.GONE : View.VISIBLE);
+            } else {
+                if (phoneBottomDock != null) {
+                    phoneBottomDock.setVisibility(fullScreen ? View.GONE : View.VISIBLE);
+                }
+                bottomNavContainer.setVisibility(fullScreen ? View.GONE : View.VISIBLE);
+                if (!fullScreen) {
+                    boolean isStartPage = BrowserDataStore.START_PAGE_URL.equals(tab.url);
+                    toolbarView.setVisibility((!isStartPage || urlEditText.hasFocus()) ? View.VISIBLE : View.GONE);
+                }
+            }
             if (fullScreen) {
                 findBar.setVisibility(View.GONE);
             }
@@ -2184,7 +2592,22 @@ public class MainActivity extends AppCompatActivity implements
                 tile = LayoutInflater.from(MainActivity.this).inflate(R.layout.item_speed_dial, parent, false);
             }
             BrowserDataStore.SavedPage site = quickSites.get(position);
+            View iconBg = tile.findViewById(R.id.speedDialIconBg);
+            AppCompatImageView icon = tile.findViewById(R.id.speedDialIcon);
             TextView titleView = tile.findViewById(R.id.speedDialTitle);
+
+            if (iconBg != null) {
+                iconBg.setBackgroundResource(currentTabPrivate ? R.drawable.bg_ios_squircle_private : R.drawable.bg_ios_squircle);
+            }
+            if (icon != null) {
+                int iconTint = currentTabPrivate
+                        ? Color.parseColor("#A8C7FA")
+                        : ContextCompat.getColor(MainActivity.this, R.color.accent_blue);
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(iconTint));
+            }
+            titleView.setTextColor(currentTabPrivate
+                    ? Color.parseColor("#F1F5F9")
+                    : ContextCompat.getColor(MainActivity.this, R.color.text_primary));
             titleView.setText(site.title != null && !site.title.isEmpty() ? site.title : site.url);
             return tile;
         }

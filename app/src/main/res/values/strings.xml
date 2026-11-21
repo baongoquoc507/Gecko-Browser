@@ -181,4 +181,6 @@
     <string name="ui_mode_label">Interface Layout</string>
     <string name="ui_mode_phone">Phone</string>
     <string name="ui_mode_tv">TV</string>
+    <string name="done_action">Done</string>
+    <string name="incognito_title">You\'ve gone Incognito</string>
 </resources>

@@ -181,4 +181,6 @@
     <string name="ui_mode_label">Kiểu giao diện</string>
     <string name="ui_mode_phone">Điện thoại</string>
     <string name="ui_mode_tv">TV</string>
+    <string name="done_action">Xong</string>
+    <string name="incognito_title">Bạn đang duyệt Ẩn danh</string>
 </resources>
